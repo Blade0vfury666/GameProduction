@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "GameProduction.sln"
+    "dotnet.defaultSolution": "GameProduction-feature-Market.sln"
 }

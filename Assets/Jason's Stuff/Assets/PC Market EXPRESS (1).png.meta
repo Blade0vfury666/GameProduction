@@ -1,0 +1,819 @@
+fileFormatVersion: 2
+guid: ba10e53d39d4d7844b41b5de0b2c3f8a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 511569695750855161
+    second: PC Market EXPRESS (1)_0
+  - first:
+      213: 1779377038256398954
+    second: PC Market EXPRESS (1)_1
+  - first:
+      213: -4582982018708313662
+    second: PC Market EXPRESS (1)_2
+  - first:
+      213: -3437588454245763263
+    second: PC Market EXPRESS (1)_3
+  - first:
+      213: 9102715690283795371
+    second: PC Market EXPRESS (1)_4
+  - first:
+      213: -3436056061707391475
+    second: PC Market EXPRESS (1)_5
+  - first:
+      213: -1021920356821847965
+    second: PC Market EXPRESS (1)_6
+  - first:
+      213: -7361117591904842724
+    second: PC Market EXPRESS (1)_7
+  - first:
+      213: 779289228574301148
+    second: PC Market EXPRESS (1)_8
+  - first:
+      213: 1376286832304889422
+    second: PC Market EXPRESS (1)_9
+  - first:
+      213: -4188759379365268069
+    second: PC Market EXPRESS (1)_10
+  - first:
+      213: 8383079397031476720
+    second: PC Market EXPRESS (1)_11
+  - first:
+      213: -9145643376973842187
+    second: PC Market EXPRESS (1)_12
+  - first:
+      213: -9084891740593036733
+    second: PC Market EXPRESS (1)_13
+  - first:
+      213: 3609217456786001968
+    second: PC Market EXPRESS (1)_14
+  - first:
+      213: 7350471047366061612
+    second: PC Market EXPRESS (1)_15
+  - first:
+      213: -7923736036689454084
+    second: PC Market EXPRESS (1)_16
+  - first:
+      213: -7596562078360972156
+    second: PC Market EXPRESS (1)_17
+  - first:
+      213: 5002095594346042972
+    second: PC Market EXPRESS (1)_18
+  - first:
+      213: 7221641137221932807
+    second: PC Market EXPRESS (1)_19
+  - first:
+      213: 8431921407192305662
+    second: PC Market EXPRESS (1)_20
+  - first:
+      213: -7401162798790739042
+    second: PC Market EXPRESS (1)_21
+  - first:
+      213: 4979223297292200811
+    second: PC Market EXPRESS (1)_22
+  - first:
+      213: 7047811352752636177
+    second: PC Market EXPRESS (1)_23
+  - first:
+      213: 1253573397604264744
+    second: PC Market EXPRESS (1)_24
+  - first:
+      213: 7293666614719562243
+    second: PC Market EXPRESS (1)_25
+  - first:
+      213: -5207436282887509587
+    second: PC Market EXPRESS (1)_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_0
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 662
+        width: 1484
+        height: 709
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f995198de5791700800000000000000
+      internalID: 511569695750855161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_1
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 954
+        width: 166
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6262ce1dfd91b810800000000000000
+      internalID: 1779377038256398954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_2
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 954
+        width: 66
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c963eab22af560c0800000000000000
+      internalID: -4582982018708313662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_3
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 954
+        width: 73
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14772b4938b3b40d0800000000000000
+      internalID: -3437588454245763263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_4
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 954
+        width: 47
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba38dba21b7535e70800000000000000
+      internalID: 9102715690283795371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_5
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 954
+        width: 57
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0e6a95873da050d0800000000000000
+      internalID: -3436056061707391475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_6
+      rect:
+        serializedVersion: 2
+        x: 1307
+        y: 954
+        width: 129
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 360b4ee89d861d1f0800000000000000
+      internalID: -1021920356821847965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_7
+      rect:
+        serializedVersion: 2
+        x: 1436
+        y: 954
+        width: 57
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1c02a01d8e08d990800000000000000
+      internalID: -7361117591904842724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_8
+      rect:
+        serializedVersion: 2
+        x: 1498
+        y: 954
+        width: 66
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdb957eac6790da00800000000000000
+      internalID: 779289228574301148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_9
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 954
+        width: 47
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e9494059d891310800000000000000
+      internalID: 1376286832304889422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_10
+      rect:
+        serializedVersion: 2
+        x: 1616
+        y: 952
+        width: 61
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b95f85799898ed5c0800000000000000
+      internalID: -4188759379365268069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_11
+      rect:
+        serializedVersion: 2
+        x: 1679
+        y: 952
+        width: 60
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fdf4ffcb4ea65470800000000000000
+      internalID: 8383079397031476720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_12
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 892
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f8f119edc5241180800000000000000
+      internalID: -9145643376973842187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_13
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 857
+        width: 33
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3426213881bfbe180800000000000000
+      internalID: -9084891740593036733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_14
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 857
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0305edc8724861230800000000000000
+      internalID: 3609217456786001968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_15
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 857
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2e2c0e197e120660800000000000000
+      internalID: 7350471047366061612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_16
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 858
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfbd92f6e0c390290800000000000000
+      internalID: -7923736036689454084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_17
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 841
+        width: 33
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 484571db907939690800000000000000
+      internalID: -7596562078360972156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_18
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 857
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c56da89d0730b6540800000000000000
+      internalID: 5002095594346042972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_19
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 858
+        width: 44
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70716773a5c683460800000000000000
+      internalID: 7221641137221932807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_20
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 858
+        width: 8
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eff85b978d3340570800000000000000
+      internalID: 8431921407192305662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_21
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 858
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9bfd35c5a9c94990800000000000000
+      internalID: -7401162798790739042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_22
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 841
+        width: 33
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6b63743531c91540800000000000000
+      internalID: 4979223297292200811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_23
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 858
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11149cc951bdec160800000000000000
+      internalID: 7047811352752636177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_24
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 857
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82be4180d56956110800000000000000
+      internalID: 1253573397604264744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_25
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 857
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3024c70842f483560800000000000000
+      internalID: 7293666614719562243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Market EXPRESS (1)_26
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 857
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da962087a487bb7b0800000000000000
+      internalID: -5207436282887509587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d6e2112addf389c408ff5b6104ed86bc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PC Market EXPRESS (1)_0: 511569695750855161
+      PC Market EXPRESS (1)_1: 1779377038256398954
+      PC Market EXPRESS (1)_10: -4188759379365268069
+      PC Market EXPRESS (1)_11: 8383079397031476720
+      PC Market EXPRESS (1)_12: -9145643376973842187
+      PC Market EXPRESS (1)_13: -9084891740593036733
+      PC Market EXPRESS (1)_14: 3609217456786001968
+      PC Market EXPRESS (1)_15: 7350471047366061612
+      PC Market EXPRESS (1)_16: -7923736036689454084
+      PC Market EXPRESS (1)_17: -7596562078360972156
+      PC Market EXPRESS (1)_18: 5002095594346042972
+      PC Market EXPRESS (1)_19: 7221641137221932807
+      PC Market EXPRESS (1)_2: -4582982018708313662
+      PC Market EXPRESS (1)_20: 8431921407192305662
+      PC Market EXPRESS (1)_21: -7401162798790739042
+      PC Market EXPRESS (1)_22: 4979223297292200811
+      PC Market EXPRESS (1)_23: 7047811352752636177
+      PC Market EXPRESS (1)_24: 1253573397604264744
+      PC Market EXPRESS (1)_25: 7293666614719562243
+      PC Market EXPRESS (1)_26: -5207436282887509587
+      PC Market EXPRESS (1)_3: -3437588454245763263
+      PC Market EXPRESS (1)_4: 9102715690283795371
+      PC Market EXPRESS (1)_5: -3436056061707391475
+      PC Market EXPRESS (1)_6: -1021920356821847965
+      PC Market EXPRESS (1)_7: -7361117591904842724
+      PC Market EXPRESS (1)_8: 779289228574301148
+      PC Market EXPRESS (1)_9: 1376286832304889422
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
