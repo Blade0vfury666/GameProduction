@@ -44,6 +44,9 @@ public class EquipmentButton : MonoBehaviour
         equippedOverlay.SetActive(item.isEquipped);
         ownedOverlay.SetActive(item.isOwned && !item.isEquipped);
         
+        bool meetsLevelRequirement = PlayerManager.instance != null && 
+                                      PlayerManager.instance.playerLevel >= item.requiredPlayerLevel;
+        
         if (item.isOwned)
         {
             buyButton.gameObject.SetActive(false);
@@ -62,7 +65,18 @@ public class EquipmentButton : MonoBehaviour
                 if (item.goldCost > 0 && PlayerManager.instance.playerGold < (float)item.goldCost)
                     canAfford = false;
             }
-            buyButton.interactable = canAfford;
+            
+            buyButton.interactable = canAfford && meetsLevelRequirement;
+            
+            if (!meetsLevelRequirement)
+            {
+                costText.text = "Requires Level " + item.requiredPlayerLevel;
+                costText.color = Color.red;
+            }
+            else
+            {
+                costText.color = Color.white;
+            }
         }
         
         buyButton.onClick.RemoveAllListeners();
@@ -70,6 +84,13 @@ public class EquipmentButton : MonoBehaviour
         
         equipButton.onClick.RemoveAllListeners();
         equipButton.onClick.AddListener(() => marketManager.OnEquipClicked(item));
+        
+      
+        Image lockOverlay = transform.Find("LockOverlay")?.GetComponent<Image>();
+        if (lockOverlay != null)
+        {
+            lockOverlay.gameObject.SetActive(!meetsLevelRequirement && !item.isOwned);
+        }
     }
     
     public void SetupInventory(Equipment newItem, MarketManager manager)
@@ -97,7 +118,6 @@ public class EquipmentButton : MonoBehaviour
                 bonusText.text = "+" + item.flatXPBonus + "% XP Gain";
             else if (item.category == "Server")
                 bonusText.text = "+" + item.flatScopeBonus + " Max Scope";
-                
         }
         
         if (costText != null)
@@ -115,8 +135,8 @@ public class EquipmentButton : MonoBehaviour
         if (equipButton != null)
         {
             equipButton.gameObject.SetActive(true);
-
-        gameObject.SetActive(true);
+            gameObject.SetActive(true);
+            
             TextMeshProUGUI buttonText = equipButton.GetComponentInChildren<TextMeshProUGUI>();
             if (buttonText != null)
             {
@@ -134,6 +154,13 @@ public class EquipmentButton : MonoBehaviour
             
             equipButton.onClick.RemoveAllListeners();
             equipButton.onClick.AddListener(() => marketManager.OnEquipClicked(item));
+        }
+        
+        
+        Image lockOverlay = transform.Find("LockOverlay")?.GetComponent<Image>();
+        if (lockOverlay != null)
+        {
+            lockOverlay.gameObject.SetActive(false);
         }
     }
 }

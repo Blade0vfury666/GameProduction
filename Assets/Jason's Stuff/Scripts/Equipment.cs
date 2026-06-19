@@ -25,4 +25,6 @@ public class Equipment : ScriptableObject
     
     public bool isOwned;
     public bool isEquipped;
+
+    public int requiredPlayerLevel;
 }

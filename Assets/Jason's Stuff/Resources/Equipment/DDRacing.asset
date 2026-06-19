@@ -23,5 +23,6 @@ MonoBehaviour:
   goldCost: 1200
   itemIcon: {fileID: 0}
   description: Hoping for a Third Championship.
-  isOwned: 1
+  isOwned: 0
   isEquipped: 0
+  requiredPlayerLevel: 25

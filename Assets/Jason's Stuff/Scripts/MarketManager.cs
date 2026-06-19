@@ -151,21 +151,28 @@ public class MarketManager : MonoBehaviour
         confirmItemCost.text = costText;
     }
     
-    public void ConfirmPurchase()
+   public void ConfirmPurchase()
     {
-        if (selectedItem == null) return;
-        if (PlayerManager.instance == null)
-        {
-            Debug.LogError("PlayerManager.instance is NULL!");
-            return;
-        }
-        
-        bool canAfford = true;
-        
-        if (selectedItem.cashCost > 0 && PlayerManager.instance.playerCash < (float)selectedItem.cashCost)
-            canAfford = false;
-        if (selectedItem.goldCost > 0 && PlayerManager.instance.playerGold < (float)selectedItem.goldCost)
-            canAfford = false;
+    if (selectedItem == null) return;
+    if (PlayerManager.instance == null)
+    {
+        Debug.LogError("PlayerManager.instance is NULL!");
+        return;
+    }
+    
+    if (PlayerManager.instance.playerLevel < selectedItem.requiredPlayerLevel)
+    {
+        Debug.Log("Cannot purchase " + selectedItem.itemName + " - Requires Level " + selectedItem.requiredPlayerLevel);
+        ClosePopup();
+        return;
+    }
+    
+    bool canAfford = true;
+    
+    if (selectedItem.cashCost > 0 && PlayerManager.instance.playerCash < (float)selectedItem.cashCost)
+        canAfford = false;
+    if (selectedItem.goldCost > 0 && PlayerManager.instance.playerGold < (float)selectedItem.goldCost)
+        canAfford = false;
         
         if (canAfford)
         {

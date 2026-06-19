@@ -25,3 +25,4 @@ MonoBehaviour:
   description: A New Computer! For you Anyways.
   isOwned: 0
   isEquipped: 0
+  requiredPlayerLevel: 15

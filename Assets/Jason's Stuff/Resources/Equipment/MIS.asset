@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: MIS Javelin SS2
   category: Computer
   brand: MIS
-  tier: Common
+  tier: Rare
   flatLevelBonus: 3
   flatXPBonus: 0
   flatScopeBonus: 0
@@ -25,3 +25,4 @@ MonoBehaviour:
   description: A very popular computer for gamers starting out.
   isOwned: 0
   isEquipped: 0
+  requiredPlayerLevel: 0

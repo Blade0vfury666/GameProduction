@@ -15,13 +15,14 @@ MonoBehaviour:
   itemName: DigitalSea License
   category: Server
   brand: 'DigitalSea '
-  tier: Common
-  flatLevelBonus: 1
+  tier: Legendary
+  flatLevelBonus: 0
   flatXPBonus: 0
   flatScopeBonus: 50
   cashCost: 0
   goldCost: 1200
   itemIcon: {fileID: 0}
-  description: A New Computer! For you Anyways.
+  description: Largest Storage Money Will Ever Buy.. for you anyway.
   isOwned: 0
   isEquipped: 0
+  requiredPlayerLevel: 25

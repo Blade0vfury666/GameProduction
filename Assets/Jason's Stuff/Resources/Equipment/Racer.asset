@@ -15,8 +15,8 @@ MonoBehaviour:
   itemName: RedSunAkagi
   category: Computer
   brand: Racer
-  tier: Common
-  flatLevelBonus: 1
+  tier: Epic
+  flatLevelBonus: 3
   flatXPBonus: 0
   flatScopeBonus: 0
   cashCost: 200000
@@ -24,5 +24,6 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   description: A high tier computer longed for by gamers everywhere.. especially
     good when running things.
-  isOwned: 0
+  isOwned: 1
   isEquipped: 0
+  requiredPlayerLevel: 15

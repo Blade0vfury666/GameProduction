@@ -16,12 +16,13 @@ MonoBehaviour:
   category: Chair
   brand: RedPanther
   tier: Common
-  flatLevelBonus: 5
-  flatXPBonus: 0
+  flatLevelBonus: 0
+  flatXPBonus: 5
   flatScopeBonus: 0
   cashCost: 10000
   goldCost: 0
   itemIcon: {fileID: 0}
   description: 
-  isOwned: 0
+  isOwned: 1
   isEquipped: 0
+  requiredPlayerLevel: 0
