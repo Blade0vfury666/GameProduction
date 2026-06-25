@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 53f901a9d31aa344eabbc888badd6e31
+guid: 7e2a8a9b41290584382743c4d1fbabca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6175974888105078387
-    second: Common_0
+      213: -4221339759430603123
+    second: AAA Studio_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Common_0
+      name: AAA Studio_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 512
-        height: 512
+        width: 634
+        height: 460
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d8193cc9f878a4aa0800000000000000
-      internalID: -6175974888105078387
+      spriteID: d8ee7eabad9ca65c0800000000000000
+      internalID: -4221339759430603123
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Common_0: -6175974888105078387
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

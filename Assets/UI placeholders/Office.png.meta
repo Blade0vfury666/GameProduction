@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 53f901a9d31aa344eabbc888badd6e31
+guid: 5e64f4be2168bcd4cb88880c96254d57
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6175974888105078387
-    second: Common_0
+      213: -1272677867225930765
+    second: Office_0
+  - first:
+      213: -6266501556836466072
+    second: Office_1
+  - first:
+      213: -6997113423519045369
+    second: Office_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Common_0
+      name: Office_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 119
+        y: 32
+        width: 274
+        height: 385
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d8193cc9f878a4aa0800000000000000
-      internalID: -6175974888105078387
+      spriteID: 3f32f72093a865ee0800000000000000
+      internalID: -1272677867225930765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_1
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 261
+        width: 176
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8628450190ae809a0800000000000000
+      internalID: -6266501556836466072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Office_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 709a702e96245ee90800000000000000
+      internalID: -6997113423519045369
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Common_0: -6175974888105078387
+      Office_0: -1272677867225930765
+      Office_1: -6266501556836466072
+      Office_2: -6997113423519045369
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
