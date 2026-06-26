@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AAA Studio_0: -4221339759430603123
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
