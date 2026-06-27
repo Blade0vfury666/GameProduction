@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 54133258}
   - component: {fileID: 54133257}
   m_Layer: 5
-  m_Name: cashwindow5
+  m_Name: goldwindow5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2828,7 +2828,7 @@ GameObject:
   - component: {fileID: 255240525}
   - component: {fileID: 255240524}
   m_Layer: 5
-  m_Name: cashwindow2
+  m_Name: goldwindow2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5191,7 +5191,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 457932636}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1406093874}
+        m_TargetAssemblyTypeName: PremiumStoreScript, Assembly-CSharp
+        m_MethodName: GiveGoldOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &457932636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6090,7 +6102,7 @@ GameObject:
   - component: {fileID: 522680454}
   - component: {fileID: 522680453}
   m_Layer: 5
-  m_Name: cashwindow1
+  m_Name: goldwindow1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9575,7 +9587,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 752214713}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1406093874}
+        m_TargetAssemblyTypeName: PremiumStoreScript, Assembly-CSharp
+        m_MethodName: GiveGoldFour
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &752214713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9914,7 +9938,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 760212988}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1406093874}
+        m_TargetAssemblyTypeName: PremiumStoreScript, Assembly-CSharp
+        m_MethodName: GiveCashThree
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &760212988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10845,7 +10881,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 880312249}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1406093874}
+        m_TargetAssemblyTypeName: PremiumStoreScript, Assembly-CSharp
+        m_MethodName: GiveCashFour
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &880312249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11216,7 +11264,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 909349854}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1406093874}
+        m_TargetAssemblyTypeName: PremiumStoreScript, Assembly-CSharp
+        m_MethodName: GiveCashTwo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &909349854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11905,7 +11965,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 951819432}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1406093874}
+        m_TargetAssemblyTypeName: PremiumStoreScript, Assembly-CSharp
+        m_MethodName: GiveCashOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &951819432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12142,7 +12214,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1012635829}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1406093874}
+        m_TargetAssemblyTypeName: PremiumStoreScript, Assembly-CSharp
+        m_MethodName: GiveGoldFive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1012635829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14289,7 +14373,7 @@ GameObject:
   - component: {fileID: 1277915545}
   - component: {fileID: 1277915544}
   m_Layer: 5
-  m_Name: cashwindow4
+  m_Name: goldwindow4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15719,6 +15803,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405257627}
   m_CullTransparentMesh: 1
+--- !u!1 &1406093873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1406093875}
+  - component: {fileID: 1406093874}
+  m_Layer: 0
+  m_Name: PremiumStoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1406093874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406093873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a848942c761139a4b8425b9e1c7c4d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1406093875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406093873}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 959.66187, y: 564.06213, z: -3.4468489}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1406818954
 GameObject:
   m_ObjectHideFlags: 0
@@ -19875,7 +20003,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1704777524}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1406093874}
+        m_TargetAssemblyTypeName: PremiumStoreScript, Assembly-CSharp
+        m_MethodName: GiveCashFive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1704777524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20704,7 +20844,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1755509947}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1406093874}
+        m_TargetAssemblyTypeName: PremiumStoreScript, Assembly-CSharp
+        m_MethodName: GiveGoldThree
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1755509947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21138,7 +21290,7 @@ GameObject:
   - component: {fileID: 1809939275}
   - component: {fileID: 1809939274}
   m_Layer: 5
-  m_Name: cashwindow3
+  m_Name: goldwindow3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22630,7 +22782,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1892586722}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1406093874}
+        m_TargetAssemblyTypeName: PremiumStoreScript, Assembly-CSharp
+        m_MethodName: GiveGoldTwo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1892586722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26349,3 +26513,4 @@ SceneRoots:
   - {fileID: 2114390330}
   - {fileID: 140873069}
   - {fileID: 865976143}
+  - {fileID: 1406093875}
