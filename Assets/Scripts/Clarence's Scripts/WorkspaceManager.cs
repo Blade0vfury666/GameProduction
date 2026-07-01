@@ -1,56 +1,84 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMP_Text = TMPro.TMP_Text; 
-using System.Collections; 
+using TMP_Text = TMPro.TMP_Text;
+using System.Collections;
 
 public class WorkspaceManager : MonoBehaviour
 {
     [Header("Main Background")]
-    public Image backgroundImage; 
+    public Image backgroundImage;
+
+    [Header("Main Workspace")]
+    public GameObject basement;
+    public GameObject smallOffice;
+    public GameObject mediumOffice;
+    public GameObject largeOffice;
+    public GameObject AAAOffice;
 
     [Header("Global UI Connections")]
-    public GameObject errorWarningText; 
-    private Coroutine errorCoroutine; 
+    public GameObject errorWarningPanel;
+    private Coroutine errorCoroutine;
+
+    [Header("Employee Slot Layouts")]
+    [Tooltip("Empty child Transforms marking where employees stand in the basement.")]
+    public Transform[] basementSlots;
+    [Tooltip("Empty child Transforms marking where employees stand in the Small Office.")]
+    public Transform[] smallOfficeSlots;
+    [Tooltip("Empty child Transforms marking where employees stand in the Medium Office.")]
+    public Transform[] mediumOfficeSlots;
+    [Tooltip("Empty child Transforms marking where employees stand in the Large Office.")]
+    public Transform[] largeOfficeSlots;
+    [Tooltip("Empty child Transforms marking where employees stand in the AAA Studio.")]
+    public Transform[] AAAOfficeSlots;
 
     [Header("1. Small Office")]
     public int smallLevelReq = 10;
     public float smallPrice = 30000f;
     public int smallSlots = 5;
-    public Sprite smallBgSprite; 
     public GameObject smallBuyButton;
-    public TMP_Text smallStatusText; 
+    public TMP_Text smallStatusText;
     private bool smallPurchased;
 
     [Header("2. Medium Office")]
     public int mediumLevelReq = 25;
     public float mediumPrice = 350000f;
     public int mediumSlots = 10;
-    public Sprite mediumBgSprite; 
     public GameObject mediumBuyButton;
-    public TMP_Text mediumStatusText; 
+    public TMP_Text mediumStatusText;
     private bool mediumPurchased;
 
     [Header("3. Large Office")]
     public int largeLevelReq = 35;
     public float largePrice = 790000f;
     public int largeSlots = 15;
-    public Sprite largeBgSprite; 
     public GameObject largeBuyButton;
-    public TMP_Text largeStatusText; 
+    public TMP_Text largeStatusText;
     private bool largePurchased;
 
     [Header("4. AAA Studio")]
     public int AAALevelReq = 50;
     public float AAAPrice = 1240000f;
     public int AAASlots = 25;
-    public Sprite AAABgSprite; 
     public GameObject AAABuyButton;
-    public TMP_Text AAAStatusText; 
+    public TMP_Text AAAStatusText;
     private bool AAAPurchased;
 
     void Start()
     {
-        errorWarningText.SetActive(false);
+        errorWarningPanel.SetActive(false);
+
+        // Workspace visibility
+        basement.SetActive(true);
+        smallOffice.SetActive(false);
+        mediumOffice.SetActive(false);
+        largeOffice.SetActive(false);
+        AAAOffice.SetActive(false);
+
+        // Make sure the slot manager starts out using the basement's layout.
+        if (EmployeeSlotManager.instance != null)
+        {
+            EmployeeSlotManager.instance.ChangeOffice(basementSlots);
+        }
 
         smallPurchased = false;
         smallBuyButton.SetActive(false);
@@ -122,9 +150,13 @@ public class WorkspaceManager : MonoBehaviour
             {
                 PlayerManager.instance.playerCash = PlayerManager.instance.playerCash - smallPrice;
                 PlayerManager.instance.maxEmployeeSlots = smallSlots;
-                
-                backgroundImage.sprite = smallBgSprite; 
-                
+
+                basement.SetActive(false);
+                smallOffice.SetActive(true);
+
+                // Carry existing employees over into the new office layout.
+                EmployeeSlotManager.instance.ChangeOffice(smallOfficeSlots);
+
                 smallPurchased = true;
                 smallBuyButton.SetActive(false);
 
@@ -146,9 +178,13 @@ public class WorkspaceManager : MonoBehaviour
             {
                 PlayerManager.instance.playerCash = PlayerManager.instance.playerCash - mediumPrice;
                 PlayerManager.instance.maxEmployeeSlots = mediumSlots;
-                
-                backgroundImage.sprite = mediumBgSprite; 
-                
+
+                smallOffice.SetActive(false);
+                mediumOffice.SetActive(true);
+
+                // Carry existing employees over into the new office layout.
+                EmployeeSlotManager.instance.ChangeOffice(mediumOfficeSlots);
+
                 // Kill the Small Office permanently
                 smallPurchased = true;
                 smallBuyButton.SetActive(false);
@@ -175,9 +211,14 @@ public class WorkspaceManager : MonoBehaviour
             {
                 PlayerManager.instance.playerCash = PlayerManager.instance.playerCash - largePrice;
                 PlayerManager.instance.maxEmployeeSlots = largeSlots;
-                
-                backgroundImage.sprite = largeBgSprite; 
-                
+
+                smallOffice.SetActive(false);
+                mediumOffice.SetActive(false);
+                largeOffice.SetActive(true);
+
+                // Carry existing employees over into the new office layout.
+                EmployeeSlotManager.instance.ChangeOffice(largeOfficeSlots);
+
                 // Kill Small and Medium permanently
                 smallPurchased = true;
                 smallBuyButton.SetActive(false);
@@ -208,9 +249,15 @@ public class WorkspaceManager : MonoBehaviour
             {
                 PlayerManager.instance.playerCash = PlayerManager.instance.playerCash - AAAPrice;
                 PlayerManager.instance.maxEmployeeSlots = AAASlots;
-                
-                backgroundImage.sprite = AAABgSprite; 
-                
+
+                smallOffice.SetActive(false);
+                mediumOffice.SetActive(false);
+                largeOffice.SetActive(false);
+                AAAOffice.SetActive(true);
+
+                // Carry existing employees over into the new office layout.
+                EmployeeSlotManager.instance.ChangeOffice(AAAOfficeSlots);
+
                 // Kill Small, Medium, and Large permanently
                 smallPurchased = true;
                 smallBuyButton.SetActive(false);
@@ -241,7 +288,7 @@ public class WorkspaceManager : MonoBehaviour
 
     private void ShowError()
     {
-        errorWarningText.SetActive(true);
+        errorWarningPanel.SetActive(true);
 
         if (errorCoroutine != null)
         {
@@ -254,7 +301,7 @@ public class WorkspaceManager : MonoBehaviour
     private IEnumerator HideErrorAfterDelay()
     {
         yield return new WaitForSeconds(5f);
-        errorWarningText.SetActive(false);
-        errorCoroutine = null; 
+        errorWarningPanel.SetActive(false);
+        errorCoroutine = null;
     }
 }
