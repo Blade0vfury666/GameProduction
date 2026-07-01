@@ -5,6 +5,8 @@ using System.Collections;
 
 public class WorkspaceManager : MonoBehaviour
 {
+    public static WorkspaceManager instance;
+
     [Header("Main Background")]
     public Image backgroundImage;
 
@@ -37,7 +39,6 @@ public class WorkspaceManager : MonoBehaviour
     public int smallSlots = 5;
     public GameObject smallBuyButton;
     public TMP_Text smallStatusText;
-    private bool smallPurchased;
 
     [Header("2. Medium Office")]
     public int mediumLevelReq = 25;
@@ -45,7 +46,6 @@ public class WorkspaceManager : MonoBehaviour
     public int mediumSlots = 10;
     public GameObject mediumBuyButton;
     public TMP_Text mediumStatusText;
-    private bool mediumPurchased;
 
     [Header("3. Large Office")]
     public int largeLevelReq = 35;
@@ -53,7 +53,6 @@ public class WorkspaceManager : MonoBehaviour
     public int largeSlots = 15;
     public GameObject largeBuyButton;
     public TMP_Text largeStatusText;
-    private bool largePurchased;
 
     [Header("4. AAA Studio")]
     public int AAALevelReq = 50;
@@ -61,13 +60,30 @@ public class WorkspaceManager : MonoBehaviour
     public int AAASlots = 25;
     public GameObject AAABuyButton;
     public TMP_Text AAAStatusText;
-    private bool AAAPurchased;
+
+    // --- SINGLE SOURCE OF TRUTH FOR OWNERSHIP ---
+    // 0 = Basement, 1 = Small, 2 = Medium, 3 = Large, 4 = AAA
+    private int currentTier = 0;
+
+    // Public read-only access so other scripts (e.g. PlayerManager) can check
+    // whether the player has moved past the Basement yet.
+    public int CurrentTier
+    {
+        get { return currentTier; }
+    }
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
         errorWarningPanel.SetActive(false);
 
-        // Workspace visibility
+        currentTier = 0;
+
+        // Workspace visibility - only Basement active at the start
         basement.SetActive(true);
         smallOffice.SetActive(false);
         mediumOffice.SetActive(false);
@@ -80,63 +96,58 @@ public class WorkspaceManager : MonoBehaviour
             EmployeeSlotManager.instance.ChangeOffice(basementSlots);
         }
 
-        smallPurchased = false;
-        smallBuyButton.SetActive(false);
-        smallStatusText.text = "Requirement: Level " + smallLevelReq;
-        smallStatusText.gameObject.SetActive(true);
-
-        mediumPurchased = false;
-        mediumBuyButton.SetActive(false);
-        mediumStatusText.text = "Requirement: Level " + mediumLevelReq;
-        mediumStatusText.gameObject.SetActive(true);
-
-        largePurchased = false;
-        largeBuyButton.SetActive(false);
-        largeStatusText.text = "Requirement: Level " + largeLevelReq;
-        largeStatusText.gameObject.SetActive(true);
-
-        AAAPurchased = false;
-        AAABuyButton.SetActive(false);
-        AAAStatusText.text = "Requirement: Level " + AAALevelReq;
-        AAAStatusText.gameObject.SetActive(true);
+        RefreshOfficeUI();
     }
 
     void Update()
     {
-        if (smallPurchased == false)
+        RefreshOfficeUI();
+    }
+
+    // Centralized UI logic: for every tier above the one currently owned,
+    // show the buy button once the level requirement is met, otherwise show
+    // the requirement text. Tiers at or below currentTier never show a buy
+    // button, so a skipped tier can never be purchased after the fact.
+    private void RefreshOfficeUI()
+    {
+        int playerLevel = PlayerManager.instance.playerLevel;
+
+        UpdateTierUI(1, smallLevelReq, smallBuyButton, smallStatusText, playerLevel);
+        UpdateTierUI(2, mediumLevelReq, mediumBuyButton, mediumStatusText, playerLevel);
+        UpdateTierUI(3, largeLevelReq, largeBuyButton, largeStatusText, playerLevel);
+        UpdateTierUI(4, AAALevelReq, AAABuyButton, AAAStatusText, playerLevel);
+    }
+
+    private void UpdateTierUI(int tier, int levelReq, GameObject buyButton, TMP_Text statusText, int playerLevel)
+    {
+        if (tier < currentTier)
         {
-            if (PlayerManager.instance.playerLevel >= smallLevelReq)
-            {
-                smallBuyButton.SetActive(true);
-                smallStatusText.gameObject.SetActive(false);
-            }
+            // A higher tier has already been purchased - this one is permanently locked out.
+            buyButton.SetActive(false);
+            statusText.gameObject.SetActive(false);
+            return;
         }
 
-        if (mediumPurchased == false)
+        if (tier == currentTier)
         {
-            if (PlayerManager.instance.playerLevel >= mediumLevelReq)
-            {
-                mediumBuyButton.SetActive(true);
-                mediumStatusText.gameObject.SetActive(false);
-            }
+            // This is the office currently in use.
+            buyButton.SetActive(false);
+            statusText.text = "Current Workspace";
+            statusText.gameObject.SetActive(true);
+            return;
         }
 
-        if (largePurchased == false)
+        // tier > currentTier: still purchasable if the level requirement is met.
+        if (playerLevel >= levelReq)
         {
-            if (PlayerManager.instance.playerLevel >= largeLevelReq)
-            {
-                largeBuyButton.SetActive(true);
-                largeStatusText.gameObject.SetActive(false);
-            }
+            buyButton.SetActive(true);
+            statusText.gameObject.SetActive(false);
         }
-
-        if (AAAPurchased == false)
+        else
         {
-            if (PlayerManager.instance.playerLevel >= AAALevelReq)
-            {
-                AAABuyButton.SetActive(true);
-                AAAStatusText.gameObject.SetActive(false);
-            }
+            buyButton.SetActive(false);
+            statusText.text = "Requirement: Level " + levelReq;
+            statusText.gameObject.SetActive(true);
         }
     }
 
@@ -144,144 +155,61 @@ public class WorkspaceManager : MonoBehaviour
 
     public void ClickBuySmallOffice()
     {
-        if (smallPurchased == false)
-        {
-            if (PlayerManager.instance.playerCash >= smallPrice)
-            {
-                PlayerManager.instance.playerCash = PlayerManager.instance.playerCash - smallPrice;
-                PlayerManager.instance.maxEmployeeSlots = smallSlots;
-
-                basement.SetActive(false);
-                smallOffice.SetActive(true);
-
-                // Carry existing employees over into the new office layout.
-                EmployeeSlotManager.instance.ChangeOffice(smallOfficeSlots);
-
-                smallPurchased = true;
-                smallBuyButton.SetActive(false);
-
-                smallStatusText.text = "Current Workspace";
-                smallStatusText.gameObject.SetActive(true);
-            }
-            else
-            {
-                ShowError();
-            }
-        }
+        TryBuyOffice(1, smallPrice, smallSlots, smallOffice, smallOfficeSlots);
     }
 
     public void ClickBuyMediumOffice()
     {
-        if (mediumPurchased == false)
-        {
-            if (PlayerManager.instance.playerCash >= mediumPrice)
-            {
-                PlayerManager.instance.playerCash = PlayerManager.instance.playerCash - mediumPrice;
-                PlayerManager.instance.maxEmployeeSlots = mediumSlots;
-
-                smallOffice.SetActive(false);
-                mediumOffice.SetActive(true);
-
-                // Carry existing employees over into the new office layout.
-                EmployeeSlotManager.instance.ChangeOffice(mediumOfficeSlots);
-
-                // Kill the Small Office permanently
-                smallPurchased = true;
-                smallBuyButton.SetActive(false);
-                smallStatusText.gameObject.SetActive(false);
-
-                mediumPurchased = true;
-                mediumBuyButton.SetActive(false);
-
-                mediumStatusText.text = "Current Workspace";
-                mediumStatusText.gameObject.SetActive(true);
-            }
-            else
-            {
-                ShowError();
-            }
-        }
+        TryBuyOffice(2, mediumPrice, mediumSlots, mediumOffice, mediumOfficeSlots);
     }
 
     public void ClickBuyLargeOffice()
     {
-        if (largePurchased == false)
-        {
-            if (PlayerManager.instance.playerCash >= largePrice)
-            {
-                PlayerManager.instance.playerCash = PlayerManager.instance.playerCash - largePrice;
-                PlayerManager.instance.maxEmployeeSlots = largeSlots;
-
-                smallOffice.SetActive(false);
-                mediumOffice.SetActive(false);
-                largeOffice.SetActive(true);
-
-                // Carry existing employees over into the new office layout.
-                EmployeeSlotManager.instance.ChangeOffice(largeOfficeSlots);
-
-                // Kill Small and Medium permanently
-                smallPurchased = true;
-                smallBuyButton.SetActive(false);
-                smallStatusText.gameObject.SetActive(false);
-
-                mediumPurchased = true;
-                mediumBuyButton.SetActive(false);
-                mediumStatusText.gameObject.SetActive(false);
-
-                largePurchased = true;
-                largeBuyButton.SetActive(false);
-
-                largeStatusText.text = "Current Workspace";
-                largeStatusText.gameObject.SetActive(true);
-            }
-            else
-            {
-                ShowError();
-            }
-        }
+        TryBuyOffice(3, largePrice, largeSlots, largeOffice, largeOfficeSlots);
     }
 
     public void ClickBuyAAAStudio()
     {
-        if (AAAPurchased == false)
+        TryBuyOffice(4, AAAPrice, AAASlots, AAAOffice, AAAOfficeSlots);
+    }
+
+    // Shared purchase logic. Deactivates every office before activating the
+    // one being bought, so it's impossible for two offices to be visible at
+    // the same time, no matter what order tiers are purchased in.
+    private void TryBuyOffice(int tier, float price, int slots, GameObject officeObject, Transform[] officeSlots)
+    {
+        // Already own this tier or a higher one - ignore the click.
+        if (tier <= currentTier)
         {
-            if (PlayerManager.instance.playerCash >= AAAPrice)
-            {
-                PlayerManager.instance.playerCash = PlayerManager.instance.playerCash - AAAPrice;
-                PlayerManager.instance.maxEmployeeSlots = AAASlots;
-
-                smallOffice.SetActive(false);
-                mediumOffice.SetActive(false);
-                largeOffice.SetActive(false);
-                AAAOffice.SetActive(true);
-
-                // Carry existing employees over into the new office layout.
-                EmployeeSlotManager.instance.ChangeOffice(AAAOfficeSlots);
-
-                // Kill Small, Medium, and Large permanently
-                smallPurchased = true;
-                smallBuyButton.SetActive(false);
-                smallStatusText.gameObject.SetActive(false);
-
-                mediumPurchased = true;
-                mediumBuyButton.SetActive(false);
-                mediumStatusText.gameObject.SetActive(false);
-
-                largePurchased = true;
-                largeBuyButton.SetActive(false);
-                largeStatusText.gameObject.SetActive(false);
-
-                AAAPurchased = true;
-                AAABuyButton.SetActive(false);
-
-                AAAStatusText.text = "Current Workspace";
-                AAAStatusText.gameObject.SetActive(true);
-            }
-            else
-            {
-                ShowError();
-            }
+            return;
         }
+
+        if (PlayerManager.instance.playerCash < price)
+        {
+            ShowError();
+            return;
+        }
+
+        PlayerManager.instance.playerCash -= price;
+        PlayerManager.instance.maxEmployeeSlots = slots;
+
+        // Deactivate every workspace, then activate only the one just bought.
+        basement.SetActive(false);
+        smallOffice.SetActive(false);
+        mediumOffice.SetActive(false);
+        largeOffice.SetActive(false);
+        AAAOffice.SetActive(false);
+        officeObject.SetActive(true);
+
+        currentTier = tier;
+
+        // Carry existing employees over into the new office layout.
+        if (EmployeeSlotManager.instance != null)
+        {
+            EmployeeSlotManager.instance.ChangeOffice(officeSlots);
+        }
+
+        RefreshOfficeUI();
     }
 
     // --- ERROR COOLDOWN SYSTEM ---

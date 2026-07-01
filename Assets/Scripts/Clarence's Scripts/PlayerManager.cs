@@ -87,8 +87,33 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    // Call this from your Hire button BEFORE attempting to hire, so you can
+    // disable the button / show a locked message instead of silently failing.
+    public bool CanHireEmployee()
+    {
+        // Still in the Basement (tier 0) - hiring isn't unlocked yet.
+        if (WorkspaceManager.instance == null || WorkspaceManager.instance.CurrentTier < 1)
+        {
+            Debug.Log("Cannot hire yet — move to the Small Office to unlock hiring.");
+            return false;
+        }
+
+        if (hiredEmployees.Count >= maxEmployeeSlots)
+        {
+            Debug.Log("Cannot hire — all employee slots are full.");
+            return false;
+        }
+
+        return true;
+    }
+
     public void HireNewEmployee(string eName, Sprite eFace, string eSkill, int eLevel)
     {
+        if (!CanHireEmployee())
+        {
+            return;
+        }
+
         // Creates employee UI card
         HiredEmployeeScript newHired = Instantiate(
             hiredEmployeePrefab,
