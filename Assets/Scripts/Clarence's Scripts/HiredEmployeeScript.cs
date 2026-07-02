@@ -19,9 +19,12 @@ public class HiredEmployeeScript : MonoBehaviour
     public string employeeName;
     public Sprite employeeFace;
     public string employeeSkill;
-
     public int baseLevel;
-    public int itemBonusLevel; 
+    public int itemBonusLevel;
+
+    [Header("Linked Office Character")]
+    [Tooltip("The physical EmployeeCharacter standing in the office, assigned when hired.")]
+    public EmployeeCharacter linkedCharacter;
 
     public void SetupHiredEmployee(string eName, Sprite eFace, string eSkill, int eLevel)
     {
@@ -29,7 +32,7 @@ public class HiredEmployeeScript : MonoBehaviour
         employeeFace = eFace;
         employeeSkill = eSkill;
         baseLevel = eLevel;
-        itemBonusLevel = 0; 
+        itemBonusLevel = 0;
 
         // --- PERMANENT RARITY VISUALS ---
         commonImageObject.SetActive(false);
@@ -67,18 +70,32 @@ public class HiredEmployeeScript : MonoBehaviour
     public int GetFinalLevel()
     {
         int finalLevel = baseLevel + itemBonusLevel;
-        
+
         if (finalLevel > 60)
         {
             finalLevel = 60; // Keep the cap!
         }
-        
+
         return finalLevel;
     }
 
     public void ClickFire()
     {
+        // Remove from the roster list
         PlayerManager.instance.hiredEmployees.Remove(this);
+
+        // Free their slot and remove the physical character from the office
+        if (linkedCharacter != null)
+        {
+            if (EmployeeSlotManager.instance != null)
+            {
+                EmployeeSlotManager.instance.RemoveEmployee(linkedCharacter);
+            }
+
+            Destroy(linkedCharacter.gameObject);
+        }
+
+        // Remove the UI card
         Destroy(this.gameObject);
     }
 }
