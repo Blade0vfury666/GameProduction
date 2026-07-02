@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      royal-crown-coin_0: 3951926683223953146
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

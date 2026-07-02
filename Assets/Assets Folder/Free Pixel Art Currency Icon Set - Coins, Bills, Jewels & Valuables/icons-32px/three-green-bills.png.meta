@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      three-green-bills_0: 781115957795669504
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

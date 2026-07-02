@@ -1259,7 +1259,53 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spritesheet-32px_0: 2649437811965160318
+      spritesheet-32px_1: -8715923436936003018
+      spritesheet-32px_10: -2949328421778429309
+      spritesheet-32px_11: 8868565767231857425
+      spritesheet-32px_12: 8948944590673922380
+      spritesheet-32px_13: -4621149271336721798
+      spritesheet-32px_14: -8884635699659636430
+      spritesheet-32px_15: -4383496179136560583
+      spritesheet-32px_16: -6648515480877404511
+      spritesheet-32px_17: 4363840735178657561
+      spritesheet-32px_18: -142035973874124603
+      spritesheet-32px_19: 8707268518450948601
+      spritesheet-32px_2: 6158066217965961712
+      spritesheet-32px_20: 9089266314127652649
+      spritesheet-32px_21: -2908740616800009697
+      spritesheet-32px_22: 7311764373840682263
+      spritesheet-32px_23: -2726254455950134340
+      spritesheet-32px_24: -4293739893305929772
+      spritesheet-32px_25: 9104042308030872081
+      spritesheet-32px_26: -6720300120718515818
+      spritesheet-32px_27: -7886982925528722877
+      spritesheet-32px_28: -2707211322730514879
+      spritesheet-32px_29: 8431919473663318837
+      spritesheet-32px_3: 1020692366008822577
+      spritesheet-32px_30: 6823502366527561042
+      spritesheet-32px_31: 4609592863936170027
+      spritesheet-32px_32: -5095561236669381423
+      spritesheet-32px_33: 7407352060913324375
+      spritesheet-32px_34: -422915630238986686
+      spritesheet-32px_35: -2117568383673116915
+      spritesheet-32px_36: 5788113785375280438
+      spritesheet-32px_37: 5003181748714227826
+      spritesheet-32px_38: -3552531427334131897
+      spritesheet-32px_39: -5061654962456184869
+      spritesheet-32px_4: -208623020966310418
+      spritesheet-32px_40: -2016812888147162613
+      spritesheet-32px_41: 1768348269363619253
+      spritesheet-32px_42: 645166363284965942
+      spritesheet-32px_43: 4279957288508408572
+      spritesheet-32px_44: -7060564275786890322
+      spritesheet-32px_45: -3580600377019998006
+      spritesheet-32px_5: -7537495919034647680
+      spritesheet-32px_6: 7801768640099078793
+      spritesheet-32px_7: -2842408981523714917
+      spritesheet-32px_8: 1121437657922006896
+      spritesheet-32px_9: 8725603099042064889
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

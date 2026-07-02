@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gold-frame-ruby_0: -5921772413107773887
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      leather-bag_0: -4999024850165666373
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

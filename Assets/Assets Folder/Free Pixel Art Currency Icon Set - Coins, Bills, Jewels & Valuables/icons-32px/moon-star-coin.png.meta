@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      moon-star-coin_0: -6679078458580553987
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

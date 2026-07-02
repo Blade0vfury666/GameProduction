@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      elven-coin_0: -2909393567789873274
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

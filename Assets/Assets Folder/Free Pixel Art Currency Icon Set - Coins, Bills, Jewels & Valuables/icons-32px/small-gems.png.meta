@@ -234,7 +234,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      small-gems_0: -7658553261638312936
+      small-gems_1: -2181450516842592959
+      small-gems_2: 1807679764704671355
+      small-gems_3: 6527618946715972009
+      small-gems_4: -6128936144423808136
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

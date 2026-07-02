@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      emerald-gold-necklace_0: 7962435763512187647
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

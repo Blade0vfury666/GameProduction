@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cup-and-coins_0: 8942147106471677411
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

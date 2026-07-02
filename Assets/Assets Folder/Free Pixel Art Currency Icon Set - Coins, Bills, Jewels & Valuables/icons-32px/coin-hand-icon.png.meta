@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      coin-hand-icon_0: -8025198882019280548
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

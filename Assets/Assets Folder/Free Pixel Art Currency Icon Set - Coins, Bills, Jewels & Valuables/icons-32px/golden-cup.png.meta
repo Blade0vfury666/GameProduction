@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      golden-cup_0: 307814984644806886
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

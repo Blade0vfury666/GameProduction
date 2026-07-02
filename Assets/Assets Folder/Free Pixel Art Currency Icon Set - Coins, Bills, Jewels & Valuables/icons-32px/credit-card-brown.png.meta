@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      credit-card-brown_0: 2586025164697290897
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

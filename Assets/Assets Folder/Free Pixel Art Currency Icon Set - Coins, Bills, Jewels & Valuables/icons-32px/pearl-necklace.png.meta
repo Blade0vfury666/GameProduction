@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pearl-necklace_0: -6739857911289828383
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

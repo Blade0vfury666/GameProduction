@@ -1259,7 +1259,53 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      all-coin-valuables_0: 2748850214270964491
+      all-coin-valuables_1: 8822045117079457096
+      all-coin-valuables_10: -4372712852432532580
+      all-coin-valuables_11: 1583874592861964158
+      all-coin-valuables_12: 9157757893603008324
+      all-coin-valuables_13: 4914139544287712917
+      all-coin-valuables_14: 1347610874775690745
+      all-coin-valuables_15: 3377455096083573183
+      all-coin-valuables_16: 595103627168273861
+      all-coin-valuables_17: -3313099287446331983
+      all-coin-valuables_18: -5022252547706841120
+      all-coin-valuables_19: -893418578785108321
+      all-coin-valuables_2: 3295841537802534018
+      all-coin-valuables_20: -6476516605121972507
+      all-coin-valuables_21: 3326574323756435065
+      all-coin-valuables_22: 1317641045063926970
+      all-coin-valuables_23: -5362012452370844509
+      all-coin-valuables_24: -7436160930604718565
+      all-coin-valuables_25: -4057434493932385041
+      all-coin-valuables_26: 6764170762481928068
+      all-coin-valuables_27: 2004120515488207057
+      all-coin-valuables_28: 8193134912280092442
+      all-coin-valuables_29: -5484826823438618687
+      all-coin-valuables_3: 7328188501019475650
+      all-coin-valuables_30: -5049583583095107856
+      all-coin-valuables_31: -2623818067115346372
+      all-coin-valuables_32: -3909136626331578535
+      all-coin-valuables_33: -8750047607198609176
+      all-coin-valuables_34: -9099446508241451596
+      all-coin-valuables_35: 1398339733332062144
+      all-coin-valuables_36: -8047714188710748295
+      all-coin-valuables_37: 7274528295753021054
+      all-coin-valuables_38: -7639702392137625609
+      all-coin-valuables_39: 4177935763913056407
+      all-coin-valuables_4: -650346807780878851
+      all-coin-valuables_40: -7116991359947363470
+      all-coin-valuables_41: -523725384020047503
+      all-coin-valuables_42: -6865705004023428850
+      all-coin-valuables_43: 235331635052405608
+      all-coin-valuables_44: 4764152772344145337
+      all-coin-valuables_45: 7729055157753593433
+      all-coin-valuables_5: 1012279505217542729
+      all-coin-valuables_6: -6977993563220263635
+      all-coin-valuables_7: 7832184091218268203
+      all-coin-valuables_8: -3868191591237960922
+      all-coin-valuables_9: 3755417204584444161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gold-coin-necklace_0: -9134890247908032503
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

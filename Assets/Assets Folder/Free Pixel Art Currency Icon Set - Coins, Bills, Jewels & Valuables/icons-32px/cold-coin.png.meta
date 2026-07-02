@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cold-coin_0: -1612394036196116490
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

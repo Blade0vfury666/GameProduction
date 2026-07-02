@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      three-gold-coins_0: 8405726598012209453
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
