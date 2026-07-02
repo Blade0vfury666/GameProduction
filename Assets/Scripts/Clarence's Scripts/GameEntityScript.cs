@@ -8,101 +8,57 @@ public class GameEntityScript : MonoBehaviour
     public TMP_Text genreText;
     public TMP_Text statusText;
 
-    [Header("Development Container (Assign the Empty Object)")]
-    public GameObject developmentContainer;
-    public TMP_Text devTimeRemainingText;   
-    public TMP_Text speedBoostTimerText;    
-    public TMP_Text goldCostText;
-    public GameObject devAdButtonObject;    
-    public GameObject goldButtonObject;
-
-    [Header("Published Container (Assign the Empty Object)")]
+    [Header("Published Container")]
     public GameObject publishedContainer;
     public TMP_Text moneyRateText;
     public TMP_Text xpRateText;
     public GameObject publishedAdButtonObject; 
     public TMP_Text pubSpeedBoostTimerText;    
 
-    [Header("Balance Settings (Editable!)")]
-    public float moneyPerQualityPoint = 2.5f;
-    public float xpPerQualityPoint = 0.5f;
-    public float goldCostPerSecond = 0.5f;
+    [Header("Balance Settings")]
+    // MASSIVELY NERFED DEFAULT VALUES FOR A BALANCED ECONOMY!
+    public float moneyPerQualityPoint = 0.2f; 
+    public float xpPerQualityPoint = 0.05f;
 
     private bool isPublished;
-    private float timeRemaining;
-    
     private float baseMoneyRate;
     private float baseXPRate;
     private float oneSecondTimer;
-
-    private float devAdBoostTimer;
     private float pubAdBoostTimer;
-    
-    private int currentGoldCost;
 
-    public void SetupGame(string finalName, string finalGenre, int finalQuality, float devSeconds)
+    // The Instanced Handshake (Phase C & D Math)
+    public void SetupGame(string finalName, string finalGenre, int scope, float finalAccuracy)
     {
-        isPublished = false;
-        
         titleText.text = finalName;
         genreText.text = finalGenre;
-        statusText.text = "Status: Developing";
+        statusText.text = "Status: Published";
 
-        timeRemaining = devSeconds;
-
-        baseMoneyRate = finalQuality * moneyPerQualityPoint;
-        baseXPRate = finalQuality * xpPerQualityPoint;
-
-        developmentContainer.SetActive(true);
-        publishedContainer.SetActive(false);
+        // Gather mathematical workforce variables
+        int totalEffectiveLevel = PlayerManager.instance.GetTotalEffectiveEmployeeLevel();
+        float teamSafetyNet = totalEffectiveLevel / 12.0f;
         
-        devAdButtonObject.SetActive(true);
-        goldButtonObject.SetActive(true);
-        speedBoostTimerText.gameObject.SetActive(false); 
+        // REBALANCED QUALITY SCORE MATH
+        // Scope now scales much slower (x2 instead of x10)
+        float baseMath = (scope * 2f) + (PlayerManager.instance.playerLevel * 1.5f);
+        float qualityScore = ((finalAccuracy / 100f) * baseMath) + teamSafetyNet;
+
+        // Cash & XP Rates Math
+        float multiSystem = (1f + (totalEffectiveLevel / 100f)) * (1f + (PlayerManager.instance.chairLevel * 0.05f));
+        baseMoneyRate = qualityScore * multiSystem * moneyPerQualityPoint;
+        baseXPRate = qualityScore * multiSystem * xpPerQualityPoint;
+
+        isPublished = true;
+        publishedContainer.SetActive(true);
+        publishedAdButtonObject.SetActive(true);
         pubSpeedBoostTimerText.gameObject.SetActive(false); 
+        
+        UpdateRateTexts(1f);
     }
 
     void Update()
     {
         // ==========================================
-        // PHASE 1: DEVELOPING
-        // ==========================================
-        if (isPublished == false)
-        {
-            float timeSpeed = 1f;
-
-            if (devAdBoostTimer > 0f)
-            {
-                devAdBoostTimer = devAdBoostTimer - Time.deltaTime;
-                timeSpeed = 3f; 
-                
-                speedBoostTimerText.text = "Boost: " + Mathf.CeilToInt(devAdBoostTimer) + "s";
-                
-                if (devAdBoostTimer <= 0f)
-                {
-                    devAdButtonObject.SetActive(true);
-                    speedBoostTimerText.gameObject.SetActive(false);
-                }
-            }
-
-            timeRemaining = timeRemaining - (Time.deltaTime * timeSpeed);
-            devTimeRemainingText.text = Mathf.CeilToInt(timeRemaining) + "s remaining";
-
-            currentGoldCost = Mathf.CeilToInt(timeRemaining * goldCostPerSecond);
-            if (currentGoldCost < 1) 
-            {
-                currentGoldCost = 1;
-            }
-            goldCostText.text = currentGoldCost + " Gold";
-
-            if (timeRemaining <= 0f)
-            {
-                PublishGame();
-            }
-        }
-
-        // ==========================================
-        // PHASE 2: PUBLISHED & EARNING
+        // PUBLISHED & EARNING (Loop)
         // ==========================================
         if (isPublished == true)
         {
@@ -113,7 +69,6 @@ public class GameEntityScript : MonoBehaviour
                 pubAdBoostTimer = pubAdBoostTimer - Time.deltaTime;
                 currentEarningsMultiplier = 3f; 
                 
-                // Show the 3x boost text specifically on the timer text!
                 pubSpeedBoostTimerText.text = "3x CASH & XP BOOST: " + Mathf.CeilToInt(pubAdBoostTimer) + "s";
 
                 if (pubAdBoostTimer <= 0f)
@@ -125,6 +80,7 @@ public class GameEntityScript : MonoBehaviour
             }
 
             oneSecondTimer = oneSecondTimer + Time.deltaTime;
+            
             if (oneSecondTimer >= 1f)
             {
                 oneSecondTimer = 0f; 
@@ -135,44 +91,15 @@ public class GameEntityScript : MonoBehaviour
         }
     }
 
-    private void PublishGame()
-    {
-        isPublished = true;
-        statusText.text = "Status: Published";
-
-        developmentContainer.SetActive(false);
-        publishedContainer.SetActive(true);
-        
-        publishedAdButtonObject.SetActive(true);
-        pubSpeedBoostTimerText.gameObject.SetActive(false);
-
-        UpdateRateTexts(1f);
-    }
-
     private void UpdateRateTexts(float multiplier)
     {
         float activeMoney = baseMoneyRate * multiplier;
         float activeXP = baseXPRate * multiplier;
         
-        moneyRateText.text = "+$" + Mathf.FloorToInt(activeMoney) + "/sec";
-        xpRateText.text = "+" + Mathf.FloorToInt(activeXP) + " XP/sec";
-    }
-
-    public void ClickDevelopmentAdButton()
-    {
-        devAdBoostTimer = 300f;
-        
-        devAdButtonObject.SetActive(false);
-        speedBoostTimerText.gameObject.SetActive(true);
-    }
-
-    public void ClickGoldButton()
-    {
-        if (PlayerManager.instance.playerGold >= currentGoldCost)
-        {
-            PlayerManager.instance.playerGold = PlayerManager.instance.playerGold - currentGoldCost;
-            timeRemaining = 0f; 
-        }
+        // NOW USING FLOATS FOR UI (".00")
+        // This makes smaller numbers like $1.25/sec visible and satisfying to look at!
+        moneyRateText.text = "+$" + activeMoney.ToString("F2") + "/sec";
+        xpRateText.text = "+" + activeXP.ToString("F2") + " XP/sec";
     }
 
     public void ClickPublishedAdButton()

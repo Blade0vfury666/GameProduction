@@ -10,61 +10,98 @@ public class EmployeeScript : MonoBehaviour
     public TMP_Text levelText;
     public TMP_Text costText;
     public Image faceImage;
-    public Button actionButton; // This is the "Hire" or "Claim" button
+    public Button hireButton; 
 
-    private int myLevel;
+    [Header("Rarity Backgrounds")]
+    public GameObject commonImageObject;
+    public GameObject rareImageObject;
+    public GameObject legendaryImageObject;
+
+    [Header("Live Stats")]
+    public int employeeLevel; 
     private int hireCost;
+    private bool isLegendarySpawn; 
+    
+    private string employeeName;
+    private Sprite employeeFace;
+    private string employeeSkill;
 
-    // The Manager calls this exactly once when the employee is spawned
-    public void SetupEmployee(string eName, Sprite eFace, string eSkill, int eLevel)
+    public void SetupEmployee(string eName, Sprite eFace, string eSkill, int eLevel, bool isFreeRoll)
     {
-        nameText.text = eName;
-        faceImage.sprite = eFace;
-        skillText.text = eSkill;
-        myLevel = eLevel;
-        levelText.text = "Lv: " + myLevel;
+        employeeName = eName;
+        employeeFace = eFace;
+        employeeSkill = eSkill;
+        isLegendarySpawn = isFreeRoll; 
 
-        // Calculate a one-time hire cost based on level
-        hireCost = myLevel * 100;
+        nameText.text = employeeName;
+        faceImage.sprite = employeeFace;
+        skillText.text = employeeSkill;
         
-        // If this employee was spawned in the SSR popup, it's free to claim!
-        if (this.transform.parent.name == "SSR_Spawn_Point")
+        employeeLevel = eLevel;
+        if (employeeLevel > 60)
+        {
+            employeeLevel = 60;
+        }
+
+        // RAW NUMBER AND BLACK TEXT
+        levelText.text = employeeLevel.ToString();
+        levelText.color = Color.black;
+
+        // --- RARITY VISUALS ---
+        commonImageObject.SetActive(false);
+        rareImageObject.SetActive(false);
+        legendaryImageObject.SetActive(false);
+
+        if (employeeLevel <= 20)
+        {
+            commonImageObject.SetActive(true);
+        }
+        else if (employeeLevel <= 40)
+        {
+            rareImageObject.SetActive(true);
+        }
+        else if (employeeLevel <= 60)
+        {
+            legendaryImageObject.SetActive(true);
+        }
+
+        // --- COST LOGIC ---
+        if (isLegendarySpawn == true)
         {
             hireCost = 0;
-            costText.text = "FREE";
+            costText.text = ""; 
         }
         else
         {
-            costText.text = "$" + hireCost;
+            hireCost = employeeLevel * 12500; 
+            costText.text = "$" + hireCost.ToString("N0"); 
         }
     }
 
-    // Connect this to the Button on the prefab
-    public void ClickAction()
+    public void ClickHire()
     {
-        // Check if player has enough money (Bypass this if it's the free SSR claim)
         if (PlayerManager.instance.playerCash >= hireCost)
         {
-            PlayerManager.instance.playerCash = PlayerManager.instance.playerCash - hireCost;
-
-            // 1. Tell Tycoon Stats to update
-            PlayerManager.instance.employeeCount = PlayerManager.instance.employeeCount + 1;
-            PlayerManager.instance.totalEmployeeLevel = PlayerManager.instance.totalEmployeeLevel + myLevel;
-
-            // 2. Move this UI physically to the "Your Employees" window!
-            Transform hiredList = GameObject.Find("Your_Employees_Container").transform;
-            this.transform.SetParent(hiredList);
-
-            // 3. Disable the button so they can't be hired twice
-            actionButton.gameObject.SetActive(false);
-            costText.gameObject.SetActive(false);
-
-            // 4. If this was the SSR popup, close the popup window automatically
-            GameObject ssrPopup = GameObject.Find("SSR_Popup_Canvas");
-            if (ssrPopup != null)
+            if (PlayerManager.instance.hiredEmployees.Count < PlayerManager.instance.maxEmployeeSlots)
             {
-                ssrPopup.SetActive(false);
+                PlayerManager.instance.playerCash -= hireCost;
+                PlayerManager.instance.HireNewEmployee(employeeName, employeeFace, employeeSkill, employeeLevel);
+
+                if (isLegendarySpawn == true)
+                {
+                    EmployeeManager.instance.CloseAndResetLegendaryUI();
+                }
+
+                Destroy(this.gameObject);
             }
+            else
+            {
+                Debug.Log("No slots available!"); 
+            }
+        }
+        else
+        {
+            EmployeeManager.instance.TriggerInsufficientFundsWarning();
         }
     }
 }

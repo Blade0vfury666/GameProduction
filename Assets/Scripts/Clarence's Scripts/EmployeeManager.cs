@@ -4,180 +4,259 @@ using UnityEngine.UI;
 
 public class EmployeeManager : MonoBehaviour
 {
-    [Header("Market UI")]
-    public Transform marketContainer;
-    public TMP_Text marketTimerText;
-    private float marketRefreshTimer;
+    public static EmployeeManager instance;
 
-    [Header("Prefabs")]
-    public EmployeeScript rarePrefab;
-    public EmployeeScript superRarePrefab;
-    public EmployeeScript superSuperRarePrefab;
+    [Header("Hire Employees UI (Main List)")]
+    public Transform hireEmployeesContentList; 
+    public TMP_Text hireRefreshTimerText;
+    
+    public float manualRefreshCost = 2500f; 
+    private float hireRefreshTimer;
 
-    [Header("Data Pools (Fill in Inspector)")]
-    public string[] randomNames;
-    public Sprite[] randomFaces;
+    [Header("Employee Prefab")]
+    public EmployeeScript employeePrefab;
+
+    [Header("Male Data Pools")]
+    public string[] maleNames;
+    public Sprite[] maleFaces;
+
+    [Header("Female Data Pools")]
+    public string[] femaleNames;
+    public Sprite[] femaleFaces;
+
+    [Header("Shared Skills")]
     public string[] randomSkills;
 
-    [Header("SSR Specialist Search")]
-    public GameObject ssrPopupCanvas; // The canvas that blocks everything
-    public Transform ssrSpawnPoint;   // Empty object inside the popup
-    public GameObject ssrFailMessage; // Text saying "Failed"
-    public GameObject ssrOkButton;    // Button to close if failed
-    public TMP_Text specialistTimerText; // Shows on your main screen
+    [Header("Legendary Search UI")]
+    public float specialistSearchCost = 100f; 
+    
+    [Tooltip("Time in SECONDS for the specialist search (600 = 10 mins)")]
+    public float specialistSearchTime = 600f; 
+    
+    public Button searchSpecialistButton; 
+    public GameObject legendaryPopupCanvas; 
+    public Transform legendaryResultContainer; 
+    public GameObject legendaryFailMessage; 
+    public GameObject legendaryDismissButton; 
+    // REMOVED: LegendaryWarningMessage
+    public TMP_Text specialistTimerText; 
 
-    private bool isSearchingSSR;
-    private float ssrTimer;
+    [Header("Warnings")]
+    public GameObject insufficientFundsWarning; 
+    private float insufficientFundsTimer;
+
+    private bool isSearchingLegendary;
+    private float legendaryTimer;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
-        marketRefreshTimer = 600f; // 10 minutes
-        ssrPopupCanvas.SetActive(false);
+        hireRefreshTimer = 600f; 
+        CloseAndResetLegendaryUI(); 
+        
+        if (insufficientFundsWarning != null) insufficientFundsWarning.SetActive(false);
+        if (specialistTimerText != null) specialistTimerText.gameObject.SetActive(false);
+        
         GenerateNewMarket();
     }
 
     void Update()
     {
-        // --- 1. MARKET REFRESH TIMER ---
-        marketRefreshTimer = marketRefreshTimer - Time.deltaTime;
-        
-        // Convert to minutes and seconds for the UI
-        int minutes = Mathf.FloorToInt(marketRefreshTimer / 60f);
-        int seconds = Mathf.FloorToInt(marketRefreshTimer % 60f);
-        marketTimerText.text = "Refresh in: " + minutes + "m " + seconds + "s";
-
-        if (marketRefreshTimer <= 0f)
+        // --- INSUFFICIENT FUNDS TIMER LOGIC ---
+        if (insufficientFundsTimer > 0f)
         {
-            GenerateNewMarket();
-            marketRefreshTimer = 600f; // Reset to 10 mins
+            insufficientFundsTimer -= Time.deltaTime;
+            if (insufficientFundsTimer <= 0f)
+            {
+                if (insufficientFundsWarning != null) insufficientFundsWarning.SetActive(false);
+            }
         }
 
-        // --- 2. SSR SEARCH TIMER ---
-        if (isSearchingSSR == true)
+        // --- 1. MAIN LIST REFRESH TIMER ---
+        hireRefreshTimer -= Time.deltaTime;
+        
+        int minutes = Mathf.FloorToInt(hireRefreshTimer / 60f);
+        int seconds = Mathf.FloorToInt(hireRefreshTimer % 60f);
+        
+        if (hireRefreshTimerText != null)
         {
-            ssrTimer = ssrTimer - Time.deltaTime;
-            
-            int sMinutes = Mathf.FloorToInt(ssrTimer / 60f);
-            int sSeconds = Mathf.FloorToInt(ssrTimer % 60f);
-            specialistTimerText.text = "Searching: " + sMinutes + "m " + sSeconds + "s";
+            hireRefreshTimerText.text = "Refresh in: " + minutes + "m " + seconds + "s";
+        }
 
-            if (ssrTimer <= 0f)
+        if (hireRefreshTimer <= 0f)
+        {
+            GenerateNewMarket();
+            hireRefreshTimer = 600f; 
+        }
+
+        // --- 2. LEGENDARY SEARCH TIMER ---
+        if (isSearchingLegendary == true)
+        {
+            legendaryTimer -= Time.deltaTime;
+            
+            int sMinutes = Mathf.CeilToInt(legendaryTimer / 60f); 
+            
+            if (specialistTimerText != null)
             {
-                FinishSSRSearch();
+                specialistTimerText.text = "Searching. Time: " + sMinutes + "m";
+            }
+
+            if (legendaryTimer <= 0f)
+            {
+                FinishLegendarySearch();
             }
         }
     }
 
-    // --- MARKET LOGIC ---
-
-    public void ClickManualRefresh() // Costs 2500 Cash
+    public void TriggerInsufficientFundsWarning()
     {
-        if (PlayerManager.instance.playerCash >= 2500f)
+        if (insufficientFundsWarning != null)
         {
-            PlayerManager.instance.playerCash = PlayerManager.instance.playerCash - 2500f;
+            insufficientFundsWarning.SetActive(true);
+            insufficientFundsTimer = 5f; 
+        }
+        else
+        {
+            Debug.LogWarning("WARNING OBJECT NOT ASSIGNED IN INSPECTOR!");
+        }
+    }
+
+    // --- MAIN LIST LOGIC ---
+
+    public void ClickManualRefresh() 
+    {
+        if (PlayerManager.instance.playerCash >= manualRefreshCost)
+        {
+            PlayerManager.instance.playerCash -= manualRefreshCost;
             GenerateNewMarket();
-            marketRefreshTimer = 600f; // Reset the 10 min timer early
+            hireRefreshTimer = 600f; 
+        }
+        else
+        {
+            TriggerInsufficientFundsWarning();
         }
     }
 
     private void GenerateNewMarket()
     {
-        // 1. Destroy old unhired employees in the market
-        foreach (Transform child in marketContainer)
+        foreach (Transform child in hireEmployeesContentList)
         {
             Destroy(child.gameObject);
         }
 
-        // 2. Spawn 10 new ones
         for (int i = 0; i < 10; i++)
         {
-            EmployeeScript chosenPrefab = rarePrefab;
             int randomLevel = 1;
-
-            // Roll Rarity: 1 to 100
             int rarityRoll = Random.Range(1, 101);
 
-            if (rarityRoll <= 85) // 85% Chance for Rare
+            // ADJUSTED: Common (90%) and Rare (10%)
+            if (rarityRoll <= 90) 
             {
-                chosenPrefab = rarePrefab;
-                randomLevel = Random.Range(1, 21); // Levels 1 - 20
+                randomLevel = Random.Range(1, 21); // Common
             }
-            if (rarityRoll > 85) // 15% Chance for Super Rare
+            else 
             {
-                chosenPrefab = superRarePrefab;
-                randomLevel = Random.Range(21, 41); // Levels 21 - 40
+                randomLevel = Random.Range(21, 41); // Rare
             }
 
-            SpawnEmployee(chosenPrefab, randomLevel, marketContainer);
+            SpawnEmployee(randomLevel, hireEmployeesContentList, false);
         }
     }
 
-    // --- SSR SPECIALIST LOGIC ---
+    // --- LEGENDARY SPECIALIST LOGIC ---
 
-    public void ClickSearchSpecialist() // Costs 100 Gold
+    public void ClickSearchSpecialist() 
     {
-        if (isSearchingSSR == false)
+        if (isSearchingLegendary == false)
         {
-            if (PlayerManager.instance.playerGold >= 100f)
+            if (PlayerManager.instance.playerGold >= specialistSearchCost)
             {
-                PlayerManager.instance.playerGold = PlayerManager.instance.playerGold - 100f;
-                isSearchingSSR = true;
-                ssrTimer = 300f; // 5 minutes
-                specialistTimerText.gameObject.SetActive(true);
+                PlayerManager.instance.playerGold -= specialistSearchCost;
+                isSearchingLegendary = true;
+                
+                legendaryTimer = specialistSearchTime; 
+                
+                if (specialistTimerText != null) specialistTimerText.gameObject.SetActive(true);
+                if (searchSpecialistButton != null) searchSpecialistButton.interactable = false; 
+            }
+            else
+            {
+                TriggerInsufficientFundsWarning(); 
             }
         }
     }
 
-    private void FinishSSRSearch()
+    private void FinishLegendarySearch()
     {
-        isSearchingSSR = false;
-        specialistTimerText.gameObject.SetActive(false);
+        isSearchingLegendary = false;
         
-        // Turn on the Popup Blocker Canvas
-        ssrPopupCanvas.SetActive(true);
+        if (specialistTimerText != null) specialistTimerText.gameObject.SetActive(false);
+        if (searchSpecialistButton != null) searchSpecialistButton.interactable = true; 
+        
+        if (legendaryPopupCanvas != null) legendaryPopupCanvas.SetActive(true);
 
-        // Wipe anything that might be sitting in the spawn point from last time
-        foreach (Transform child in ssrSpawnPoint)
+        foreach (Transform child in legendaryResultContainer)
         {
             Destroy(child.gameObject);
         }
 
-        // Roll for SSR: 5% Chance
-        int ssrRoll = Random.Range(1, 101);
+        int legendaryRoll = Random.Range(1, 101);
 
-        if (ssrRoll <= 5) // Success!
+        if (legendaryRoll <= 5) // 5% Success!
         {
-            ssrFailMessage.SetActive(false);
-            ssrOkButton.SetActive(false);
+            if (legendaryFailMessage != null) legendaryFailMessage.SetActive(false);
+            if (legendaryDismissButton != null) legendaryDismissButton.SetActive(false);
+            
+            // WARNING TEXT COMPLETELY REMOVED
 
-            int randomLevel = Random.Range(41, 61); // Levels 41 - 60
-            SpawnEmployee(superSuperRarePrefab, randomLevel, ssrSpawnPoint);
+            int randomLevel = Random.Range(41, 61); 
+            SpawnEmployee(randomLevel, legendaryResultContainer, true);
         }
         else // Fail...
         {
-            ssrFailMessage.SetActive(true);
-            ssrOkButton.SetActive(true);
+            if (legendaryFailMessage != null) legendaryFailMessage.SetActive(true);
+            if (legendaryDismissButton != null) legendaryDismissButton.SetActive(true);
         }
     }
 
-    public void ClickCloseSSRPopup()
+    public void CloseAndResetLegendaryUI()
     {
-        ssrPopupCanvas.SetActive(false);
+        if (legendaryPopupCanvas != null) legendaryPopupCanvas.SetActive(false);
+        if (legendaryFailMessage != null) legendaryFailMessage.SetActive(false);
+        if (legendaryDismissButton != null) legendaryDismissButton.SetActive(false);
+
+        foreach (Transform child in legendaryResultContainer)
+        {
+            Destroy(child.gameObject);
+        }
     }
 
     // --- SHARED SPAWNING LOGIC ---
     
-    private void SpawnEmployee(EmployeeScript prefabToSpawn, int level, Transform targetFolder)
+    private void SpawnEmployee(int level, Transform targetFolder, bool isFreeRoll)
     {
-        // Pick random visual data
-        string rName = randomNames[Random.Range(0, randomNames.Length)];
-        Sprite rFace = randomFaces[Random.Range(0, randomFaces.Length)];
+        string rName = "";
+        Sprite rFace = null;
         string rSkill = randomSkills[Random.Range(0, randomSkills.Length)];
 
-        // Spawn it into the target folder
-        EmployeeScript newStaff = Instantiate(prefabToSpawn, targetFolder);
-        
-        // Handshake
-        newStaff.SetupEmployee(rName, rFace, rSkill, level);
+        int genderFlip = Random.Range(0, 2); 
+
+        if (genderFlip == 0) 
+        {
+            rName = maleNames[Random.Range(0, maleNames.Length)];
+            rFace = maleFaces[Random.Range(0, maleFaces.Length)];
+        }
+        else 
+        {
+            rName = femaleNames[Random.Range(0, femaleNames.Length)];
+            rFace = femaleFaces[Random.Range(0, femaleFaces.Length)];
+        }
+
+        EmployeeScript newStaff = Instantiate(employeePrefab, targetFolder);
+        newStaff.SetupEmployee(rName, rFace, rSkill, level, isFreeRoll);
     }
 }
