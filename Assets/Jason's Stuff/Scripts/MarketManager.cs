@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class MarketManager : MonoBehaviour
 {
+    public static MarketManager instance;
+
     [Header("UI Panels")]
     public GameObject marketPanel;
     public GameObject confirmPopup;
@@ -36,11 +38,17 @@ public class MarketManager : MonoBehaviour
     private List<Equipment> allEquipment = new List<Equipment>();
     private Equipment selectedItem;
     
+    void Awake()
+    {
+        instance = this;
+    }
+    
     void Start()
     {
         LoadAllEquipment();
         PopulateMarketUI();
         UpdateCurrentStatsUI();
+        UpdatePlayerResourcesUI();
         
         confirmPopup.SetActive(false);
         marketPanel.SetActive(false);
@@ -51,6 +59,11 @@ public class MarketManager : MonoBehaviour
             cancelBuyButton.onClick.AddListener(ClosePopup);
     }
     
+    void OnEnable()
+    {
+        UpdatePlayerResourcesUI();
+    }
+    
     void LoadAllEquipment()
     {
         Equipment[] items = Resources.LoadAll<Equipment>("Equipment");
@@ -58,7 +71,7 @@ public class MarketManager : MonoBehaviour
         allEquipment.AddRange(items);
     }
     
-    void PopulateMarketUI()
+    public void PopulateMarketUI()
     {
         ClearContainer(computersContainer);
         ClearContainer(chairsContainer);
@@ -75,7 +88,7 @@ public class MarketManager : MonoBehaviour
             PopulateInventoryUI();
     }
     
-    void PopulateInventoryUI()  
+    public void PopulateInventoryUI()  
     {
         ClearContainer(inventoryContainer);
         
@@ -151,28 +164,28 @@ public class MarketManager : MonoBehaviour
         confirmItemCost.text = costText;
     }
     
-   public void ConfirmPurchase()
+    public void ConfirmPurchase()
     {
-    if (selectedItem == null) return;
-    if (PlayerManager.instance == null)
-    {
-        Debug.LogError("PlayerManager.instance is NULL!");
-        return;
-    }
-    
-    if (PlayerManager.instance.playerLevel < selectedItem.requiredPlayerLevel)
-    {
-        Debug.Log("Cannot purchase " + selectedItem.itemName + " - Requires Level " + selectedItem.requiredPlayerLevel);
-        ClosePopup();
-        return;
-    }
-    
-    bool canAfford = true;
-    
-    if (selectedItem.cashCost > 0 && PlayerManager.instance.playerCash < (float)selectedItem.cashCost)
-        canAfford = false;
-    if (selectedItem.goldCost > 0 && PlayerManager.instance.playerGold < (float)selectedItem.goldCost)
-        canAfford = false;
+        if (selectedItem == null) return;
+        if (PlayerManager.instance == null)
+        {
+            Debug.LogError("PlayerManager.instance is NULL!");
+            return;
+        }
+        
+        if (PlayerManager.instance.playerLevel < selectedItem.requiredPlayerLevel)
+        {
+            Debug.Log("Cannot purchase " + selectedItem.itemName + " - Requires Level " + selectedItem.requiredPlayerLevel);
+            ClosePopup();
+            return;
+        }
+        
+        bool canAfford = true;
+        
+        if (selectedItem.cashCost > 0 && PlayerManager.instance.playerCash < (float)selectedItem.cashCost)
+            canAfford = false;
+        if (selectedItem.goldCost > 0 && PlayerManager.instance.playerGold < (float)selectedItem.goldCost)
+            canAfford = false;
         
         if (canAfford)
         {
@@ -184,6 +197,7 @@ public class MarketManager : MonoBehaviour
             selectedItem.isOwned = true;
             EquipItem(selectedItem);
             
+            UpdatePlayerResourcesUI();
             UpdateCurrentStatsUI();
             PopulateMarketUI();
             
@@ -197,11 +211,21 @@ public class MarketManager : MonoBehaviour
     
     public void EquipItem(Equipment item)
     {
-        UnequipCategory(item.category);
-        item.isEquipped = true;
-        ApplyEquipmentBonuses();
+        if (EquipmentManager.instance != null)
+        {
+            EquipmentManager.instance.EquipItem(item);
+        }
+        else
+        {
+            UnequipCategory(item.category);
+            item.isEquipped = true;
+            ApplyEquipmentBonuses();
+        }
+        
+        UpdatePlayerResourcesUI();
         UpdateCurrentStatsUI();
         PopulateMarketUI();
+        PopulateInventoryUI();
     }
     
     void UnequipCategory(string category)
@@ -219,8 +243,17 @@ public class MarketManager : MonoBehaviour
     {
         if (item.isEquipped)
         {
-            item.isEquipped = false;
-            ApplyEquipmentBonuses();
+            if (EquipmentManager.instance != null)
+            {
+                EquipmentManager.instance.UnequipItem(item);
+            }
+            else
+            {
+                item.isEquipped = false;
+                ApplyEquipmentBonuses();
+            }
+            
+            UpdatePlayerResourcesUI();
             UpdateCurrentStatsUI();
             PopulateInventoryUI();  
             PopulateMarketUI();    
@@ -229,6 +262,12 @@ public class MarketManager : MonoBehaviour
     
     void ApplyEquipmentBonuses()
     {
+        if (EquipmentManager.instance != null)
+        {
+            EquipmentManager.instance.ApplyEquipmentBonuses();
+            return;
+        }
+        
         int totalLevelBonus = 0;
         int totalXPBonus = 0;
         int totalScopeBonus = 0;
@@ -246,22 +285,48 @@ public class MarketManager : MonoBehaviour
         if (PlayerManager.instance != null)
         {
             PlayerManager.instance.pcSpec = totalLevelBonus;
+            PlayerManager.instance.chairLevel = totalXPBonus;
+            PlayerManager.instance.serverLevel = totalScopeBonus;
         }
     }
     
-    void UpdateCurrentStatsUI()
+    public void UpdatePlayerResourcesUI()
+    {
+        if (PlayerManager.instance == null) return;
+        
+        if (cashText != null)
+        {
+            cashText.text = Mathf.FloorToInt(PlayerManager.instance.playerCash).ToString();
+        }
+        
+        if (goldText != null)
+        {
+            goldText.text = Mathf.FloorToInt(PlayerManager.instance.playerGold).ToString();
+        }
+    }
+    
+    public void UpdateCurrentStatsUI()
     {
         int totalLevelBonus = 0;
         int totalXPBonus = 0;
         int totalScopeBonus = 0;
         
-        foreach (Equipment item in allEquipment)
+        if (EquipmentManager.instance != null)
         {
-            if (item.isEquipped)
+            totalLevelBonus = EquipmentManager.instance.GetTotalLevelBonus();
+            totalXPBonus = EquipmentManager.instance.GetTotalXPBonus();
+            totalScopeBonus = EquipmentManager.instance.GetTotalScopeBonus();
+        }
+        else
+        {
+            foreach (Equipment item in allEquipment)
             {
-                totalLevelBonus += item.flatLevelBonus;
-                totalXPBonus += item.flatXPBonus;
-                totalScopeBonus += item.flatScopeBonus;
+                if (item.isEquipped)
+                {
+                    totalLevelBonus += item.flatLevelBonus;
+                    totalXPBonus += item.flatXPBonus;
+                    totalScopeBonus += item.flatScopeBonus;
+                }
             }
         }
         
@@ -282,6 +347,7 @@ public class MarketManager : MonoBehaviour
     public void OpenMarket()
     {
         marketPanel.SetActive(true);
+        UpdatePlayerResourcesUI();
         UpdateCurrentStatsUI();
         PopulateMarketUI();
         PopulateInventoryUI();
@@ -294,14 +360,23 @@ public class MarketManager : MonoBehaviour
 
     public void ResetAllPurchases()
     {
-        foreach (Equipment item in allEquipment)
+        if (EquipmentManager.instance != null)
         {
-            item.isOwned = false;
-            item.isEquipped = false;
+            EquipmentManager.instance.ResetAllEquipment();
+        }
+        else
+        {
+            foreach (Equipment item in allEquipment)
+            {
+                item.isOwned = false;
+                item.isEquipped = false;
+            }
         }
         
+        UpdatePlayerResourcesUI();
         UpdateCurrentStatsUI();
         PopulateMarketUI();
+        PopulateInventoryUI();
         
         Debug.Log("All purchases have been reset!");
     }

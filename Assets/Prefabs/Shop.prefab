@@ -1623,7 +1623,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00023393793}
+  m_AnchoredPosition: {x: 0, y: 0.00006239116}
   m_SizeDelta: {x: 0, y: 417.9124}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8728947716455073609
@@ -3410,7 +3410,6 @@ GameObject:
   - component: {fileID: 5293706681333429881}
   - component: {fileID: 6591451185530131563}
   - component: {fileID: 5939957997439603225}
-  - component: {fileID: 4972263478683691277}
   m_Layer: 6
   m_Name: MarketPanel
   m_TagString: Untagged
@@ -3540,23 +3539,6 @@ MonoBehaviour:
   chairsPage: {fileID: 673633261190891157}
   serversPage: {fileID: 129771439681056204}
   inventoryPage: {fileID: 4192642061023756144}
---- !u!114 &4972263478683691277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3537840426360597790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b44117abad578841a97b7e3efbbc3bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cashText: {fileID: 3839528255801307829}
-  goldText: {fileID: 5813780208423095241}
-  cashPrefix: 'Credits: '
-  goldPrefix: 'Gold: '
-  suffix: 
 --- !u!1 &3679888063196800776
 GameObject:
   m_ObjectHideFlags: 0
@@ -3678,7 +3660,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 7579892384580664436}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999577
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3904,7 +3886,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7844416708984894783
 MonoBehaviour:
   m_ObjectHideFlags: 0

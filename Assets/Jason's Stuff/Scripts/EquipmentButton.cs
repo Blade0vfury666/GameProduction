@@ -35,7 +35,7 @@ public class EquipmentButton : MonoBehaviour
             costText.text = item.goldCost + " Gold";  
         
         if (item.category == "Computer")
-            bonusText.text = "+" + item.flatLevelBonus + " Employee Level";
+            bonusText.text = "+" + item.flatLevelBonus + " Emp. Level";
         else if (item.category == "Chair")
             bonusText.text = "+" + item.flatXPBonus + "% XP Gain";
         else if (item.category == "Server")
