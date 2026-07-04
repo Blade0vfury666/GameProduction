@@ -1,0 +1,1313 @@
+fileFormatVersion: 2
+guid: 9583fadc14f934440985ec6a6061a366
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2748850214270964491
+    second: all-coin-valuables_0
+  - first:
+      213: 8822045117079457096
+    second: all-coin-valuables_1
+  - first:
+      213: 3295841537802534018
+    second: all-coin-valuables_2
+  - first:
+      213: 7328188501019475650
+    second: all-coin-valuables_3
+  - first:
+      213: -650346807780878851
+    second: all-coin-valuables_4
+  - first:
+      213: 1012279505217542729
+    second: all-coin-valuables_5
+  - first:
+      213: -6977993563220263635
+    second: all-coin-valuables_6
+  - first:
+      213: 7832184091218268203
+    second: all-coin-valuables_7
+  - first:
+      213: -3868191591237960922
+    second: all-coin-valuables_8
+  - first:
+      213: 3755417204584444161
+    second: all-coin-valuables_9
+  - first:
+      213: -4372712852432532580
+    second: all-coin-valuables_10
+  - first:
+      213: 1583874592861964158
+    second: all-coin-valuables_11
+  - first:
+      213: 9157757893603008324
+    second: all-coin-valuables_12
+  - first:
+      213: 4914139544287712917
+    second: all-coin-valuables_13
+  - first:
+      213: 1347610874775690745
+    second: all-coin-valuables_14
+  - first:
+      213: 3377455096083573183
+    second: all-coin-valuables_15
+  - first:
+      213: 595103627168273861
+    second: all-coin-valuables_16
+  - first:
+      213: -3313099287446331983
+    second: all-coin-valuables_17
+  - first:
+      213: -5022252547706841120
+    second: all-coin-valuables_18
+  - first:
+      213: -893418578785108321
+    second: all-coin-valuables_19
+  - first:
+      213: -6476516605121972507
+    second: all-coin-valuables_20
+  - first:
+      213: 3326574323756435065
+    second: all-coin-valuables_21
+  - first:
+      213: 1317641045063926970
+    second: all-coin-valuables_22
+  - first:
+      213: -5362012452370844509
+    second: all-coin-valuables_23
+  - first:
+      213: -7436160930604718565
+    second: all-coin-valuables_24
+  - first:
+      213: -4057434493932385041
+    second: all-coin-valuables_25
+  - first:
+      213: 6764170762481928068
+    second: all-coin-valuables_26
+  - first:
+      213: 2004120515488207057
+    second: all-coin-valuables_27
+  - first:
+      213: 8193134912280092442
+    second: all-coin-valuables_28
+  - first:
+      213: -5484826823438618687
+    second: all-coin-valuables_29
+  - first:
+      213: -5049583583095107856
+    second: all-coin-valuables_30
+  - first:
+      213: -2623818067115346372
+    second: all-coin-valuables_31
+  - first:
+      213: -3909136626331578535
+    second: all-coin-valuables_32
+  - first:
+      213: -8750047607198609176
+    second: all-coin-valuables_33
+  - first:
+      213: -9099446508241451596
+    second: all-coin-valuables_34
+  - first:
+      213: 1398339733332062144
+    second: all-coin-valuables_35
+  - first:
+      213: -8047714188710748295
+    second: all-coin-valuables_36
+  - first:
+      213: 7274528295753021054
+    second: all-coin-valuables_37
+  - first:
+      213: -7639702392137625609
+    second: all-coin-valuables_38
+  - first:
+      213: 4177935763913056407
+    second: all-coin-valuables_39
+  - first:
+      213: -7116991359947363470
+    second: all-coin-valuables_40
+  - first:
+      213: -523725384020047503
+    second: all-coin-valuables_41
+  - first:
+      213: -6865705004023428850
+    second: all-coin-valuables_42
+  - first:
+      213: 235331635052405608
+    second: all-coin-valuables_43
+  - first:
+      213: 4764152772344145337
+    second: all-coin-valuables_44
+  - first:
+      213: 7729055157753593433
+    second: all-coin-valuables_45
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: all-coin-valuables_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 163
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b039062b4b0e52620800000000000000
+      internalID: 2748850214270964491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 164
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84d8df3fa433e6a70800000000000000
+      internalID: 8822045117079457096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 163
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28c72b0aa6e2dbd20800000000000000
+      internalID: 3295841537802534018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_3
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 164
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce3e528d94f2b560800000000000000
+      internalID: 7328188501019475650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_4
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 168
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df55965260189f6f0800000000000000
+      internalID: -650346807780878851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_5
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 162
+        width: 30
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94a56e1c8d65c0e00800000000000000
+      internalID: 1012279505217542729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_6
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 164
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2d3b4343df292f90800000000000000
+      internalID: -6977993563220263635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_7
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 130
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b20d78c2fe181bc60800000000000000
+      internalID: 7832184091218268203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_8
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 134
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62bbb190e3c615ac0800000000000000
+      internalID: -3868191591237960922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_9
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 129
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10175aeec0ced1430800000000000000
+      internalID: 3755417204584444161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_10
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 131
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9b49fd04d00153c0800000000000000
+      internalID: -4372712852432532580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_11
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 132
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e77cd4cec8d0bf510800000000000000
+      internalID: 1583874592861964158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_12
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 129
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44f9c3bc844e61f70800000000000000
+      internalID: 9157757893603008324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_13
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 131
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59618f911e7823440800000000000000
+      internalID: 4914139544287712917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_14
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 99
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fd557e53fca3b210800000000000000
+      internalID: 1347610874775690745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_15
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 98
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb9e4eee3812fde20800000000000000
+      internalID: 3377455096083573183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_16
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 101
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c559ed889b324800800000000000000
+      internalID: 595103627168273861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_17
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 103
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bd592a60c18502d0800000000000000
+      internalID: -3313099287446331983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_18
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 100
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e712a9baef5d4ab0800000000000000
+      internalID: -5022252547706841120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_19
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 100
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9e77cf3980f993f0800000000000000
+      internalID: -893418578785108321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_20
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 100
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e639c1367ace16a0800000000000000
+      internalID: -6476516605121972507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_21
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 68
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9760076f8bd5a2e20800000000000000
+      internalID: 3326574323756435065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_22
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 66
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab48280ac83394210800000000000000
+      internalID: 1317641045063926970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_23
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 69
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a4f63f651e4695b0800000000000000
+      internalID: -5362012452370844509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_24
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 65
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b16eaa638037dc890800000000000000
+      internalID: -7436160930604718565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_25
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 67
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fec4eb133d811b7c0800000000000000
+      internalID: -4057434493932385041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_26
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 68
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48781d968792fdd50800000000000000
+      internalID: 6764170762481928068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_27
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 67
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d05fb49df010db10800000000000000
+      internalID: 2004120515488207057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_28
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 35
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f5e4b2bccd3b170800000000000000
+      internalID: 8193134912280092442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_29
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 35
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cf286e501bf1e3b0800000000000000
+      internalID: -5484826823438618687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_30
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 35
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fec8f92c764ce9b0800000000000000
+      internalID: -5049583583095107856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_31
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 36
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c36765a9e53569bd0800000000000000
+      internalID: -2623818067115346372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_32
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 35
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95f890923f4ffb9c0800000000000000
+      internalID: -3909136626331578535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_33
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 36
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e09b2d9f06919680800000000000000
+      internalID: -8750047607198609176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_34
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 35
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b589979c9548b180800000000000000
+      internalID: -9099446508241451596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_35
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 8
+        width: 28
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cf62982496e76310800000000000000
+      internalID: 1398339733332062144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_36
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 16
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97f56008596c05090800000000000000
+      internalID: -8047714188710748295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_37
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 10
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e76f2e061f054f460800000000000000
+      internalID: 7274528295753021054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_38
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 17
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ff4fe6b6235af590800000000000000
+      internalID: -7639702392137625609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_39
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 3
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 790207e01720bf930800000000000000
+      internalID: 4177935763913056407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_40
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 2
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27b20d8c01e5b3d90800000000000000
+      internalID: -7116991359947363470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_41
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 4
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17941adb98a5bb8f0800000000000000
+      internalID: -523725384020047503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_42
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 4
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e09cf86ccad18b0a0800000000000000
+      internalID: -6865705004023428850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_43
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 4
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 863e5bf00e0144300800000000000000
+      internalID: 235331635052405608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_44
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 4
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b5e34374bbad1240800000000000000
+      internalID: 4764152772344145337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: all-coin-valuables_45
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 3
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95ebd4737be134b60800000000000000
+      internalID: 7729055157753593433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      all-coin-valuables_0: 2748850214270964491
+      all-coin-valuables_1: 8822045117079457096
+      all-coin-valuables_10: -4372712852432532580
+      all-coin-valuables_11: 1583874592861964158
+      all-coin-valuables_12: 9157757893603008324
+      all-coin-valuables_13: 4914139544287712917
+      all-coin-valuables_14: 1347610874775690745
+      all-coin-valuables_15: 3377455096083573183
+      all-coin-valuables_16: 595103627168273861
+      all-coin-valuables_17: -3313099287446331983
+      all-coin-valuables_18: -5022252547706841120
+      all-coin-valuables_19: -893418578785108321
+      all-coin-valuables_2: 3295841537802534018
+      all-coin-valuables_20: -6476516605121972507
+      all-coin-valuables_21: 3326574323756435065
+      all-coin-valuables_22: 1317641045063926970
+      all-coin-valuables_23: -5362012452370844509
+      all-coin-valuables_24: -7436160930604718565
+      all-coin-valuables_25: -4057434493932385041
+      all-coin-valuables_26: 6764170762481928068
+      all-coin-valuables_27: 2004120515488207057
+      all-coin-valuables_28: 8193134912280092442
+      all-coin-valuables_29: -5484826823438618687
+      all-coin-valuables_3: 7328188501019475650
+      all-coin-valuables_30: -5049583583095107856
+      all-coin-valuables_31: -2623818067115346372
+      all-coin-valuables_32: -3909136626331578535
+      all-coin-valuables_33: -8750047607198609176
+      all-coin-valuables_34: -9099446508241451596
+      all-coin-valuables_35: 1398339733332062144
+      all-coin-valuables_36: -8047714188710748295
+      all-coin-valuables_37: 7274528295753021054
+      all-coin-valuables_38: -7639702392137625609
+      all-coin-valuables_39: 4177935763913056407
+      all-coin-valuables_4: -650346807780878851
+      all-coin-valuables_40: -7116991359947363470
+      all-coin-valuables_41: -523725384020047503
+      all-coin-valuables_42: -6865705004023428850
+      all-coin-valuables_43: 235331635052405608
+      all-coin-valuables_44: 4764152772344145337
+      all-coin-valuables_45: 7729055157753593433
+      all-coin-valuables_5: 1012279505217542729
+      all-coin-valuables_6: -6977993563220263635
+      all-coin-valuables_7: 7832184091218268203
+      all-coin-valuables_8: -3868191591237960922
+      all-coin-valuables_9: 3755417204584444161
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
