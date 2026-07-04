@@ -290,18 +290,38 @@ public class MarketManager : MonoBehaviour
         }
     }
     
+    // ============================================
+    // CURRENCY FORMATTING - Only above 1 Million
+    // ============================================
+    public string FormatCurrency(float amount)
+    {
+        // Only format if amount is 1,000,000 or higher
+        if (amount >= 1000000f)
+        {
+            if (amount >= 1000000000000f)
+                return (amount / 1000000000000f).ToString("0.##") + "T";
+            if (amount >= 1000000000f)
+                return (amount / 1000000000f).ToString("0.##") + "B";
+            if (amount >= 1000000f)
+                return (amount / 1000000f).ToString("0.##") + "M";
+        }
+        
+        // Below 1 million: show full number (no decimal)
+        return Mathf.FloorToInt(amount).ToString();
+    }
+    
     public void UpdatePlayerResourcesUI()
     {
         if (PlayerManager.instance == null) return;
         
         if (cashText != null)
         {
-            cashText.text = Mathf.FloorToInt(PlayerManager.instance.playerCash).ToString();
+            cashText.text = FormatCurrency(PlayerManager.instance.playerCash);
         }
         
         if (goldText != null)
         {
-            goldText.text = Mathf.FloorToInt(PlayerManager.instance.playerGold).ToString();
+            goldText.text = FormatCurrency(PlayerManager.instance.playerGold);
         }
     }
     

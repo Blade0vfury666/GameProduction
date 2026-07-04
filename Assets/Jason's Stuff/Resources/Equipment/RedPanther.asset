@@ -23,6 +23,6 @@ MonoBehaviour:
   goldCost: 0
   itemIcon: {fileID: -5280265125652372355, guid: 5ea62da2a16efb94699c6c8c0b001f96, type: 3}
   description: 
-  isOwned: 1
+  isOwned: 0
   isEquipped: 0
   requiredPlayerLevel: 0
