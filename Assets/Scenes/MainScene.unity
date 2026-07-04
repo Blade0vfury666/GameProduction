@@ -733,6 +733,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shop
       objectReference: {fileID: 0}
+    - target: {fileID: 726625222209092955, guid: 4b4c07fb5b01c63489e2711da85397e5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1987339751736473773, guid: 4b4c07fb5b01c63489e2711da85397e5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -823,31 +827,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3577347504882621497, guid: 4b4c07fb5b01c63489e2711da85397e5, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3577347504882621497, guid: 4b4c07fb5b01c63489e2711da85397e5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3577347504882621497, guid: 4b4c07fb5b01c63489e2711da85397e5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -11.431
       objectReference: {fileID: 0}
     - target: {fileID: 3779440641504554284, guid: 4b4c07fb5b01c63489e2711da85397e5, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3779440641504554284, guid: 4b4c07fb5b01c63489e2711da85397e5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 0.00000012389205
       objectReference: {fileID: 0}
     - target: {fileID: 3779440641504554284, guid: 4b4c07fb5b01c63489e2711da85397e5, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.000000061004776
       objectReference: {fileID: 0}
     - target: {fileID: 4026050656102324095, guid: 4b4c07fb5b01c63489e2711da85397e5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1000.4979
+      value: 1000.49786
       objectReference: {fileID: 0}
     - target: {fileID: 5350552993884120045, guid: 4b4c07fb5b01c63489e2711da85397e5, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3252,8 +3256,11 @@ MonoBehaviour:
   breakdownText: {fileID: 613532021}
   comboText: {fileID: 2130429952}
   baseMarkerSpeed: 300
-  baseZoneWidth: 100
+  baseZoneWidth: 130
   baseZoneMoveRange: 200
+  maxMarkerSpeed: 1200
+  minZoneWidth: 60
+  scopeDifficultyCap: 150
   progress: 0
   progressPerPerfect: 12
   progressPerGood: 10

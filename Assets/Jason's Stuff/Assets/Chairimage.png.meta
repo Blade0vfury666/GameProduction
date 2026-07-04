@@ -234,7 +234,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Chairimage_0: -3350096738984103065
+      Chairimage_1: 1232988614009976580
+      Chairimage_2: -8313128811902976488
+      Chairimage_3: -2168056782900845579
+      Chairimage_4: 8978972226068386866
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
