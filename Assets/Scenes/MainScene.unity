@@ -23651,8 +23651,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0db3869432cec14d999d2249fcc8c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickSFXSource: {fileID: 0}
-  MainMusicSource: {fileID: 0}
+  sfxSource: {fileID: 211232157}
+  musicSourceA: {fileID: 1737377647}
+  musicSourceB: {fileID: 1737377647}
+  defaultCrossfadeDuration: 1.5
+  sfxVolume: 1
+  musicVolume: 1
 --- !u!4 &923728005
 Transform:
   m_ObjectHideFlags: 0
@@ -70173,7 +70177,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 3779440641494290291}
   m_Direction: 2
   m_Value: -0.00000024825638
-  m_Size: 0
+  m_Size: 0.7827125
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
