@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9186d71bd00ada4792a8cf0f4dfa2fb, type: 3}
+  m_Name: RedPanther
+  m_EditorClassIdentifier: 
+  itemName: 'RedPanther '
+  category: Chair
+  brand: RedPanther
+  tier: Common
+  flatLevelBonus: 0
+  flatXPBonus: 5
+  flatScopeBonus: 0
+  cashCost: 10000
+  goldCost: 0
+  itemIcon: {fileID: -5280265125652372355, guid: 5ea62da2a16efb94699c6c8c0b001f96, type: 3}
+  description: 
+  isOwned: 1
+  isEquipped: 0
+  requiredPlayerLevel: 0

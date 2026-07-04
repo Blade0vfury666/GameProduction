@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9186d71bd00ada4792a8cf0f4dfa2fb, type: 3}
+  m_Name: MIS
+  m_EditorClassIdentifier: 
+  itemName: MIS Javelin SS2
+  category: Computer
+  brand: MIS
+  tier: Rare
+  flatLevelBonus: 3
+  flatXPBonus: 0
+  flatScopeBonus: 0
+  cashCost: 150000
+  goldCost: 0
+  itemIcon: {fileID: -1922372503003928337, guid: a38417d29183cf041b36e89c1bd73916, type: 3}
+  description: A very popular computer for gamers starting out.
+  isOwned: 0
+  isEquipped: 0
+  requiredPlayerLevel: 0

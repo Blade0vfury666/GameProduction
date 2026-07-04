@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9186d71bd00ada4792a8cf0f4dfa2fb, type: 3}
+  m_Name: Gethub
+  m_EditorClassIdentifier: 
+  itemName: 'GetHub Plus  '
+  category: Server
+  brand: GetHub
+  tier: Rare
+  flatLevelBonus: 0
+  flatXPBonus: 0
+  flatScopeBonus: 20
+  cashCost: 20000
+  goldCost: 0
+  itemIcon: {fileID: -8972848504368450261, guid: 1ae2314d6edbf5a4abb8003c699792c1, type: 3}
+  description: A New Computer! For you Anyways.
+  isOwned: 0
+  isEquipped: 0
+  requiredPlayerLevel: 0

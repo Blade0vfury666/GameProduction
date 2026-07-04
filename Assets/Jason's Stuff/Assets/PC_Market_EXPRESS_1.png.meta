@@ -1,0 +1,309 @@
+fileFormatVersion: 2
+guid: ff163b5552cd8114cb6f1a556ac7a536
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3820163921033425381
+    second: PC_Market_EXPRESS_1_0
+  - first:
+      213: -4242342236498819390
+    second: PC_Market_EXPRESS_1_1
+  - first:
+      213: 7705904340511889760
+    second: PC_Market_EXPRESS_1_2
+  - first:
+      213: -2027122400416109880
+    second: PC_Market_EXPRESS_1_3
+  - first:
+      213: -5108504065099221663
+    second: PC_Market_EXPRESS_1_4
+  - first:
+      213: 8491931132947902324
+    second: PC_Market_EXPRESS_1_5
+  - first:
+      213: 1486693034087823457
+    second: PC_Market_EXPRESS_1_6
+  - first:
+      213: 8003936329552979406
+    second: PC_Market_EXPRESS_1_7
+  - first:
+      213: 2653448040364725424
+    second: PC_Market_EXPRESS_1_8
+  - first:
+      213: 2491234560451315890
+    second: PC_Market_EXPRESS_1_9
+  - first:
+      213: -6379645047227073509
+    second: PC_Market_EXPRESS_1_10
+  - first:
+      213: 2470689276142986987
+    second: PC_Market_EXPRESS_1_11
+  - first:
+      213: 7332206685497260986
+    second: PC_Market_EXPRESS_1_12
+  - first:
+      213: 279020390328661068
+    second: PC_Market_EXPRESS_1_13
+  - first:
+      213: -6572472670848686247
+    second: PC_Market_EXPRESS_1_14
+  - first:
+      213: 4265271483919044523
+    second: PC_Market_EXPRESS_1_15
+  - first:
+      213: -146202488932020743
+    second: PC_Market_EXPRESS_1_16
+  - first:
+      213: -1335105644342252053
+    second: PC_Market_EXPRESS_1_17
+  - first:
+      213: 7858925074529041986
+    second: PC_Market_EXPRESS_1_18
+  - first:
+      213: -8575530664133839284
+    second: PC_Market_EXPRESS_1_19
+  - first:
+      213: 8323635926217551444
+    second: PC_Market_EXPRESS_1_20
+  - first:
+      213: -6935410004781232385
+    second: PC_Market_EXPRESS_1_21
+  - first:
+      213: 8229294224994242803
+    second: PC_Market_EXPRESS_1_22
+  - first:
+      213: 2715336769052732218
+    second: PC_Market_EXPRESS_1_23
+  - first:
+      213: -8277075978572952936
+    second: PC_Market_EXPRESS_1_24
+  - first:
+      213: -8823583004387762444
+    second: PC_Market_EXPRESS_1_25
+  - first:
+      213: 6271321383491765059
+    second: PC_Market_EXPRESS_1_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC_Market_EXPRESS_1_0
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 644
+        width: 622
+        height: 707
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e1f5f898d2f30530800000000000000
+      internalID: 3820163921033425381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Market_EXPRESS_1_1
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 842
+        width: 1042
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c60ad9763c2025c0800000000000000
+      internalID: -4242342236498819390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Market_EXPRESS_1_2
+      rect:
+        serializedVersion: 2
+        x: 1807
+        y: 1428
+        width: 66
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0691a598b2fd0fa60800000000000000
+      internalID: 7705904340511889760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Market_EXPRESS_1_10
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 1200
+        width: 61
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1c33fe51a2f677a0800000000000000
+      internalID: -6379645047227073509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC_Market_EXPRESS_1_11
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 1178
+        width: 60
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be6aede6ec6a94220800000000000000
+      internalID: 2470689276142986987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 61840472a645ad040a5ec4478ef3a2eb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PC_Market_EXPRESS_1_3: 546054568
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
