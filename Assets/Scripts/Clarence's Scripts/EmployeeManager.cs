@@ -38,12 +38,11 @@ public class EmployeeManager : MonoBehaviour
     public Transform legendaryResultContainer; 
     public GameObject legendaryFailMessage; 
     public GameObject legendaryDismissButton; 
-    // REMOVED: LegendaryWarningMessage
     public TMP_Text specialistTimerText; 
 
     [Header("Warnings")]
-    public GameObject insufficientFundsWarning; 
-    private float insufficientFundsTimer;
+    public TMP_Text warningTXT; 
+    private float warningTimer;
 
     private bool isSearchingLegendary;
     private float legendaryTimer;
@@ -58,21 +57,21 @@ public class EmployeeManager : MonoBehaviour
         hireRefreshTimer = 600f; 
         CloseAndResetLegendaryUI(); 
         
-        if (insufficientFundsWarning != null) insufficientFundsWarning.SetActive(false);
-        if (specialistTimerText != null) specialistTimerText.gameObject.SetActive(false);
+        warningTXT.gameObject.SetActive(false);
+        specialistTimerText.gameObject.SetActive(false);
         
         GenerateNewMarket();
     }
 
     void Update()
     {
-        // --- INSUFFICIENT FUNDS TIMER LOGIC ---
-        if (insufficientFundsTimer > 0f)
+        // --- WARNING TIMER LOGIC ---
+        if (warningTimer > 0f)
         {
-            insufficientFundsTimer -= Time.deltaTime;
-            if (insufficientFundsTimer <= 0f)
+            warningTimer -= Time.deltaTime;
+            if (warningTimer <= 0f)
             {
-                if (insufficientFundsWarning != null) insufficientFundsWarning.SetActive(false);
+                warningTXT.gameObject.SetActive(false);
             }
         }
 
@@ -82,10 +81,7 @@ public class EmployeeManager : MonoBehaviour
         int minutes = Mathf.FloorToInt(hireRefreshTimer / 60f);
         int seconds = Mathf.FloorToInt(hireRefreshTimer % 60f);
         
-        if (hireRefreshTimerText != null)
-        {
-            hireRefreshTimerText.text = "Refresh in: " + minutes + "m " + seconds + "s";
-        }
+        hireRefreshTimerText.text = "Refresh in: " + minutes + "m " + seconds + "s";
 
         if (hireRefreshTimer <= 0f)
         {
@@ -100,10 +96,7 @@ public class EmployeeManager : MonoBehaviour
             
             int sMinutes = Mathf.CeilToInt(legendaryTimer / 60f); 
             
-            if (specialistTimerText != null)
-            {
-                specialistTimerText.text = "Searching. Time: " + sMinutes + "m";
-            }
+            specialistTimerText.text = "Searching. Time: " + sMinutes + "m";
 
             if (legendaryTimer <= 0f)
             {
@@ -112,17 +105,11 @@ public class EmployeeManager : MonoBehaviour
         }
     }
 
-    public void TriggerInsufficientFundsWarning()
+    public void ShowWarning(string message)
     {
-        if (insufficientFundsWarning != null)
-        {
-            insufficientFundsWarning.SetActive(true);
-            insufficientFundsTimer = 5f; 
-        }
-        else
-        {
-            Debug.LogWarning("WARNING OBJECT NOT ASSIGNED IN INSPECTOR!");
-        }
+        warningTXT.text = message;
+        warningTXT.gameObject.SetActive(true);
+        warningTimer = 5f; 
     }
 
     // --- MAIN LIST LOGIC ---
@@ -137,7 +124,7 @@ public class EmployeeManager : MonoBehaviour
         }
         else
         {
-            TriggerInsufficientFundsWarning();
+            ShowWarning("Insufficient Funds!");
         }
     }
 
@@ -153,7 +140,6 @@ public class EmployeeManager : MonoBehaviour
             int randomLevel = 1;
             int rarityRoll = Random.Range(1, 101);
 
-            // ADJUSTED: Common (90%) and Rare (10%)
             if (rarityRoll <= 90) 
             {
                 randomLevel = Random.Range(1, 21); // Common
@@ -173,19 +159,28 @@ public class EmployeeManager : MonoBehaviour
     {
         if (isSearchingLegendary == false)
         {
-            if (PlayerManager.instance.playerGold >= specialistSearchCost)
+            // CHECK IF THERE IS ROOM FIRST, MASTER!
+            if (PlayerManager.instance.hiredEmployees.Count < PlayerManager.instance.maxEmployeeSlots)
             {
-                PlayerManager.instance.playerGold -= specialistSearchCost;
-                isSearchingLegendary = true;
-                
-                legendaryTimer = specialistSearchTime; 
-                
-                if (specialistTimerText != null) specialistTimerText.gameObject.SetActive(true);
-                if (searchSpecialistButton != null) searchSpecialistButton.interactable = false; 
+                // THEN CHECK FUNDS
+                if (PlayerManager.instance.playerGold >= specialistSearchCost)
+                {
+                    PlayerManager.instance.playerGold -= specialistSearchCost;
+                    isSearchingLegendary = true;
+                    
+                    legendaryTimer = specialistSearchTime; 
+                    
+                    specialistTimerText.gameObject.SetActive(true);
+                    searchSpecialistButton.interactable = false; 
+                }
+                else
+                {
+                    ShowWarning("Insufficient Funds!"); 
+                }
             }
             else
             {
-                TriggerInsufficientFundsWarning(); 
+                ShowWarning("Upgrade Workspace!");
             }
         }
     }
@@ -194,10 +189,10 @@ public class EmployeeManager : MonoBehaviour
     {
         isSearchingLegendary = false;
         
-        if (specialistTimerText != null) specialistTimerText.gameObject.SetActive(false);
-        if (searchSpecialistButton != null) searchSpecialistButton.interactable = true; 
+        specialistTimerText.gameObject.SetActive(false);
+        searchSpecialistButton.interactable = true; 
         
-        if (legendaryPopupCanvas != null) legendaryPopupCanvas.SetActive(true);
+        legendaryPopupCanvas.SetActive(true);
 
         foreach (Transform child in legendaryResultContainer)
         {
@@ -208,26 +203,24 @@ public class EmployeeManager : MonoBehaviour
 
         if (legendaryRoll <= 5) // 5% Success!
         {
-            if (legendaryFailMessage != null) legendaryFailMessage.SetActive(false);
-            if (legendaryDismissButton != null) legendaryDismissButton.SetActive(false);
+            legendaryFailMessage.SetActive(false);
+            legendaryDismissButton.SetActive(false);
             
-            // WARNING TEXT COMPLETELY REMOVED
-
             int randomLevel = Random.Range(41, 61); 
             SpawnEmployee(randomLevel, legendaryResultContainer, true);
         }
         else // Fail...
         {
-            if (legendaryFailMessage != null) legendaryFailMessage.SetActive(true);
-            if (legendaryDismissButton != null) legendaryDismissButton.SetActive(true);
+            legendaryFailMessage.SetActive(true);
+            legendaryDismissButton.SetActive(true);
         }
     }
 
     public void CloseAndResetLegendaryUI()
     {
-        if (legendaryPopupCanvas != null) legendaryPopupCanvas.SetActive(false);
-        if (legendaryFailMessage != null) legendaryFailMessage.SetActive(false);
-        if (legendaryDismissButton != null) legendaryDismissButton.SetActive(false);
+        legendaryPopupCanvas.SetActive(false);
+        legendaryFailMessage.SetActive(false);
+        legendaryDismissButton.SetActive(false);
 
         foreach (Transform child in legendaryResultContainer)
         {

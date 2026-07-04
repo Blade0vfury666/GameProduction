@@ -96,12 +96,14 @@ public class EmployeeScript : MonoBehaviour
             }
             else
             {
-                Debug.Log("No slots available!"); 
+                // NO SLOTS AVAILABLE
+                EmployeeManager.instance.ShowWarning("Upgrade Workspace!");
             }
         }
         else
         {
-            EmployeeManager.instance.TriggerInsufficientFundsWarning();
+            // NOT ENOUGH MONEY
+            EmployeeManager.instance.ShowWarning("Insufficient Funds!");
         }
     }
 }
