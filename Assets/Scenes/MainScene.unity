@@ -3087,6 +3087,9 @@ MonoBehaviour:
   baseMarkerSpeed: 300
   baseZoneWidth: 100
   baseZoneMoveRange: 200
+  maxMarkerSpeed: 1200
+  minZoneWidth: 50
+  scopeDifficultyCap: 150
   progress: 0
   progressPerPerfect: 12
   progressPerGood: 10

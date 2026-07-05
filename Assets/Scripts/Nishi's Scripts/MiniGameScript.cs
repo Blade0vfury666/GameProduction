@@ -23,10 +23,15 @@ public class MiniGame1 : MonoBehaviour
     public TMP_Text breakdownText;
     public TMP_Text comboText;
 
-    [Header("Base Difficulty Settings")]
+    [Header("Base Difficulty Settings (Easiest)")]
     public float baseMarkerSpeed = 300f;
-    public float baseZoneWidth = 100f;
-    public float baseZoneMoveRange = 200f;
+    public float baseZoneWidth = 150f;
+    public float baseZoneMoveRange = 200f; // Put back to 200 so it moves wildly again!
+
+    [Header("Max Difficulty Settings (Hardest)")]
+    public float maxMarkerSpeed = 800f;
+    public float minZoneWidth = 40f; 
+    public float scopeDifficultyCap = 150f; 
 
     [Header("Progress")]
     public float progress = 0f;
@@ -59,20 +64,36 @@ public class MiniGame1 : MonoBehaviour
         currentGameGenre = gameGenre;
         currentGameScope = gameScope;
 
-        // Phase B Difficulty Formulas
-        activeMarkerSpeed = baseMarkerSpeed + (gameScope * 15f);
+        // 1. CALCULATE DIFFICULTY PERCENTAGE FOR SPEED & WIDTH
+        float difficultyPercent = gameScope / scopeDifficultyCap;
         
-        float newZoneWidth = baseZoneWidth - (gameScope * 3f);
-        if (newZoneWidth < 20f)
+        if (difficultyPercent > 1f)
         {
-            newZoneWidth = 20f; // Clamped playable minimum
+            difficultyPercent = 1f; 
         }
-        
+
+        activeMarkerSpeed = Mathf.Lerp(baseMarkerSpeed, maxMarkerSpeed, difficultyPercent);
+        float activeZoneWidth = Mathf.Lerp(baseZoneWidth, minZoneWidth, difficultyPercent);
+
         Vector2 zoneSize = successZone.sizeDelta;
-        zoneSize.x = newZoneWidth;
+        zoneSize.x = activeZoneWidth;
         successZone.sizeDelta = zoneSize;
 
-        activeZoneMoveRange = baseZoneMoveRange + (gameScope * 8f);
+        // 2. FOOLPROOF OUT-OF-BOUNDS FIX WITH YOUR OLD AGGRESSIVE MATH
+        float trackHalfWidth = trackArea.rect.width / 2f;
+        float zoneHalfWidth = activeZoneWidth / 2f;
+        float absoluteMaxSafeRange = trackHalfWidth - zoneHalfWidth;
+
+        // We use your old math so it jumps far right from Level 1
+        float calculatedMoveRange = baseZoneMoveRange + (gameScope * 8f);
+        
+        // But if it tries to jump out of bounds, we hard-stop it at the edge of the track!
+        if (calculatedMoveRange > absoluteMaxSafeRange)
+        {
+            calculatedMoveRange = absoluteMaxSafeRange;
+        }
+
+        activeZoneMoveRange = calculatedMoveRange;
 
         // Reset all states
         progress = 0f;
@@ -115,8 +136,14 @@ public class MiniGame1 : MonoBehaviour
         float currentSpeed = activeMarkerSpeed * speedMultiplier;
         Vector2 pos = marker.anchoredPosition;
 
-        if (movingRight == true) pos.x = pos.x + (currentSpeed * Time.deltaTime);
-        else pos.x = pos.x - (currentSpeed * Time.deltaTime);
+        if (movingRight == true) 
+        {
+            pos.x = pos.x + (currentSpeed * Time.deltaTime);
+        }
+        else 
+        {
+            pos.x = pos.x - (currentSpeed * Time.deltaTime);
+        }
 
         if (pos.x >= halfWidth)
         {
@@ -195,7 +222,10 @@ public class MiniGame1 : MonoBehaviour
 
     void UpdateUI()
     {
-        if (progress > 100f) progress = 100f;
+        if (progress > 100f) 
+        {
+            progress = 100f;
+        }
 
         if (progressBar != null)
         {
@@ -223,7 +253,10 @@ public class MiniGame1 : MonoBehaviour
             finalAccuracy = (hitScore / totalHits) * 100f;
         }
 
-        if (finalAccuracy > 100f) finalAccuracy = 100f;
+        if (finalAccuracy > 100f) 
+        {
+            finalAccuracy = 100f;
+        }
 
         resultPopup.SetActive(true);
 
@@ -237,7 +270,6 @@ public class MiniGame1 : MonoBehaviour
 
     public void ClosePopup()
     {
-        // Instantly spawn the final game!
         GameEntityScript spawnedGame = Instantiate(gamePrefab, listParent);
         spawnedGame.SetupGame(currentGameName, currentGameGenre, currentGameScope, finalAccuracy);
 
