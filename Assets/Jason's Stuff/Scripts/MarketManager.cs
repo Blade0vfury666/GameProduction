@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 
+// Manages the in-game marketplace, including item display, purchasing, equipping,
+
 public class MarketManager : MonoBehaviour
 {
     public static MarketManager instance;
@@ -43,7 +45,7 @@ public class MarketManager : MonoBehaviour
         instance = this;
     }
     
-    void Start()
+    void Start()  // Load Equipment UI
     {
         LoadAllEquipment();
         PopulateMarketUI();
@@ -71,7 +73,7 @@ public class MarketManager : MonoBehaviour
         allEquipment.AddRange(items);
     }
     
-    public void PopulateMarketUI()
+    public void PopulateMarketUI()  /// Loads all Equipment ScriptableObjects from the Resources/Equipment folder.
     {
         ClearContainer(computersContainer);
         ClearContainer(chairsContainer);
@@ -84,7 +86,7 @@ public class MarketManager : MonoBehaviour
             button.Setup(item, this);
         }
 
-        if (inventoryContainer != null)
+        if (inventoryContainer != null) // Populate the inventory section
             PopulateInventoryUI();
     }
     
