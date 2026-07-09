@@ -14,32 +14,24 @@ public class MiniGameAudio : MonoBehaviour
     [Header("BGM Settings")]
     [SerializeField] private AudioClip miniGameBGM;
 
-    [Header("Panel Reference")]
-    [SerializeField] private GameObject miniGamePanel;
-
     private string lastText = "";
-    private bool isBGMPlaying = false;
+
+    void OnEnable()
+    {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayMusic(miniGameBGM);
+
+        lastText = "";
+    }
+
+    void OnDisable()
+    {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.ReturnToPreviousMusic();
+    }
 
     void Update()
     {
-        // ============================================
-        // BGM: Auto-play when panel is active
-        // ============================================
-        if (miniGamePanel != null)
-        {
-            if (miniGamePanel.activeSelf && !isBGMPlaying)
-            {
-                PlayBGM();
-            }
-            else if (!miniGamePanel.activeSelf && isBGMPlaying)
-            {
-                StopBGM();
-            }
-        }
-
-        // ============================================
-        // SFX: Detect combo text changes
-        // ============================================
         if (comboText == null) return;
         if (comboText.text == lastText) return;
 
@@ -57,47 +49,5 @@ public class MiniGameAudio : MonoBehaviour
                 AudioManager.Instance.PlaySFX(missSFX);
                 break;
         }
-    }
-
-    void PlayBGM()
-    {
-        if (AudioManager.Instance == null)
-        {
-            Debug.LogWarning("AudioManager.Instance is null!");
-            return;
-        }
-
-        if (miniGameBGM == null)
-        {
-            Debug.LogWarning("miniGameBGM is not assigned!");
-            return;
-        }
-
-        if (isBGMPlaying) return;
-
-        AudioManager.Instance.PlayMusic(miniGameBGM);
-        isBGMPlaying = true;
-        Debug.Log("MiniGame BGM started: " + miniGameBGM.name);
-    }
-
-    void StopBGM()
-    {
-        if (AudioManager.Instance == null) return;
-        if (!isBGMPlaying) return;
-
-        AudioManager.Instance.StopMusic();
-        isBGMPlaying = false;
-        Debug.Log("MiniGame BGM stopped");
-    }
-
-    void OnEnable()
-    {
-        // Reset state when enabled
-        isBGMPlaying = false;
-    }
-
-    void OnDisable()
-    {
-        StopBGM();
     }
 }

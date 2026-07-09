@@ -31,6 +31,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource inactiveMusicSource;
     private Coroutine crossfadeCoroutine;
     private AudioClip currentClip;
+    private AudioClip previousClip;
 
     private void Awake()
     {
@@ -78,9 +79,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // ============================================
+   
     // FIXED: PlayMusic with duplicate check
-    // ============================================
+    
     public void PlayMusic(AudioClip clip, float? fadeDuration = null)
     {
         if (clip == null) return;
@@ -93,6 +94,7 @@ public class AudioManager : MonoBehaviour
         }
 
         Debug.Log("Playing music: " + clip.name);
+        previousClip = currentClip;
         currentClip = clip;
         float duration = fadeDuration ?? defaultCrossfadeDuration;
 
@@ -100,6 +102,12 @@ public class AudioManager : MonoBehaviour
             StopCoroutine(crossfadeCoroutine);
 
         crossfadeCoroutine = StartCoroutine(CrossfadeTo(clip, duration));
+    }
+
+    public void ReturnToPreviousMusic(float? fadeDuration = null)
+    {
+        if (previousClip == null) return;
+        PlayMusic(previousClip, fadeDuration);
     }
 
     private IEnumerator CrossfadeTo(AudioClip newClip, float duration)
