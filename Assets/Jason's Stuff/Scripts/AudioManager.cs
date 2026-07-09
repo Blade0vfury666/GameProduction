@@ -1,5 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
+[System.Serializable]
+public class SFXEntry
+{
+    public string name;
+    public AudioClip clip;
+}
 
 public class AudioManager : MonoBehaviour
 {
@@ -7,6 +15,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private List<SFXEntry> sfxLibrary;
+    private Dictionary<string, AudioClip> sfxDictionary;
 
     [Header("Music (2 sources for crossfading)")]
     [SerializeField] private AudioSource musicSourceA;
@@ -41,6 +51,13 @@ public class AudioManager : MonoBehaviour
         sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
         musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
         activeMusicSource.volume = musicVolume;
+
+        sfxDictionary = new Dictionary<string, AudioClip>();
+        foreach (var entry in sfxLibrary)
+        {
+            if (!sfxDictionary.ContainsKey(entry.name))
+                sfxDictionary[entry.name] = entry.clip;
+        }
     }
 
     public void PlaySFX(AudioClip clip, float volume = 1f)
@@ -49,10 +66,33 @@ public class AudioManager : MonoBehaviour
         sfxSource.PlayOneShot(clip, volume * sfxVolume);
     }
 
+    public void PlaySFX(string clipName, float volume = 1f)
+    {
+        if (sfxDictionary.TryGetValue(clipName, out AudioClip clip))
+        {
+            sfxSource.PlayOneShot(clip, volume * sfxVolume);
+        }
+        else
+        {
+            Debug.LogWarning($"SFX '{clipName}' not found in library.");
+        }
+    }
+
+    // ============================================
+    // FIXED: PlayMusic with duplicate check
+    // ============================================
     public void PlayMusic(AudioClip clip, float? fadeDuration = null)
     {
-        if (clip == null || clip == currentClip) return;
+        if (clip == null) return;
 
+        // Don't restart the same clip if it's already playing
+        if (clip == currentClip && activeMusicSource.isPlaying)
+        {
+            Debug.Log("Music already playing: " + clip.name);
+            return;
+        }
+
+        Debug.Log("Playing music: " + clip.name);
         currentClip = clip;
         float duration = fadeDuration ?? defaultCrossfadeDuration;
 
@@ -64,6 +104,7 @@ public class AudioManager : MonoBehaviour
 
     private IEnumerator CrossfadeTo(AudioClip newClip, float duration)
     {
+        // Ensure the inactive source is ready
         inactiveMusicSource.clip = newClip;
         inactiveMusicSource.volume = 0f;
         inactiveMusicSource.Play();
@@ -86,6 +127,7 @@ public class AudioManager : MonoBehaviour
         activeMusicSource.volume = 0f;
         inactiveMusicSource.volume = musicVolume;
 
+        // Swap sources
         (activeMusicSource, inactiveMusicSource) = (inactiveMusicSource, activeMusicSource);
         crossfadeCoroutine = null;
     }
@@ -113,6 +155,7 @@ public class AudioManager : MonoBehaviour
 
         activeMusicSource.Stop();
         activeMusicSource.volume = 0f;
+        crossfadeCoroutine = null;
     }
 
     public void SetSFXVolume(float volume)
