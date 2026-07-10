@@ -71,9 +71,9 @@ public class MarketEquipmentIntegration : MonoBehaviour
         // Update PlayerManager with current bonuses (already done by EquipmentManager)
     }
 
-    // ============================================
+   
     // METHODS FOR MAKEGAME SCRIPT TO USE
-    // ============================================
+    
 
     public int GetMaxScopeWithBonus(int baseMaxScope)
     {

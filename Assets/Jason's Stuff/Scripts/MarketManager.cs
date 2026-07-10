@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 using System.Collections.Generic;
 
 // Manages the in-game marketplace, including item display, purchasing, equipping,
@@ -12,6 +13,11 @@ public class MarketManager : MonoBehaviour
     [Header("UI Panels")]
     public GameObject marketPanel;
     public GameObject confirmPopup;
+
+    [Header("Error Warning")]
+    public GameObject errorWarningPanel;
+    public TextMeshProUGUI errorWarningText;
+    private Coroutine errorCoroutine;
     
     [Header("Item Containers")]
     public Transform computersContainer;
@@ -54,6 +60,9 @@ public class MarketManager : MonoBehaviour
         
         confirmPopup.SetActive(false);
         marketPanel.SetActive(false);
+
+        if (errorWarningPanel != null)
+            errorWarningPanel.SetActive(false);
         
         if (confirmBuyButton != null)
             confirmBuyButton.onClick.AddListener(ConfirmPurchase);
@@ -133,6 +142,27 @@ public class MarketManager : MonoBehaviour
             Debug.Log(item.itemName + " is already owned.");
             return;
         }
+
+        if (PlayerManager.instance != null && PlayerManager.instance.playerLevel < item.requiredPlayerLevel)
+        {
+            ShowError("Requires Level " + item.requiredPlayerLevel);
+            return;
+        }
+
+        bool canAfford = true;
+        if (PlayerManager.instance != null)
+        {
+            if (item.cashCost > 0 && PlayerManager.instance.playerCash < (float)item.cashCost)
+                canAfford = false;
+            if (item.goldCost > 0 && PlayerManager.instance.playerGold < (float)item.goldCost)
+                canAfford = false;
+        }
+
+        if (!canAfford)
+        {
+            ShowError("Not enough " + (item.cashCost > 0 ? "Cash" : "Gold") + "!");
+            return;
+        }
         
         selectedItem = item;
         ShowConfirmPopup();
@@ -177,7 +207,7 @@ public class MarketManager : MonoBehaviour
         
         if (PlayerManager.instance.playerLevel < selectedItem.requiredPlayerLevel)
         {
-            Debug.Log("Cannot purchase " + selectedItem.itemName + " - Requires Level " + selectedItem.requiredPlayerLevel);
+            ShowError("Requires Level " + selectedItem.requiredPlayerLevel);
             ClosePopup();
             return;
         }
@@ -207,8 +237,35 @@ public class MarketManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Cannot afford " + selectedItem.itemName);
+            ShowError("Not enough " + (selectedItem.cashCost > 0 ? "Cash" : "Gold") + "!");
         }
+    }
+
+  
+    // ERROR WARNING SYSTEM
+    
+    private void ShowError(string message)
+    {
+        if (errorWarningPanel == null) return;
+
+        errorWarningPanel.SetActive(true);
+        if (errorWarningText != null)
+            errorWarningText.text = message;
+
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlaySFX("PurchaseError");
+
+        if (errorCoroutine != null)
+            StopCoroutine(errorCoroutine);
+
+        errorCoroutine = StartCoroutine(HideErrorAfterDelay());
+    }
+
+    private IEnumerator HideErrorAfterDelay()
+    {
+        yield return new WaitForSeconds(2.5f);
+        errorWarningPanel.SetActive(false);
+        errorCoroutine = null;
     }
     
     public void EquipItem(Equipment item)
@@ -292,9 +349,9 @@ public class MarketManager : MonoBehaviour
         }
     }
     
-    // ============================================
+    
     // CURRENCY FORMATTING - Only above 1 Million
-    // ============================================
+   
     public string FormatCurrency(float amount)
     {
         // Only format if amount is 1,000,000 or higher

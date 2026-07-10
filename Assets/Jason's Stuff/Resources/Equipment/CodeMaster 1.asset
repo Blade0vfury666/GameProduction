@@ -25,4 +25,4 @@ MonoBehaviour:
   description: The best of the best.
   isOwned: 0
   isEquipped: 0
-  requiredPlayerLevel: 25
+  requiredPlayerLevel: 5

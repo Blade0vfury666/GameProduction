@@ -66,7 +66,8 @@ public class EquipmentButton : MonoBehaviour
                     canAfford = false;
             }
             
-            buyButton.interactable = canAfford && meetsLevelRequirement;
+            
+            buyButton.interactable = true;
             
             if (!meetsLevelRequirement)
             {
