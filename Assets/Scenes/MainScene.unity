@@ -48227,7 +48227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5dd367dabbbee46a0cd59893c7f7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickSoundName: Buy
+  clickSoundName: Failed
 --- !u!114 &1689094666
 MonoBehaviour:
   m_ObjectHideFlags: 0
