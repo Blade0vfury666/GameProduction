@@ -76,7 +76,7 @@ public class EquipmentButton : MonoBehaviour
             }
             else
             {
-                costText.color = Color.white;
+                costText.color = Color.black;
             }
         }
         
