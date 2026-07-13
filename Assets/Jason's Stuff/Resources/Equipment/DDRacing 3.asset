@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9186d71bd00ada4792a8cf0f4dfa2fb, type: 3}
-  m_Name: CodeMaster 2
+  m_Name: DDRacing 3
   m_EditorClassIdentifier: 
-  itemName: CodeMaster Performance Pro
-  category: Computer
-  brand: CodeMaster
+  itemName: DDRacing Hulkenberg
+  category: Chair
+  brand: DDRacing
   tier: Rare
-  flatLevelBonus: 4
-  flatXPBonus: 0
+  flatLevelBonus: 0
+  flatXPBonus: 7
   flatScopeBonus: 0
-  cashCost: 35000
+  cashCost: 30000
   goldCost: 0
-  itemIcon: {fileID: -1922372503003928337, guid: a38417d29183cf041b36e89c1bd73916, type: 3}
-  description: A tad more expensive than the Performance but it does perform.
+  itemIcon: {fileID: -5280265125652372355, guid: 5ea62da2a16efb94699c6c8c0b001f96, type: 3}
+  description: Podium in 2025!
   isOwned: 0
   isEquipped: 0
-  requiredPlayerLevel: 10
+  requiredPlayerLevel: 25

@@ -22,7 +22,7 @@ MonoBehaviour:
   cashCost: 10000
   goldCost: 0
   itemIcon: {fileID: -1298764309372866489, guid: 1fa7d93b626bbe241aaf540024c790f8, type: 3}
-  description: A New Computer! For you Anyways.
+  description: Amazo's Cloud Service, too bad you can't afford the normal one.. yet.
   isOwned: 0
   isEquipped: 0
   requiredPlayerLevel: 0

@@ -149,5 +149,5 @@ public class EquipmentManager : MonoBehaviour
                 return item.itemName;
         }
         return "N/A";
-}
+    }
 }

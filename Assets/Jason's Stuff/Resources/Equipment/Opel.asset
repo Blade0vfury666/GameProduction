@@ -22,7 +22,7 @@ MonoBehaviour:
   cashCost: 25000
   goldCost: 0
   itemIcon: {fileID: -5280265125652372355, guid: 5ea62da2a16efb94699c6c8c0b001f96, type: 3}
-  description: 
+  description: Opel, fabric so good you can almost fall asleep on it.
   isOwned: 0
   isEquipped: 0
   requiredPlayerLevel: 15

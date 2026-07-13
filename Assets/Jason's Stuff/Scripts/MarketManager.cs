@@ -13,6 +13,7 @@ public class MarketManager : MonoBehaviour
     [Header("UI Panels")]
     public GameObject marketPanel;
     public EquipmentDetailPopup detailPopup;
+    public GameObject confirmPopup;
 
     [Header("Error Warning")]
     public GameObject errorWarningPanel;
@@ -188,6 +189,7 @@ public class MarketManager : MonoBehaviour
         if (PlayerManager.instance.playerLevel < selectedItem.requiredPlayerLevel)
         {
             ShowError("Requires Level " + selectedItem.requiredPlayerLevel);
+            PlayFailSFX();
             ClosePopup();
             return;
         }
@@ -212,15 +214,30 @@ public class MarketManager : MonoBehaviour
             UpdatePlayerResourcesUI();
             UpdateCurrentStatsUI();
             PopulateMarketUI();
-            
+            PlaySuccessSFX();
             ClosePopup();
         }
         else
         {
             ShowError("Not enough " + (selectedItem.cashCost > 0 ? "Cash" : "Gold") + "!");
+            PlayFailSFX();
             ClosePopup();
         }
+
+        
     }
+
+        private void PlaySuccessSFX()
+        {
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlaySFX("PurchaseSuccess");
+        }
+
+        private void PlayFailSFX()
+        {
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlaySFX("PurchaseError");
+        }
 
   
     // ERROR WARNING SYSTEM
@@ -232,9 +249,6 @@ public class MarketManager : MonoBehaviour
         errorWarningPanel.SetActive(true);
         if (errorWarningText != null)
             errorWarningText.text = message;
-
-        if (AudioManager.Instance != null)
-            AudioManager.Instance.PlaySFX("PurchaseError");
 
         if (errorCoroutine != null)
             StopCoroutine(errorCoroutine);
@@ -412,9 +426,24 @@ public class MarketManager : MonoBehaviour
     {
         if (detailPopup != null)
             detailPopup.Hide();
+        if (confirmPopup != null)  
+            confirmPopup.SetActive(false);
 
         selectedItem = null;
     }
+    
+   public void CancelPurchase()
+{
+    Debug.Log("CancelPurchase called!");
+    
+    if (confirmPopup != null)
+    {
+        confirmPopup.SetActive(false);
+        Debug.Log("confirmPopup closed directly!");
+    }
+    
+    selectedItem = null;
+}
     
     public void OpenMarket()
     {
@@ -441,6 +470,9 @@ public class MarketManager : MonoBehaviour
 
         if (detailPopup != null)
             detailPopup.Hide();
+
+        if (confirmPopup != null)  
+        confirmPopup.SetActive(false);
     }
 
     public void ResetAllPurchases()
