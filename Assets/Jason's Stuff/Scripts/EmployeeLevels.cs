@@ -8,7 +8,7 @@ public class EmployeeLevelDisplay : MonoBehaviour
     [SerializeField] private TMP_Text employeeCountText;
 
     [Header("Display Settings")]
-    [SerializeField] private string prefix = "";
+    [SerializeField] private string prefix = "Total Level: ";
     [SerializeField] private string suffix = "";
     [SerializeField] private bool showEmployeeCount = true;
     [SerializeField] private string countPrefix = "Employees: ";
@@ -37,12 +37,12 @@ public class EmployeeLevelDisplay : MonoBehaviour
     {
         if (employeeLevelText == null) return;
 
-        int avgLevel = GetAverageEmployeeLevel();
+        int totalLevel = GetTotalEmployeeLevel();
         int count = GetEmployeeCount();
 
         if (employeeLevelText != null)
         {
-            employeeLevelText.text = prefix + avgLevel.ToString() + suffix;
+            employeeLevelText.text = prefix + totalLevel.ToString() + suffix;
         }
 
         if (employeeCountText != null && showEmployeeCount)
@@ -50,25 +50,22 @@ public class EmployeeLevelDisplay : MonoBehaviour
             employeeCountText.text = countPrefix + count.ToString() + countSuffix;
         }
 
-        lastLevel = avgLevel;
+        lastLevel = totalLevel;
         lastCount = count;
     }
 
-    public int GetAverageEmployeeLevel()
+    public int GetTotalEmployeeLevel()
     {
-        if (PlayerManager.instance == null) return 1;
+        if (PlayerManager.instance == null) return 0;
 
         int totalLevel = 0;
-        int count = PlayerManager.instance.hiredEmployees.Count;
-
-        if (count == 0) return 1;
 
         foreach (HiredEmployeeScript emp in PlayerManager.instance.hiredEmployees)
         {
             totalLevel += emp.GetFinalLevel();
         }
 
-        return totalLevel / count;
+        return totalLevel;
     }
 
     public int GetEmployeeCount()

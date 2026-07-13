@@ -30,7 +30,7 @@ public class MiniGame1 : MonoBehaviour
 
     [Header("Max Difficulty Settings (Hardest)")]
     public float maxMarkerSpeed = 800f;
-    public float minZoneWidth = 40f; 
+    public float minZoneWidth = 60f; 
     public float scopeDifficultyCap = 150f; 
 
     [Header("Progress")]

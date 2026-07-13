@@ -55,7 +55,7 @@ public class MarketEquipmentIntegration : MonoBehaviour
             pcBonusText.text = "PC SPEC: " + pcName + " (+" + pcBonus + " Emp. Level)";
 
         if (chairBonusText != null)
-            chairBonusText.text = "CHAIR: " + chairName + " (-" + chairBonus + "% XP Gain)";
+            chairBonusText.text = "CHAIR: " + chairName + " (+" + chairBonus + "% XP Gain)";
 
         if (serverBonusText != null)
             serverBonusText.text = "SERVER: " + serverName + " (+" + serverBonus + " Max Scope)";

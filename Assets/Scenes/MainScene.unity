@@ -68940,12 +68940,12 @@ GameObject:
   - component: {fileID: 4937679489991976341}
   - component: {fileID: 7083994437551171018}
   m_Layer: 6
-  m_Name: RESET BUTTON FOR TEST
+  m_Name: RESET BUTTON 4 items(DISABLE WHEN PLAYTESTING)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &998491500414686167
 CanvasRenderer:
   m_ObjectHideFlags: 0
