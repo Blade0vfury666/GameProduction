@@ -140,4 +140,14 @@ public class EquipmentManager : MonoBehaviour
     {
         return 1f + (totalScopeBonus / 100f);
     }
+    public string GetEquippedName(string category)
+    {
+        Equipment[] allEquipment = Resources.LoadAll<Equipment>("Equipment");
+        foreach (Equipment item in allEquipment)
+        {
+            if (item.category == category && item.isEquipped)
+                return item.itemName;
+        }
+        return "N/A";
+}
 }

@@ -38,6 +38,7 @@ public class PlayerManager : MonoBehaviour
     public TMP_Text cashText;
     public TMP_Text goldText;
     public TMP_Text playerXPText;
+    public EmployeeLevelDisplay employeeLevelDisplay;
 
     void Awake()
     {
@@ -51,6 +52,14 @@ public class PlayerManager : MonoBehaviour
 
         // Calculate the first XP goal immediately when the game starts
         RecalculateXPThreshold();
+    }
+
+    void Start()
+    {
+        if (employeeLevelDisplay != null)
+        {
+            employeeLevelDisplay.UpdateDisplay();
+        }
     }
 
     void Update()
@@ -71,6 +80,12 @@ public class PlayerManager : MonoBehaviour
 
         // Show progress like an RPG (e.g., "XP: 150 / 532")
         playerXPText.text = "XP: " + Mathf.FloorToInt(playerXP) + " / " + Mathf.FloorToInt(nextLevelXP);
+
+        // Update employee level display
+        if (employeeLevelDisplay != null)
+        {
+            employeeLevelDisplay.UpdateDisplay();
+        }
     }
 
     // This calculates the exact mathematical target required for the NEXT level based on your table
@@ -94,13 +109,13 @@ public class PlayerManager : MonoBehaviour
         // Still in the Basement (tier 0) - hiring isn't unlocked yet.
         if (WorkspaceManager.instance == null || WorkspaceManager.instance.CurrentTier < 1)
         {
-            Debug.Log("Cannot hire yet — move to the Small Office to unlock hiring.");
+            Debug.Log("Cannot hire yet â€“ move to the Small Office to unlock hiring.");
             return false;
         }
 
         if (hiredEmployees.Count >= maxEmployeeSlots)
         {
-            Debug.Log("Cannot hire — all employee slots are full.");
+            Debug.Log("Cannot hire â€“ all employee slots are full.");
             return false;
         }
 
@@ -139,6 +154,48 @@ public class PlayerManager : MonoBehaviour
 
         // LINK the UI card to its physical character so firing can clean both up
         newHired.linkedCharacter = newCharacter;
+
+        // Update employee level display after hiring
+        if (employeeLevelDisplay != null)
+        {
+            employeeLevelDisplay.OnEmployeesChanged();
+        }
+
+        if (StatisticsManager.Instance != null)
+        {
+            StatisticsManager.Instance.UpdateEmployeeLevel();
+        }
+    }
+
+    public void UpdateEmployeeUI()
+    {
+        foreach (HiredEmployeeScript emp in hiredEmployees)
+        {
+            emp.UpdateUI();
+        }
+
+        if (employeeLevelDisplay != null)
+        {
+            employeeLevelDisplay.OnEmployeesChanged();
+        }
+
+        if (StatisticsManager.Instance != null)
+        {
+            StatisticsManager.Instance.UpdateEmployeeLevel();
+        }
+    }
+         //average employee level to display
+    public int GetAverageEmployeeLevel()
+    {
+        if (hiredEmployees.Count == 0) return 1;
+
+        int totalLevel = 0;
+        foreach (HiredEmployeeScript emp in hiredEmployees)
+        {
+            totalLevel += emp.GetFinalLevel();
+        }
+
+        return totalLevel / hiredEmployees.Count;
     }
 
     public int GetTotalEffectiveEmployeeLevel()
@@ -156,5 +213,13 @@ public class PlayerManager : MonoBehaviour
             totalSum = totalSum + effectiveLevel;
         }
         return totalSum;
+    }
+
+    public void RefreshEmployeeDisplay()
+    {
+        if (employeeLevelDisplay != null)
+        {
+            employeeLevelDisplay.ForceUpdate();
+        }
     }
 }
