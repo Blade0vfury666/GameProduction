@@ -22,7 +22,7 @@ MonoBehaviour:
   cashCost: 50000
   goldCost: 0
   itemIcon: {fileID: -1922372503003928337, guid: a38417d29183cf041b36e89c1bd73916, type: 3}
-  description: A New Computer! For you Anyways.
-  isOwned: 0
+  description: A tiny upgrade compared to the one, but people still buy it.
+  isOwned: 1
   isEquipped: 0
   requiredPlayerLevel: 0

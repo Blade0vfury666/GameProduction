@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9186d71bd00ada4792a8cf0f4dfa2fb, type: 3}
-  m_Name: CodeMaster 4
+  m_Name: DDRacing 1
   m_EditorClassIdentifier: 
-  itemName: CodeMaster Ultra Max
-  category: Computer
-  brand: CodeMaster
+  itemName: DDRacing Stappen
+  category: Chair
+  brand: DDRacing
   tier: Legendary
-  flatLevelBonus: 5
-  flatXPBonus: 0
+  flatLevelBonus: 0
+  flatXPBonus: 15
   flatScopeBonus: 0
   cashCost: 0
-  goldCost: 800
-  itemIcon: {fileID: -1922372503003928337, guid: a38417d29183cf041b36e89c1bd73916, type: 3}
-  description: The best of the best.
+  goldCost: 1200
+  itemIcon: {fileID: -5280265125652372355, guid: 5ea62da2a16efb94699c6c8c0b001f96, type: 3}
+  description: TU TU TU TU!!
   isOwned: 0
   isEquipped: 0
   requiredPlayerLevel: 25

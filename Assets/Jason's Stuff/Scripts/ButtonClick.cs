@@ -11,10 +11,16 @@ public class ButtonClick : MonoBehaviour
         GetComponent<Button>().onClick.AddListener(PlayClickSound);
     }
 
-  private void PlayClickSound()
-{
-    Debug.Log("Button clicked, attempting to play: " + clickSoundName);
-    AudioManager.Instance.PlaySFX(clickSoundName);
-}
-    
+    private void PlayClickSound()
+    {
+        Debug.Log("Button clicked, attempting to play: " + clickSoundName);
+
+        if (AudioManager.Instance == null)
+        {
+            Debug.LogError("AudioManager.Instance is NULL! Make sure AudioManager exists in the scene.");
+            return;
+        }
+
+        AudioManager.Instance.PlaySFX(clickSoundName);
+    }
 }

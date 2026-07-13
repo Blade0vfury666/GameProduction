@@ -22,8 +22,7 @@ MonoBehaviour:
   cashCost: 0
   goldCost: 500
   itemIcon: {fileID: -1922372503003928337, guid: a38417d29183cf041b36e89c1bd73916, type: 3}
-  description: A high tier computer longed for by gamers everywhere.. especially
-    good when running things.
+  description: Rage your Dream.
   isOwned: 0
   isEquipped: 0
   requiredPlayerLevel: 15

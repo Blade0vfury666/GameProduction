@@ -38,27 +38,28 @@ public class MarketEquipmentIntegration : MonoBehaviour
         UpdateAllUI();
     }
 
-    public void UpdateAllUI()
+   public void UpdateAllUI()
     {
         if (EquipmentManager.instance == null) return;
         if (PlayerManager.instance == null) return;
 
-        // Get equipment bonuses
         int pcBonus = EquipmentManager.instance.GetTotalLevelBonus();
         int chairBonus = EquipmentManager.instance.GetTotalXPBonus();
         int serverBonus = EquipmentManager.instance.GetTotalScopeBonus();
 
-        // Update individual bonus texts
+        string pcName = EquipmentManager.instance.GetEquippedName("Computer");
+        string chairName = EquipmentManager.instance.GetEquippedName("Chair");
+        string serverName = EquipmentManager.instance.GetEquippedName("Server");
+
         if (pcBonusText != null)
-            pcBonusText.text = "PC Bonus: +" + pcBonus + " Employee Level";
+            pcBonusText.text = "PC SPEC: " + pcName + " (+" + pcBonus + " Emp. Level)";
 
         if (chairBonusText != null)
-            chairBonusText.text = "Chair Bonus: -" + chairBonus + "% Development Cost";
+            chairBonusText.text = "CHAIR: " + chairName + " (-" + chairBonus + "% XP Gain)";
 
         if (serverBonusText != null)
-            serverBonusText.text = "Server Bonus: +" + serverBonus + " Max Scope";
+            serverBonusText.text = "SERVER: " + serverName + " (+" + serverBonus + " Max Scope)";
 
-        // Update total stats
         if (totalLevelBonusText != null)
             totalLevelBonusText.text = "Total Level Bonus: +" + pcBonus;
 
@@ -67,8 +68,6 @@ public class MarketEquipmentIntegration : MonoBehaviour
 
         if (totalScopeBonusText != null)
             totalScopeBonusText.text = "Total Scope Bonus: +" + serverBonus;
-
-        // Update PlayerManager with current bonuses (already done by EquipmentManager)
     }
 
    
@@ -109,10 +108,9 @@ public class MarketEquipmentIntegration : MonoBehaviour
         return Mathf.Min(effectiveLevel, maxEffectiveLevel);
     }
 
-    // ============================================
+    
     // METHODS FOR EMPLOYEE SCRIPT TO USE
-    // ============================================
-
+  
     public int GetPCBonus()
     {
         if (EquipmentManager.instance == null) return 0;
@@ -131,9 +129,9 @@ public class MarketEquipmentIntegration : MonoBehaviour
         return EquipmentManager.instance.GetTotalScopeBonus();
     }
 
-    // ============================================
+
     // UI REFRESH
-    // ============================================
+   
 
     public void RefreshUI()
     {
