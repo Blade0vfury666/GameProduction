@@ -43,11 +43,9 @@ public class EmployeeScript : MonoBehaviour
             employeeLevel = 60;
         }
 
-        // RAW NUMBER AND BLACK TEXT
         levelText.text = employeeLevel.ToString();
         levelText.color = Color.black;
 
-        // --- RARITY VISUALS ---
         commonImageObject.SetActive(false);
         rareImageObject.SetActive(false);
         legendaryImageObject.SetActive(false);
@@ -65,7 +63,6 @@ public class EmployeeScript : MonoBehaviour
             legendaryImageObject.SetActive(true);
         }
 
-        // --- COST LOGIC ---
         if (isLegendarySpawn == true)
         {
             hireCost = 0;
@@ -84,8 +81,13 @@ public class EmployeeScript : MonoBehaviour
         {
             if (PlayerManager.instance.hiredEmployees.Count < PlayerManager.instance.maxEmployeeSlots)
             {
+                //  SUCCESSFUL HIRE
                 PlayerManager.instance.playerCash -= hireCost;
                 PlayerManager.instance.HireNewEmployee(employeeName, employeeFace, employeeSkill, employeeLevel);
+
+                // Play success SFX
+                if (AudioManager.Instance != null)
+                    AudioManager.Instance.PlaySFX("ThankYou");
 
                 if (isLegendarySpawn == true)
                 {
@@ -96,13 +98,13 @@ public class EmployeeScript : MonoBehaviour
             }
             else
             {
-                // NO SLOTS AVAILABLE
+                //  NO SLOTS AVAILABLE
                 EmployeeManager.instance.ShowWarning("Upgrade Workspace!");
             }
         }
         else
         {
-            // NOT ENOUGH MONEY
+            //  NOT ENOUGH MONEY
             EmployeeManager.instance.ShowWarning("Insufficient Funds!");
         }
     }
