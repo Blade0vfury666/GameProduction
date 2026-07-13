@@ -6824,7 +6824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &297035972
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6909,7 +6909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 804b9e7008798d64eb484c1cf498ffb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BGM: {fileID: 8300000, guid: c714e0df26c2f9144a462408677e17f4, type: 3}
+  BGM: {fileID: 8300000, guid: a7b1881612b7e1e42b3e45ebb7d17363, type: 3}
   crossfadeDuration: 1.5
 --- !u!1 &314338594
 GameObject:
@@ -20978,8 +20978,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
