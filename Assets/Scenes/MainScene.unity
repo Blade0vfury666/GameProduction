@@ -5037,6 +5037,7 @@ GameObject:
   - component: {fileID: 183905560}
   - component: {fileID: 183905559}
   - component: {fileID: 183905558}
+  - component: {fileID: 183905561}
   m_Layer: 5
   m_Name: SearchSpecialistButton
   m_TagString: Untagged
@@ -5158,6 +5159,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183905556}
   m_CullTransparentMesh: 1
+--- !u!114 &183905561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183905556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b5dd367dabbbee46a0cd59893c7f7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSoundName: ButtonClick
 --- !u!1 &184477020
 GameObject:
   m_ObjectHideFlags: 0
@@ -49831,6 +49845,7 @@ GameObject:
   - component: {fileID: 1729064061}
   - component: {fileID: 1729064060}
   - component: {fileID: 1729064059}
+  - component: {fileID: 1729064062}
   m_Layer: 5
   m_Name: RefreshNowButton
   m_TagString: Untagged
@@ -49952,6 +49967,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729064057}
   m_CullTransparentMesh: 1
+--- !u!114 &1729064062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729064057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b5dd367dabbbee46a0cd59893c7f7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSoundName: ButtonClick
 --- !u!1 &1736961514
 GameObject:
   m_ObjectHideFlags: 0
