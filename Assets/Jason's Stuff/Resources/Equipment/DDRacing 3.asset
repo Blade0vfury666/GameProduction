@@ -25,4 +25,4 @@ MonoBehaviour:
   description: Podium in 2025!
   isOwned: 0
   isEquipped: 0
-  requiredPlayerLevel: 25
+  requiredPlayerLevel: 10
