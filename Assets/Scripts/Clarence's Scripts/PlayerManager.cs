@@ -69,6 +69,10 @@ public class PlayerManager : MonoBehaviour
         {
             playerLevel = playerLevel + 1;
             RecalculateXPThreshold();
+
+            //1.2 Play LVL UP SFX
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlaySFX("LevelUp");
         }
 
         // 2. Update UI Visuals
