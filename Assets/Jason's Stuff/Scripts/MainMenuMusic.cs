@@ -19,6 +19,15 @@ public class MainMenuMusicStart : MonoBehaviour
 
     private void OnVideoFinished(VideoPlayer vp)
     {
-        AudioManager.Instance.PlayMusic(mainMenuMusic, crossfadeDuration);
+        PlayMusicNow();
+    }
+
+    // Public method that can be called from anywhere
+    public void PlayMusicNow()
+    {
+        if (AudioManager.Instance != null && mainMenuMusic != null)
+        {
+            AudioManager.Instance.PlayMusic(mainMenuMusic, crossfadeDuration);
+        }
     }
 }

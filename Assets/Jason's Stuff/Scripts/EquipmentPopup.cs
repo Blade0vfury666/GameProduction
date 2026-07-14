@@ -8,6 +8,7 @@ public class EquipmentDetailPopup : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI requirementText;
+    public TextMeshProUGUI statBoostText;
     public TextMeshProUGUI costText;
 
     [Header("Buttons")]
@@ -35,12 +36,35 @@ public class EquipmentDetailPopup : MonoBehaviour
             if (item.requiredPlayerLevel > 0)
             {
                 requirementText.gameObject.SetActive(true);
-                requirementText.text = "(Requires: Level " + item.requiredPlayerLevel + ")";
+                requirementText.text = "Requirement: Level " + item.requiredPlayerLevel;
+
+                // Check if player meets the requirement
+                if (PlayerManager.instance != null)
+                {
+                    bool meetsRequirement = PlayerManager.instance.playerLevel >= item.requiredPlayerLevel;
+                    requirementText.color = meetsRequirement ? Color.green : Color.red;
+                }
+                else
+                {
+                    requirementText.color = Color.red;
+                }
             }
             else
             {
                 requirementText.gameObject.SetActive(false);
             }
+        }
+
+        if (statBoostText != null)
+        {
+            if (item.category == "Computer")
+                statBoostText.text = "+" + item.flatLevelBonus + " Employee Level";
+            else if (item.category == "Chair")
+                statBoostText.text = "+" + item.flatXPBonus + "% XP Gain";
+            else if (item.category == "Server")
+                statBoostText.text = "+" + item.flatScopeBonus + " Max Scope";
+            else
+                statBoostText.text = "";
         }
 
         if (costText != null)
