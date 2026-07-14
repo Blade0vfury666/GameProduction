@@ -67,9 +67,6 @@ public class EquipmentManager : MonoBehaviour
         PlayerManager.instance.chairLevel = totalXPBonus;
 
         // Servers → serverLevel
-        // CONVERT percentage to flat value using scaling factor
-        // MakeGameScript uses: maxLimit = ... + (serverLevel * 10f)
-        // So we convert: (totalScopeBonus * scopeConversionMultiplier) gives the flat value
         float flatValue = totalScopeBonus * scopeConversionMultiplier;
         PlayerManager.instance.serverLevel = Mathf.RoundToInt(flatValue);
         
@@ -140,6 +137,7 @@ public class EquipmentManager : MonoBehaviour
     {
         return 1f + (totalScopeBonus / 100f);
     }
+
     public string GetEquippedName(string category)
     {
         Equipment[] allEquipment = Resources.LoadAll<Equipment>("Equipment");

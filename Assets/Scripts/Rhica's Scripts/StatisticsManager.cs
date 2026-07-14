@@ -8,9 +8,9 @@ public class StatisticsManager : MonoBehaviour
     public int employeeLevel = 1;
 
     [Header("Equipment Bonuses")]
-    public int pcBonus = 1;
-    public int chairBonus = 5;
-    public int serverBonus = 10;
+    public int pcBonus = 0;
+    public int chairBonus = 0;
+    public int serverBonus = 0;
 
     [Header("Equipment Names")]
     public string pcName = "NA";
@@ -30,9 +30,6 @@ public class StatisticsManager : MonoBehaviour
         UpdateEmployeeLevel();
     }
 
-    
-    // Call this method whenever employees change
-   
     public void UpdateEmployeeLevel()
     {
         if (PlayerManager.instance == null)
@@ -58,9 +55,6 @@ public class StatisticsManager : MonoBehaviour
         employeeLevel = totalLevel / employeeCount;
     }
 
-   
-    //  Get employee count separately
-   
     public int GetEmployeeCount()
     {
         if (PlayerManager.instance == null) return 0;
