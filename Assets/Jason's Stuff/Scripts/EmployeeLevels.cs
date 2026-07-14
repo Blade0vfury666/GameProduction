@@ -8,7 +8,7 @@ public class EmployeeLevelDisplay : MonoBehaviour
     [SerializeField] private TMP_Text employeeCountText;
 
     [Header("Display Settings")]
-    [SerializeField] private string prefix = "Total Level: ";
+    [SerializeField] private string prefix = "Total Levels: ";
     [SerializeField] private string suffix = "";
     [SerializeField] private bool showEmployeeCount = true;
     [SerializeField] private string countPrefix = "Employees: ";
