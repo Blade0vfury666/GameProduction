@@ -21,6 +21,12 @@ public class WorkspaceManager : MonoBehaviour
     public GameObject errorWarningPanel;
     private Coroutine errorCoroutine;
 
+    [Header("Purchase SFX")]
+    [Tooltip("Played when an office purchase succeeds.")]
+    public AudioClip purchaseSuccessClip;
+    [Tooltip("Played when an office purchase fails (not enough cash).")]
+    public AudioClip purchaseFailClip;
+
     [Header("Employee Slot Layouts")]
     [Tooltip("Empty child Transforms marking where employees stand in the basement.")]
     public Transform[] basementSlots;
@@ -187,6 +193,7 @@ public class WorkspaceManager : MonoBehaviour
         if (PlayerManager.instance.playerCash < price)
         {
             ShowError();
+            PlaySfx(purchaseFailClip);
             return;
         }
 
@@ -209,7 +216,20 @@ public class WorkspaceManager : MonoBehaviour
             EmployeeSlotManager.instance.ChangeOffice(officeSlots);
         }
 
+        PlaySfx(purchaseSuccessClip);
+
         RefreshOfficeUI();
+    }
+
+    // --- SFX HELPER ---
+
+    // Routes playback through the existing AudioManager singleton.
+    private void PlaySfx(AudioClip clip)
+    {
+        if (clip != null && AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX(clip);
+        }
     }
 
     // --- ERROR COOLDOWN SYSTEM ---

@@ -19145,7 +19145,6 @@ GameObject:
   - component: {fileID: 554404284}
   - component: {fileID: 554404283}
   - component: {fileID: 554404282}
-  - component: {fileID: 554404285}
   m_Layer: 5
   m_Name: SmallBuyButton
   m_TagString: Untagged
@@ -19279,19 +19278,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554404280}
   m_CullTransparentMesh: 1
---- !u!114 &554404285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554404280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b5dd367dabbbee46a0cd59893c7f7e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickSoundName: Buy
 --- !u!1 &560601816
 GameObject:
   m_ObjectHideFlags: 0
@@ -25276,6 +25262,8 @@ MonoBehaviour:
   largeOffice: {fileID: 595008375}
   AAAOffice: {fileID: 1937632484}
   errorWarningPanel: {fileID: 1357230667}
+  purchaseSuccessClip: {fileID: 8300000, guid: 3ffdec3d3c982384f8b33e0af66cfec5, type: 3}
+  purchaseFailClip: {fileID: 8300000, guid: 8df6f684de69ae74aa75a109afcebd13, type: 3}
   basementSlots: []
   smallOfficeSlots:
   - {fileID: 1501058884}
@@ -27759,7 +27747,6 @@ GameObject:
   - component: {fileID: 945350464}
   - component: {fileID: 945350463}
   - component: {fileID: 945350462}
-  - component: {fileID: 945350465}
   m_Layer: 5
   m_Name: SmallBuyButton
   m_TagString: Untagged
@@ -27893,19 +27880,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945350460}
   m_CullTransparentMesh: 1
---- !u!114 &945350465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945350460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b5dd367dabbbee46a0cd59893c7f7e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickSoundName: Buy
 --- !u!114 &950204156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49116,7 +49090,6 @@ GameObject:
   - component: {fileID: 1617758565}
   - component: {fileID: 1617758564}
   - component: {fileID: 1617758563}
-  - component: {fileID: 1617758566}
   m_Layer: 5
   m_Name: SmallBuyButton
   m_TagString: Untagged
@@ -49250,19 +49223,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617758561}
   m_CullTransparentMesh: 1
---- !u!114 &1617758566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617758561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b5dd367dabbbee46a0cd59893c7f7e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickSoundName: Buy
 --- !u!1 &1627217736
 GameObject:
   m_ObjectHideFlags: 0
@@ -54771,7 +54731,6 @@ GameObject:
   - component: {fileID: 1807591060}
   - component: {fileID: 1807591059}
   - component: {fileID: 1807591058}
-  - component: {fileID: 1807591061}
   m_Layer: 5
   m_Name: SmallBuyButton
   m_TagString: Untagged
@@ -54905,19 +54864,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807591056}
   m_CullTransparentMesh: 1
---- !u!114 &1807591061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807591056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b5dd367dabbbee46a0cd59893c7f7e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickSoundName: Buy
 --- !u!1 &1808201456
 GameObject:
   m_ObjectHideFlags: 0
