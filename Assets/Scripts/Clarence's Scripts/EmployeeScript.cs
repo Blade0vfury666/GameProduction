@@ -18,13 +18,17 @@ public class EmployeeScript : MonoBehaviour
     public GameObject legendaryImageObject;
 
     [Header("Live Stats")]
-    public int employeeLevel; 
-    private int hireCost;
+    // CHANGED: Renamed to baseLevel to perfectly match your SaveGameManager script!
+    public int baseLevel; 
+    
+    // CHANGED: Made public so the Save System can read/write to it!
+    public int hireCost;
     private bool isLegendarySpawn; 
     
-    private string employeeName;
-    private Sprite employeeFace;
-    private string employeeSkill;
+    // CHANGED: Made public so the Save System can read/write to these!
+    public string employeeName;
+    public Sprite employeeFace;
+    public string employeeSkill;
 
     public void SetupEmployee(string eName, Sprite eFace, string eSkill, int eLevel, bool isFreeRoll)
     {
@@ -37,28 +41,28 @@ public class EmployeeScript : MonoBehaviour
         faceImage.sprite = employeeFace;
         skillText.text = employeeSkill;
         
-        employeeLevel = eLevel;
-        if (employeeLevel > 60)
+        baseLevel = eLevel;
+        if (baseLevel > 60)
         {
-            employeeLevel = 60;
+            baseLevel = 60;
         }
 
-        levelText.text = employeeLevel.ToString();
+        levelText.text = baseLevel.ToString();
         levelText.color = Color.black;
 
         commonImageObject.SetActive(false);
         rareImageObject.SetActive(false);
         legendaryImageObject.SetActive(false);
 
-        if (employeeLevel <= 20)
+        if (baseLevel <= 20)
         {
             commonImageObject.SetActive(true);
         }
-        else if (employeeLevel <= 40)
+        else if (baseLevel <= 40)
         {
             rareImageObject.SetActive(true);
         }
-        else if (employeeLevel <= 60)
+        else if (baseLevel <= 60)
         {
             legendaryImageObject.SetActive(true);
         }
@@ -70,7 +74,7 @@ public class EmployeeScript : MonoBehaviour
         }
         else
         {
-            hireCost = employeeLevel * 12500; 
+            hireCost = baseLevel * 12500; 
             costText.text = "$" + hireCost.ToString("N0"); 
         }
     }
@@ -83,7 +87,7 @@ public class EmployeeScript : MonoBehaviour
             {
                 //  SUCCESSFUL HIRE
                 PlayerManager.instance.playerCash -= hireCost;
-                PlayerManager.instance.HireNewEmployee(employeeName, employeeFace, employeeSkill, employeeLevel);
+                PlayerManager.instance.HireNewEmployee(employeeName, employeeFace, employeeSkill, baseLevel);
 
                 // Play success SFX
                 if (AudioManager.Instance != null)

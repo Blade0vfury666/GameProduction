@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections.Generic; // Added for the List
 
 public class EmployeeManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class EmployeeManager : MonoBehaviour
     public TMP_Text hireRefreshTimerText;
     
     public float manualRefreshCost = 2500f; 
-    private float hireRefreshTimer;
+    public float hireRefreshTimer;
 
     [Header("Employee Prefab")]
     public EmployeeScript employeePrefab;
@@ -44,8 +45,15 @@ public class EmployeeManager : MonoBehaviour
     public TMP_Text warningTXT; 
     private float warningTimer;
 
-    private bool isSearchingLegendary;
-    private float legendaryTimer;
+    public bool isSearchingLegendary;
+    public float legendaryTimer;
+
+    // --- NEW: MARKET SAVE VARIABLES ---
+    // Automatically grabs all current UI cards inside the content list
+    public List<EmployeeScript> marketEmployeesList 
+    {
+        get { return new List<EmployeeScript>(hireEmployeesContentList.GetComponentsInChildren<EmployeeScript>()); }
+    }
 
     void Awake()
     {
@@ -60,6 +68,8 @@ public class EmployeeManager : MonoBehaviour
         warningTXT.gameObject.SetActive(false);
         specialistTimerText.gameObject.SetActive(false);
         
+        // We only generate a new market on start if Easy Save hasn't loaded one yet
+        // The Save Manager will overwrite this if a save exists
         GenerateNewMarket();
     }
 
@@ -130,10 +140,7 @@ public class EmployeeManager : MonoBehaviour
 
     private void GenerateNewMarket()
     {
-        foreach (Transform child in hireEmployeesContentList)
-        {
-            Destroy(child.gameObject);
-        }
+        ClearMarketList();
 
         for (int i = 0; i < 10; i++)
         {
@@ -151,6 +158,25 @@ public class EmployeeManager : MonoBehaviour
 
             SpawnEmployee(randomLevel, hireEmployeesContentList, false);
         }
+    }
+
+    // --- MARKET SAVE SYSTEM INTEGRATION ---
+
+    public void ClearMarketList()
+    {
+        // Cleanly destroys all existing unhired UI cards so the SaveManager can rebuild them
+        foreach (Transform child in hireEmployeesContentList)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    public void SpawnMarketEmployeeUI(string empName, Sprite faceSprite, string skill, int level, int cost)
+    {
+        // Rebuilds the EXACT employee from the save file
+        EmployeeScript newStaff = Instantiate(employeePrefab, hireEmployeesContentList);
+        newStaff.SetupEmployee(empName, faceSprite, skill, level, false);
+        newStaff.hireCost = cost; 
     }
 
     // --- LEGENDARY SPECIALIST LOGIC ---
@@ -251,5 +277,19 @@ public class EmployeeManager : MonoBehaviour
 
         EmployeeScript newStaff = Instantiate(employeePrefab, targetFolder);
         newStaff.SetupEmployee(rName, rFace, rSkill, level, isFreeRoll);
+    }
+
+    public Sprite GetFaceSprite(string faceName)
+    {
+        if (maleFaces != null)
+        {
+            foreach(var face in maleFaces) if (face != null && face.name == faceName) return face;
+        }
+        if (femaleFaces != null)
+        {
+            foreach(var face in femaleFaces) if (face != null && face.name == faceName) return face;
+        }
+        
+        return null; 
     }
 }

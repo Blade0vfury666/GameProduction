@@ -20,6 +20,10 @@ public class GameEntityScript : MonoBehaviour
     public float moneyPerQualityPoint = 0.2f; 
     public float xpPerQualityPoint = 0.05f;
 
+    public float GetAdBoostTimer() { return pubAdBoostTimer; }
+    public float GetBaseMoneyRate() { return baseMoneyRate; }
+    public float GetBaseXPRate() { return baseXPRate; }
+
     private bool isPublished;
     private float baseMoneyRate;
     private float baseXPRate;
@@ -110,5 +114,32 @@ public class GameEntityScript : MonoBehaviour
         pubSpeedBoostTimerText.gameObject.SetActive(true);
         
         UpdateRateTexts(3f); 
+    }
+
+    public void LoadExistingGame(string finalName, string finalGenre, float loadedMoneyRate, float loadedXPRate, float adBoostTimer)
+    {
+        titleText.text = finalName;
+        genreText.text = finalGenre;
+        statusText.text = "Status: Published";
+        
+        baseMoneyRate = loadedMoneyRate;
+        baseXPRate = loadedXPRate;
+        pubAdBoostTimer = adBoostTimer; // Added 5th argument!
+        
+        isPublished = true;
+        publishedContainer.SetActive(true);
+        
+        if (pubAdBoostTimer > 0f)
+        {
+            publishedAdButtonObject.SetActive(false);
+            pubSpeedBoostTimerText.gameObject.SetActive(true);
+            UpdateRateTexts(3f);
+        }
+        else
+        {
+            publishedAdButtonObject.SetActive(true);
+            pubSpeedBoostTimerText.gameObject.SetActive(false); 
+            UpdateRateTexts(1f);
+        }
     }
 }

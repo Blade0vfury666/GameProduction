@@ -232,4 +232,27 @@ public class WorkspaceManager : MonoBehaviour
         errorWarningPanel.SetActive(false);
         errorCoroutine = null;
     }
+
+    public void LoadSavedTier(int tier)
+    {
+        currentTier = tier;
+        basement.SetActive(tier == 0);
+        smallOffice.SetActive(tier == 1);
+        mediumOffice.SetActive(tier == 2);
+        largeOffice.SetActive(tier == 3);
+        AAAOffice.SetActive(tier == 4);
+
+        Transform[] slots = basementSlots;
+        
+        if (tier == 1) { slots = smallOfficeSlots; PlayerManager.instance.maxEmployeeSlots = smallSlots; }
+        else if (tier == 2) { slots = mediumOfficeSlots; PlayerManager.instance.maxEmployeeSlots = mediumSlots; }
+        else if (tier == 3) { slots = largeOfficeSlots; PlayerManager.instance.maxEmployeeSlots = largeSlots; }
+        else if (tier == 4) { slots = AAAOfficeSlots; PlayerManager.instance.maxEmployeeSlots = AAASlots; }
+        else { PlayerManager.instance.maxEmployeeSlots = 5; }
+
+        if (EmployeeSlotManager.instance != null)
+            EmployeeSlotManager.instance.ChangeOffice(slots);
+            
+        RefreshOfficeUI();
+    }
 }

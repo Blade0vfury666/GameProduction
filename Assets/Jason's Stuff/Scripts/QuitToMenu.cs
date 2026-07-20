@@ -8,6 +8,12 @@ public class QuitToMainMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        // 1. ADD THIS TO TRIGGER THE SAVE!
+        if (SaveGameManager.instance != null)
+        {
+            SaveGameManager.instance.SaveGame();
+        }
+        
         StartCoroutine(QuitWithFade());
     }
 
