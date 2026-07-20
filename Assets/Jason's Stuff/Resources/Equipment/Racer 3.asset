@@ -23,6 +23,6 @@ MonoBehaviour:
   goldCost: 0
   itemIcon: {fileID: -1922372503003928337, guid: a38417d29183cf041b36e89c1bd73916, type: 3}
   description: Running in the 90s
-  isOwned: 1
+  isOwned: 0
   isEquipped: 0
   requiredPlayerLevel: 0

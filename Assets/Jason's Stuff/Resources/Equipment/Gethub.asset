@@ -23,6 +23,6 @@ MonoBehaviour:
   goldCost: 0
   itemIcon: {fileID: -8972848504368450261, guid: 1ae2314d6edbf5a4abb8003c699792c1, type: 3}
   description: Reliable for starting out.
-  isOwned: 1
+  isOwned: 0
   isEquipped: 0
   requiredPlayerLevel: 0
