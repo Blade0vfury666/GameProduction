@@ -35,8 +35,12 @@ public class MakeGameScript : MonoBehaviour
         // 1. DYNAMIC SCOPE LIMITS (Phase A Formula)
         int minLimit = 1 + PlayerManager.instance.playerLevel;
         
-        int totalEffectiveLevel = PlayerManager.instance.GetTotalEffectiveEmployeeLevel();
-        int maxLimit = Mathf.FloorToInt(10f + (PlayerManager.instance.playerLevel * 2f) + (totalEffectiveLevel * 0.5f) + (PlayerManager.instance.serverLevel * 10f));
+        // ==========================================
+        // CHANGED: Stats NO LONGER affect Scope (Difficulty)
+        // Scope limit now grows naturally only with playerLevel.
+        // I increased the playerLevel multiplier to 5f so your slider still grows over time.
+        // ==========================================
+        int maxLimit = Mathf.FloorToInt(10f + (PlayerManager.instance.playerLevel * 5f));
 
         if (maxLimit <= minLimit)
         {

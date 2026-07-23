@@ -37,17 +37,24 @@ public class GameEntityScript : MonoBehaviour
         genreText.text = finalGenre;
         statusText.text = "Status: Published";
 
-        // Gather mathematical workforce variables
+        // Gather mathematical workforce variables (Includes Employee Level & PC Spec)
         int totalEffectiveLevel = PlayerManager.instance.GetTotalEffectiveEmployeeLevel();
         float teamSafetyNet = totalEffectiveLevel / 12.0f;
         
         // REBALANCED QUALITY SCORE MATH
-        // Scope now scales much slower (x2 instead of x10)
+        // Scope still gives base score (higher difficulty = more base money)
         float baseMath = (scope * 2f) + (PlayerManager.instance.playerLevel * 1.5f);
         float qualityScore = ((finalAccuracy / 100f) * baseMath) + teamSafetyNet;
 
-        // Cash & XP Rates Math
-        float multiSystem = (1f + (totalEffectiveLevel / 100f)) * (1f + (PlayerManager.instance.chairLevel * 0.05f));
+        // ==========================================
+        // CHANGED: Server Level added directly here!
+        // Employees, PC, Chairs, and Servers ALL buff the final cash/xp output
+        // without touching the difficulty!
+        // ==========================================
+        float multiSystem = (1f + (totalEffectiveLevel / 100f)) 
+                          * (1f + (PlayerManager.instance.chairLevel * 0.05f))
+                          * (1f + (PlayerManager.instance.serverLevel * 0.10f));
+
         baseMoneyRate = qualityScore * multiSystem * moneyPerQualityPoint;
         baseXPRate = qualityScore * multiSystem * xpPerQualityPoint;
 
@@ -101,7 +108,6 @@ public class GameEntityScript : MonoBehaviour
         float activeXP = baseXPRate * multiplier;
         
         // NOW USING FLOATS FOR UI (".00")
-        // This makes smaller numbers like $1.25/sec visible and satisfying to look at!
         moneyRateText.text = "+$" + activeMoney.ToString("F2") + "/sec";
         xpRateText.text = "+" + activeXP.ToString("F2") + " XP/sec";
     }
@@ -124,7 +130,7 @@ public class GameEntityScript : MonoBehaviour
         
         baseMoneyRate = loadedMoneyRate;
         baseXPRate = loadedXPRate;
-        pubAdBoostTimer = adBoostTimer; // Added 5th argument!
+        pubAdBoostTimer = adBoostTimer;
         
         isPublished = true;
         publishedContainer.SetActive(true);

@@ -1,14 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using TMPro;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using TMPro;
 using UnityEngine.UI;
-using System.Collections;
 
 public class MiniGame1 : MonoBehaviour
 {
     [Header("Spawning (Assign these in Inspector!)")]
-    public GameEntityScript gamePrefab; 
+    public GameEntityScript gamePrefab;
     public Transform listParent;
 
     [Header("References")]
@@ -30,8 +30,8 @@ public class MiniGame1 : MonoBehaviour
 
     [Header("Max Difficulty Settings (Hardest)")]
     public float maxMarkerSpeed = 800f;
-    public float minZoneWidth = 60f; 
-    public float scopeDifficultyCap = 150f; 
+    public float minZoneWidth = 60f;
+    public float scopeDifficultyCap = 150f;
 
     [Header("Progress")]
     public float progress = 0f;
@@ -66,10 +66,10 @@ public class MiniGame1 : MonoBehaviour
 
         // 1. CALCULATE DIFFICULTY PERCENTAGE FOR SPEED & WIDTH
         float difficultyPercent = gameScope / scopeDifficultyCap;
-        
+
         if (difficultyPercent > 1f)
         {
-            difficultyPercent = 1f; 
+            difficultyPercent = 1f;
         }
 
         activeMarkerSpeed = Mathf.Lerp(baseMarkerSpeed, maxMarkerSpeed, difficultyPercent);
@@ -86,7 +86,7 @@ public class MiniGame1 : MonoBehaviour
 
         // We use your old math so it jumps far right from Level 1
         float calculatedMoveRange = baseZoneMoveRange + (gameScope * 8f);
-        
+
         // But if it tries to jump out of bounds, we hard-stop it at the edge of the track!
         if (calculatedMoveRange > absoluteMaxSafeRange)
         {
@@ -101,7 +101,7 @@ public class MiniGame1 : MonoBehaviour
         goodHits = 0;
         missHits = 0;
         finished = false;
-        
+
         resultPopup.SetActive(false);
         comboText.text = "";
 
@@ -130,17 +130,19 @@ public class MiniGame1 : MonoBehaviour
         float halfWidth = trackArea.rect.width / 2f;
         float speedMultiplier = 1f;
 
-        if (progress >= 90f) speedMultiplier = 1.6f;
-        else if (progress >= 70f) speedMultiplier = 1.3f;
+        if (progress >= 90f)
+            speedMultiplier = 1.6f;
+        else if (progress >= 70f)
+            speedMultiplier = 1.3f;
 
         float currentSpeed = activeMarkerSpeed * speedMultiplier;
         Vector2 pos = marker.anchoredPosition;
 
-        if (movingRight == true) 
+        if (movingRight == true)
         {
             pos.x = pos.x + (currentSpeed * Time.deltaTime);
         }
-        else 
+        else
         {
             pos.x = pos.x - (currentSpeed * Time.deltaTime);
         }
@@ -170,7 +172,7 @@ public class MiniGame1 : MonoBehaviour
             missHits++;
             progress = progress + progressPerMiss;
             ShowCombo("MISS!", Color.red);
-            
+
             MoveSuccessZone();
             UpdateUI();
             return;
@@ -222,7 +224,7 @@ public class MiniGame1 : MonoBehaviour
 
     void UpdateUI()
     {
-        if (progress > 100f) 
+        if (progress > 100f)
         {
             progress = 100f;
         }
@@ -244,6 +246,7 @@ public class MiniGame1 : MonoBehaviour
     void FinishGame()
     {
         finished = true;
+
         int totalHits = perfectHits + goodHits + missHits;
         finalAccuracy = 0f;
 
@@ -253,7 +256,7 @@ public class MiniGame1 : MonoBehaviour
             finalAccuracy = (hitScore / totalHits) * 100f;
         }
 
-        if (finalAccuracy > 100f) 
+        if (finalAccuracy > 100f)
         {
             finalAccuracy = 100f;
         }
