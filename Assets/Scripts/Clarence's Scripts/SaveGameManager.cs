@@ -38,7 +38,6 @@ public class SavedEquipmentData
     public bool isEquipped;
 }
 
-// FIXED: Class name now perfectly matches the file name "SaveGameManager"
 public class SaveGameManager : MonoBehaviour
 {
     public static SaveGameManager instance;
@@ -46,6 +45,7 @@ public class SaveGameManager : MonoBehaviour
     [Header("Loading References")]
     public GameEntityScript gamePrefab;
     public Transform publishedGamesContainer;
+    public GameObject tutorialContainer;
 
     void Awake()
     {
@@ -60,16 +60,15 @@ public class SaveGameManager : MonoBehaviour
 
     public void SaveGame()
     {
-        // 1. Core Player Stats
+        ES3.Save("tutorialFinished", !tutorialContainer.activeSelf);
+
         ES3.Save("playerLevel", PlayerManager.instance.playerLevel);
         ES3.Save("playerCash", PlayerManager.instance.playerCash);
         ES3.Save("playerGold", PlayerManager.instance.playerGold);
         ES3.Save("playerXP", PlayerManager.instance.playerXP);
 
-        // 2. Workspace Status
         ES3.Save("workspaceTier", WorkspaceManager.instance.CurrentTier);
 
-        // 3. Equipment
         Equipment[] allEquipment = Resources.LoadAll<Equipment>("Equipment");
         List<SavedEquipmentData> equipmentSave = new List<SavedEquipmentData>();
         foreach(var item in allEquipment)
@@ -78,7 +77,6 @@ public class SaveGameManager : MonoBehaviour
         }
         ES3.Save("equipment", equipmentSave);
 
-        // 4. Hired Employees
         List<SavedEmployeeData> employeeSave = new List<SavedEmployeeData>();
         foreach(var emp in PlayerManager.instance.hiredEmployees)
         {
@@ -91,7 +89,6 @@ public class SaveGameManager : MonoBehaviour
         }
         ES3.Save("employees", employeeSave);
 
-        // 5. Published Games
         List<SavedGameData> gamesSave = new List<SavedGameData>();
         GameEntityScript[] activeGames = publishedGamesContainer.GetComponentsInChildren<GameEntityScript>();
         foreach(var game in activeGames)
@@ -106,12 +103,10 @@ public class SaveGameManager : MonoBehaviour
         }
         ES3.Save("publishedGames", gamesSave);
 
-        // 6. Active Timers & Market State
         ES3.Save("hireRefreshTimer", EmployeeManager.instance.hireRefreshTimer);
         ES3.Save("isSearchingLegendary", EmployeeManager.instance.isSearchingLegendary);
         ES3.Save("legendaryTimer", EmployeeManager.instance.legendaryTimer);
 
-        // 7. Unhired Market Employees
         List<SavedMarketEmployeeData> marketSave = new List<SavedMarketEmployeeData>();
         foreach(var marketEmp in EmployeeManager.instance.marketEmployeesList) 
         {
@@ -130,21 +125,35 @@ public class SaveGameManager : MonoBehaviour
 
     public void LoadGame()
     {
-        if (!ES3.KeyExists("playerLevel")) return;
+        // --- THE ACTUAL FIX ---
+        // 1. We MUST scrub the ScriptableObjects clean immediately when the scene starts.
+        Equipment[] allEquipment = Resources.LoadAll<Equipment>("Equipment");
+        foreach(var eqAsset in allEquipment)
+        {
+            eqAsset.isOwned = false;
+            eqAsset.isEquipped = false;
+        }
 
-        // 1. Load Player Stats
+        // 2. NOW we check if a save file exists. If it's a New Game, it stops here, and the items stay clean!
+        if (!ES3.KeyExists("playerLevel")) return;
+        // ----------------------
+
+        bool tutorialFinished = ES3.Load<bool>("tutorialFinished", false);
+        if (tutorialFinished == true)
+        {
+            tutorialContainer.SetActive(false);
+        }
+
         PlayerManager.instance.playerLevel = ES3.Load<int>("playerLevel", 1);
         PlayerManager.instance.playerCash = ES3.Load<float>("playerCash", 0f);
         PlayerManager.instance.playerGold = ES3.Load<float>("playerGold", 0f);
         PlayerManager.instance.playerXP = ES3.Load<float>("playerXP", 0f);
 
-        // 2. Load Workspace
         int savedTier = ES3.Load<int>("workspaceTier", 1);
         WorkspaceManager.instance.LoadSavedTier(savedTier);
 
-        // 3. Equipment
+        // 3. Equipment (We already loaded allEquipment at the top, so we just apply the save data now)
         List<SavedEquipmentData> equipmentSave = ES3.Load<List<SavedEquipmentData>>("equipment", new List<SavedEquipmentData>());
-        Equipment[] allEquipment = Resources.LoadAll<Equipment>("Equipment");
         foreach(var savedItem in equipmentSave)
         {
             foreach(var eqAsset in allEquipment)
@@ -166,7 +175,6 @@ public class SaveGameManager : MonoBehaviour
             MarketManager.instance.UpdateCurrentStatsUI();
         }
 
-        // 4. Hired Employees
         List<SavedEmployeeData> employeeSave = ES3.Load<List<SavedEmployeeData>>("employees", new List<SavedEmployeeData>());
         foreach(var savedEmp in employeeSave)
         {
@@ -174,7 +182,6 @@ public class SaveGameManager : MonoBehaviour
             PlayerManager.instance.HireNewEmployee(savedEmp.empName, faceSprite, savedEmp.skill, savedEmp.level);
         }
 
-        // 5. Published Games
         List<SavedGameData> gamesSave = ES3.Load<List<SavedGameData>>("publishedGames", new List<SavedGameData>());
         foreach(var savedGame in gamesSave)
         {
@@ -182,7 +189,6 @@ public class SaveGameManager : MonoBehaviour
             newGame.LoadExistingGame(savedGame.title, savedGame.genre, savedGame.moneyRate, savedGame.xpRate, savedGame.adBoostTimer);
         }
 
-        // 6. Active Timers & Market State
         EmployeeManager.instance.hireRefreshTimer = ES3.Load<float>("hireRefreshTimer", 600f);
         EmployeeManager.instance.isSearchingLegendary = ES3.Load<bool>("isSearchingLegendary", false);
         EmployeeManager.instance.legendaryTimer = ES3.Load<float>("legendaryTimer", 0f);
@@ -193,7 +199,6 @@ public class SaveGameManager : MonoBehaviour
             EmployeeManager.instance.searchSpecialistButton.interactable = false;
         }
 
-        // 7. Unhired Market Employees
         if (ES3.KeyExists("marketEmployees"))
         {
             EmployeeManager.instance.ClearMarketList(); 

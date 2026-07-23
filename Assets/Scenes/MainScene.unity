@@ -5861,7 +5861,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205577475}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -5884,7 +5884,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205577475}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -7379,6 +7379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 308543529}
+  - component: {fileID: 308543530}
   m_Layer: 0
   m_Name: TutorialUI
   m_TagString: Untagged
@@ -7402,6 +7403,18 @@ Transform:
   - {fileID: 553849584}
   m_Father: {fileID: 901064124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &308543530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308543528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af5df1ecc00cf341acc3ae2d0c60462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &314338594
 GameObject:
   m_ObjectHideFlags: 0
@@ -52572,7 +52585,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 157062637}
   m_HandleRect: {fileID: 157062636}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -52825,6 +52838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePrefab: {fileID: 3859749936448934821, guid: 57ab7c494fa76e04b84f2462f615329c, type: 3}
   publishedGamesContainer: {fileID: 1595023228}
+  tutorialContainer: {fileID: 308543528}
 --- !u!4 &1731515873
 Transform:
   m_ObjectHideFlags: 0
@@ -53068,7 +53082,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 720325538}
   m_HandleRect: {fileID: 720325537}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -74761,7 +74775,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3317485288997445046}
   m_HandleRect: {fileID: 8052622200963345942}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
