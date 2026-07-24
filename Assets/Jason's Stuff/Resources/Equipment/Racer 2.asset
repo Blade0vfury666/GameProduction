@@ -16,7 +16,7 @@ MonoBehaviour:
   category: Computer
   brand: Racer
   tier: Rare
-  flatLevelBonus: 3
+  flatLevelBonus: 5
   flatXPBonus: 0
   flatScopeBonus: 0
   cashCost: 30000

@@ -15,8 +15,7 @@ public class BugSpawner : MonoBehaviour
     public GameObject warningUI;
     [Tooltip("Add a CanvasGroup to your warning UI and drag it here")]
     public CanvasGroup warningCanvasGroup;
-    [Tooltip("Attach an AudioSource with your short looping siren, set 'Loop' to TRUE in Inspector")]
-    public AudioSource warningAudio;
+    // REMOVED: public AudioSource warningAudio; 
 
     [Header("Overlap Prevention")]
     [Tooltip("Set this to your 'Bug' layer")]
@@ -90,7 +89,12 @@ public class BugSpawner : MonoBehaviour
         isWarning = true;
 
         if (warningUI != null) warningUI.SetActive(true);
-        if (warningAudio != null) warningAudio.Play();
+        
+        // ADDED: Replaced the local AudioSource with the global AudioManager
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX("WarningSiren"); 
+        }
 
         if (warningCoroutine != null) StopCoroutine(warningCoroutine);
         warningCoroutine = StartCoroutine(WarningRoutine());
@@ -106,11 +110,8 @@ public class BugSpawner : MonoBehaviour
         {
             totalTimer += Time.deltaTime;
 
-            // The sound stops exactly after 5 seconds
-            if (totalTimer >= 5f && warningAudio != null && warningAudio.isPlaying)
-            {
-                warningAudio.Stop();
-            }
+            // REMOVED: The logic that artificially stopped the audio loop has been removed 
+            // since AudioManager's PlayOneShot will just handle the clip naturally.
 
             // Pulsate Math: Visible longer, dips to invisible very quickly
             if (warningCanvasGroup != null)
@@ -119,17 +120,14 @@ public class BugSpawner : MonoBehaviour
                 
                 if (timeInCycle < 0.5f) 
                 {
-                    // Stay fully visible for 0.5 seconds
                     warningCanvasGroup.alpha = 1f;
                 } 
                 else if (timeInCycle < 0.6f) 
                 {
-                    // Fade out incredibly fast over 0.1 seconds
                     warningCanvasGroup.alpha = Mathf.Lerp(1f, 0f, (timeInCycle - 0.5f) / 0.1f);
                 } 
                 else 
                 {
-                    // Fade back in incredibly fast over 0.1 seconds
                     warningCanvasGroup.alpha = Mathf.Lerp(0f, 1f, (timeInCycle - 0.6f) / 0.1f);
                 }
             }
@@ -146,53 +144,47 @@ public class BugSpawner : MonoBehaviour
         isBursting = true;
         isWarning = false;
 
-        // THREAT LEVEL 1 (Levels 2-5)
         if (level >= 2 && level <= 5)
         {
             bugsInPool = Random.Range(10, 16); 
             currentCap = 4;
             minReward = 100; maxReward = 200; 
-            minHealth = 1; maxHealth = 3; // 1 to 3 clicks
+            minHealth = 1; maxHealth = 3;
         }
-        // THREAT LEVEL 2 (Levels 6-10)
         else if (level >= 6 && level <= 10)
         {
             bugsInPool = Random.Range(15, 21);
             currentCap = 5;
             minReward = 150; maxReward = 300;
-            minHealth = 2; maxHealth = 4; // 2 to 4 clicks
+            minHealth = 2; maxHealth = 4;
         }
-        // THREAT LEVEL 3 (Levels 11-24)
         else if (level >= 11 && level <= 24)
         {
             bugsInPool = Random.Range(20, 31);
             currentCap = 6;
             minReward = 350; maxReward = 750;
-            minHealth = 2; maxHealth = 5; // 2 to 5 clicks
+            minHealth = 2; maxHealth = 5;
         }
-        // THREAT LEVEL 4 (Levels 25-34)
         else if (level >= 25 && level <= 34)
         {
             bugsInPool = Random.Range(25, 41);
             currentCap = 8;
             minReward = 800; maxReward = 1500;
-            minHealth = 2; maxHealth = 3; // 2 to 3 clicks
+            minHealth = 2; maxHealth = 3;
         }
-        // THREAT LEVEL 5 (Levels 35-49)
         else if (level >= 35 && level <= 49)
         {
             bugsInPool = Random.Range(30, 51);
             currentCap = 10;
             minReward = 1600; maxReward = 3000;
-            minHealth = 1; maxHealth = 2; // 1 to 2 clicks
+            minHealth = 1; maxHealth = 2;
         }
-        // THREAT LEVEL 6 (Levels 50+)
         else 
         {
             bugsInPool = Random.Range(40, 61);
             currentCap = 12;
             minReward = 10000; maxReward = 30000; 
-            minHealth = 1; maxHealth = 1; // 1 click
+            minHealth = 1; maxHealth = 1;
         }
     }
 
@@ -214,8 +206,6 @@ public class BugSpawner : MonoBehaviour
     private void SpawnBug()
     {
         int randomHP = Random.Range(minHealth, maxHealth + 1);
-        
-        // Applies the global reward multiplier to the random base reward
         float randomReward = Random.Range(minReward, maxReward) * rewardMultiplier;
 
         float t = Mathf.InverseLerp(1f, 15f, randomHP);
@@ -290,6 +280,6 @@ public class BugSpawner : MonoBehaviour
 
         if (warningCoroutine != null) StopCoroutine(warningCoroutine);
         if (warningUI != null) warningUI.SetActive(false);
-        if (warningAudio != null) warningAudio.Stop();
+        // REMOVED: warningAudio.Stop();
     }
 }

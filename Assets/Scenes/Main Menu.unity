@@ -1122,6 +1122,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 40ade848126b36f42a341e9b3f1d6c52, type: 3}
   - name: Squish
     clip: {fileID: 8300000, guid: e8132d80076363d478c36573aa37777e, type: 3}
+  - name: Squish
+    clip: {fileID: 8300000, guid: e8132d80076363d478c36573aa37777e, type: 3}
+  - name: WarningSiren
+    clip: {fileID: 8300000, guid: 1d7c4290927c4ff4dbbaad2883cf07f6, type: 3}
   musicSourceA: {fileID: 1515039985}
   musicSourceB: {fileID: 365499241}
   defaultCrossfadeDuration: 1.5

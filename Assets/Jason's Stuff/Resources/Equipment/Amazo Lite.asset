@@ -18,7 +18,7 @@ MonoBehaviour:
   tier: Common
   flatLevelBonus: 0
   flatXPBonus: 0
-  flatScopeBonus: 10
+  flatScopeBonus: 13
   cashCost: 5000
   goldCost: 0
   itemIcon: {fileID: -1298764309372866489, guid: 1fa7d93b626bbe241aaf540024c790f8, type: 3}

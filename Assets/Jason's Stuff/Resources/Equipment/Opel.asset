@@ -25,4 +25,4 @@ MonoBehaviour:
   description: Opel, fabric so good you can almost fall asleep on it.
   isOwned: 0
   isEquipped: 0
-  requiredPlayerLevel: 15
+  requiredPlayerLevel: 40

@@ -19,7 +19,7 @@ MonoBehaviour:
   flatLevelBonus: 3
   flatXPBonus: 0
   flatScopeBonus: 0
-  cashCost: 150000
+  cashCost: 15000
   goldCost: 0
   itemIcon: {fileID: -1922372503003928337, guid: a38417d29183cf041b36e89c1bd73916, type: 3}
   description: A very popular computer for gamers starting out.

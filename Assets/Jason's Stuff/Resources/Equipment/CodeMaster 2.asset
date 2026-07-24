@@ -16,7 +16,7 @@ MonoBehaviour:
   category: Computer
   brand: CodeMaster
   tier: Rare
-  flatLevelBonus: 4
+  flatLevelBonus: 6
   flatXPBonus: 0
   flatScopeBonus: 0
   cashCost: 35000

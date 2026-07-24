@@ -16,7 +16,7 @@ MonoBehaviour:
   category: Computer
   brand: CodeMaster
   tier: Epic
-  flatLevelBonus: 5
+  flatLevelBonus: 10
   flatXPBonus: 0
   flatScopeBonus: 0
   cashCost: 50000

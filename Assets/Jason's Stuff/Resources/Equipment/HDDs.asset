@@ -19,7 +19,7 @@ MonoBehaviour:
   flatLevelBonus: 1
   flatXPBonus: 0
   flatScopeBonus: 10
-  cashCost: 6500
+  cashCost: 3000
   goldCost: 0
   itemIcon: {fileID: -1298764309372866489, guid: 1fa7d93b626bbe241aaf540024c790f8, type: 3}
   description: Extra Disk Drives for you and the family.

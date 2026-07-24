@@ -16,7 +16,7 @@ MonoBehaviour:
   category: Computer
   brand: Starterstation
   tier: Legendary
-  flatLevelBonus: 6
+  flatLevelBonus: 15
   flatXPBonus: 0
   flatScopeBonus: 0
   cashCost: 0

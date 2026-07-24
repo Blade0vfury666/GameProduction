@@ -16,13 +16,13 @@ MonoBehaviour:
   category: Computer
   brand: Starterstation
   tier: Common
-  flatLevelBonus: 2
+  flatLevelBonus: 3
   flatXPBonus: 0
   flatScopeBonus: 0
-  cashCost: 50000
+  cashCost: 10000
   goldCost: 0
   itemIcon: {fileID: -1922372503003928337, guid: a38417d29183cf041b36e89c1bd73916, type: 3}
   description: A tiny upgrade compared to the one, but people still buy it.
   isOwned: 0
   isEquipped: 0
-  requiredPlayerLevel: 0
+  requiredPlayerLevel: 10

@@ -26,4 +26,4 @@ MonoBehaviour:
     flying.
   isOwned: 0
   isEquipped: 0
-  requiredPlayerLevel: 15
+  requiredPlayerLevel: 10

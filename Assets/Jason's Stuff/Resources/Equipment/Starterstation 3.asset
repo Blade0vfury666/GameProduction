@@ -16,13 +16,13 @@ MonoBehaviour:
   category: Computer
   brand: Starterstation
   tier: Epic
-  flatLevelBonus: 4
+  flatLevelBonus: 10
   flatXPBonus: 0
   flatScopeBonus: 0
-  cashCost: 150000
+  cashCost: 100000
   goldCost: 0
   itemIcon: {fileID: -1922372503003928337, guid: a38417d29183cf041b36e89c1bd73916, type: 3}
   description: Waited too long for the next generation.
   isOwned: 0
   isEquipped: 0
-  requiredPlayerLevel: 15
+  requiredPlayerLevel: 38

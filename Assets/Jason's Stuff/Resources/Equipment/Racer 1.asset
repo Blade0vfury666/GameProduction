@@ -25,4 +25,4 @@ MonoBehaviour:
   description: Rage your Dream.
   isOwned: 0
   isEquipped: 0
-  requiredPlayerLevel: 15
+  requiredPlayerLevel: 30
