@@ -19,7 +19,7 @@ MonoBehaviour:
   flatLevelBonus: 0
   flatXPBonus: 0
   flatScopeBonus: 30
-  cashCost: 350000
+  cashCost: 116666
   goldCost: 0
   itemIcon: {fileID: -1298764309372866489, guid: 1fa7d93b626bbe241aaf540024c790f8, type: 3}
   description: Amazo's Premium Cloud Service.

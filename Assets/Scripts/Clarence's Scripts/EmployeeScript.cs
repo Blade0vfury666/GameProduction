@@ -74,7 +74,8 @@ public class EmployeeScript : MonoBehaviour
         }
         else
         {
-            hireCost = baseLevel * 12500; 
+            // NEW MATH: 6250 perfectly scales Levels 1-40 from $6,250 up to $250,000 cash!
+            hireCost = baseLevel * 6250; 
             costText.text = "$" + hireCost.ToString("N0"); 
         }
     }

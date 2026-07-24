@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Bug
   - 
   - 
   - 
@@ -40,6 +40,18 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: empty
+    uniqueID: 1243146729
+    locked: 0
+  - name: empty
+    uniqueID: 2731608295
+    locked: 0
+  - name: bugs1
+    uniqueID: 4154999801
+    locked: 0
+  - name: bugs2
+    uniqueID: 2125429821
     locked: 0
   m_RenderingLayers:
   - Default

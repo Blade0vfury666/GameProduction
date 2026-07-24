@@ -1088,8 +1088,8 @@ MonoBehaviour:
   xpRateText: {fileID: 935858448572339021}
   publishedAdButtonObject: {fileID: 4352330990381303571}
   pubSpeedBoostTimerText: {fileID: 6925054264347008647}
-  moneyPerQualityPoint: 0.6
-  xpPerQualityPoint: 0.5
+  moneyPerQualityPoint: 0.8
+  xpPerQualityPoint: 0.35
 --- !u!1 &8378295865903384678
 GameObject:
   m_ObjectHideFlags: 0

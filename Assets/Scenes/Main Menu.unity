@@ -1118,6 +1118,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: ffc0179382b2c7b478f42b460d6cd59b, type: 3}
   - name: Fired
     clip: {fileID: 8300000, guid: 88b7d7654fcc0614fab65ae9a86b6cd1, type: 3}
+  - name: BugHurt
+    clip: {fileID: 8300000, guid: 40ade848126b36f42a341e9b3f1d6c52, type: 3}
+  - name: Squish
+    clip: {fileID: 8300000, guid: e8132d80076363d478c36573aa37777e, type: 3}
   musicSourceA: {fileID: 1515039985}
   musicSourceB: {fileID: 365499241}
   defaultCrossfadeDuration: 1.5
